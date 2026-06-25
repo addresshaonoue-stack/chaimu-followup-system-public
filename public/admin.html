@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>管理员后台 - 柴牡开郁颗粒真实世界研究与患者随访管理系统</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="shell topbar-inner">
+      <a class="brand" href="/">
+        <span class="brand-mark"><i class="fa fa-leaf"></i></span>
+        <span>管理员后台</span>
+      </a>
+      <nav class="nav">
+        <a class="active" href="/admin.html"><i class="fa fa-users"></i> 后台</a>
+        <a href="/doctor.html"><i class="fa fa-stethoscope"></i> 医生工作台</a>
+        <a href="/research.html"><i class="fa fa-bar-chart"></i> 数据统计</a>
+        <a href="/export.html"><i class="fa fa-download"></i> 数据导出</a>
+        <button class="btn ghost" data-logout><i class="fa fa-sign-out"></i> 退出</button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="shell page">
+    <div class="panel-header">
+      <div>
+        <h1 class="panel-title">管理员后台</h1>
+        <div class="muted" data-current-user></div>
+      </div>
+    </div>
+
+    <section id="summary" class="grid cols-4"></section>
+
+    <section class="grid cols-2 section">
+      <div class="panel">
+        <div class="panel-header">
+          <h2 class="panel-title">创建医生账号</h2>
+        </div>
+        <form id="doctorForm" class="form-grid">
+          <div class="field">
+            <label>用户名</label>
+            <input name="username" required placeholder="doctor2">
+          </div>
+          <div class="field">
+            <label>初始密码</label>
+            <input name="password" type="password" required minlength="6">
+          </div>
+          <div class="field">
+            <label>医生姓名</label>
+            <input name="display_name" required>
+          </div>
+          <div class="field full">
+            <label>科室</label>
+            <input name="department" placeholder="肝病科">
+          </div>
+          <div class="field full">
+            <button class="primary" type="submit"><i class="fa fa-user-plus"></i> 创建账号</button>
+          </div>
+        </form>
+      </div>
+
+      <div class="panel">
+        <div class="panel-header">
+          <h2 class="panel-title">医生账号</h2>
+          <button id="refreshDoctors" class="btn"><i class="fa fa-refresh"></i></button>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>用户名</th><th>姓名</th><th>科室</th><th>状态</th></tr></thead>
+            <tbody id="doctorRows"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel section">
+      <div class="panel-header">
+        <h2 class="panel-title">全部患者</h2>
+        <button id="refreshPatients" class="btn"><i class="fa fa-refresh"></i></button>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>研究编号</th>
+              <th>patient_id</th>
+              <th>姓名</th>
+              <th>手机号</th>
+              <th>性别/年龄</th>
+              <th>诊断</th>
+              <th>证型</th>
+              <th>管理医生</th>
+              <th>随访</th>
+              <th>知情同意</th>
+              <th>链接</th>
+            </tr>
+          </thead>
+          <tbody id="patientRows"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="panel section">
+      <div class="panel-header">
+        <h2 class="panel-title">审计日志</h2>
+        <button id="refreshAuditLogs" class="btn"><i class="fa fa-refresh"></i></button>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>时间</th>
+              <th>操作人</th>
+              <th>角色</th>
+              <th>操作类型</th>
+              <th>对象</th>
+              <th>摘要</th>
+            </tr>
+          </thead>
+          <tbody id="auditRows"></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <script src="/common.js"></script>
+  <script src="/admin.js"></script>
+</body>
+</html>

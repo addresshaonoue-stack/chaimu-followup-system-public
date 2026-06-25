@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>患者随访 - 柴牡开郁颗粒真实世界研究与患者随访管理系统</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="shell topbar-inner">
+      <a class="brand" href="/">
+        <span class="brand-mark"><i class="fa fa-leaf"></i></span>
+        <span>患者随访</span>
+      </a>
+      <nav class="nav">
+        <a href="/"><i class="fa fa-home"></i> 首页</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="shell page">
+    <section id="patientHeader" class="panel"></section>
+
+    <section class="grid cols-2 section">
+      <div class="panel">
+        <div class="panel-header">
+          <h2 class="panel-title">随访节点</h2>
+        </div>
+        <div id="scheduleList" class="table-wrap"></div>
+      </div>
+
+      <div class="panel">
+        <div class="panel-header">
+          <h2 class="panel-title">填写说明</h2>
+        </div>
+        <div class="notice ok">
+          <i class="fa fa-pencil-square-o"></i>
+          <div>请按当天实际情况填写服药、睡眠、情绪、主要症状和安全性信息，提交后医生可在工作台查看趋势和记录。本页面需通过医生提供的二维码或专属链接进入。</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="followupFormPanel" class="panel section">
+      <div class="panel-header">
+        <h2 class="panel-title">填写随访表</h2>
+      </div>
+      <form id="followupForm" class="grid">
+        <div id="consentPanel" class="notice hidden">
+          <i class="fa fa-shield"></i>
+          <div>
+            <strong>知情同意提示</strong><br>
+            本系统仅用于用药随访和科研数据采集，不提供在线诊疗、不自动诊断、不调整用药。如有明显不适，请及时联系医生或到医疗机构就诊。
+            <label class="check-row mt-3">
+              <input id="consentConfirmed" name="consent_confirmed" type="checkbox" value="1">
+              我已阅读并确认上述提示
+            </label>
+          </div>
+        </div>
+
+        <div class="notice ok">
+          <i class="fa fa-medkit"></i>
+          <div><strong>服药情况与 MMAS-4 简版依从性评估</strong><br>请按实际情况填写是否漏服、自行停药和规律服用情况，系统自动计算依从性评分。</div>
+        </div>
+
+        <div class="form-grid">
+          <div class="field">
+            <label>随访节点</label>
+            <select name="schedule_id" id="scheduleSelect"></select>
+          </div>
+          <div class="field">
+            <label>随访日期</label>
+            <input name="visit_date" type="date">
+          </div>
+          <div class="field">
+            <label>是否按时服用</label>
+            <select name="on_time_medication">
+              <option value="1">是</option>
+              <option value="0">否</option>
+            </select>
+          </div>
+          <div class="field">
+            <label>漏服次数</label>
+            <input name="missed_doses" type="number" min="0" value="0">
+          </div>
+          <div class="field">
+            <label>是否自行停药</label>
+            <label class="check-row"><input name="self_discontinued" type="checkbox" value="1"> 是</label>
+          </div>
+          <div class="field">
+            <label>是否忘记服药</label>
+            <select name="adherence_forget"><option value="0">否</option><option value="1">是</option></select>
+          </div>
+          <div class="field">
+            <label>症状改善后自行停药</label>
+            <select name="adherence_stop_better"><option value="0">否</option><option value="1">是</option></select>
+          </div>
+          <div class="field">
+            <label>因不适自行停药</label>
+            <select name="adherence_stop_discomfort"><option value="0">否</option><option value="1">是</option></select>
+          </div>
+          <div class="field">
+            <label>按医嘱规律服用</label>
+            <select name="adherence_regular"><option value="1">是</option><option value="0">否</option></select>
+          </div>
+        </div>
+
+        <div class="panel">
+          <h3 class="panel-title mb-3">睡眠</h3>
+          <div class="form-grid">
+            <div class="field">
+              <label>睡眠自评 0-10</label>
+              <div class="range-row"><input name="sleep_score" type="range" min="0" max="10" value="5"><span class="score-value" data-score-output="sleep_score">5</span></div>
+            </div>
+            <div class="field"><label>入睡困难</label><label class="check-row"><input name="sleep_difficulty" type="checkbox" value="1"> 是</label></div>
+            <div class="field"><label>早醒</label><label class="check-row"><input name="early_wake" type="checkbox" value="1"> 是</label></div>
+            <div class="field"><label>多梦</label><label class="check-row"><input name="vivid_dreams" type="checkbox" value="1"> 是</label></div>
+            <div class="field"><label>睡眠时长</label><input name="sleep_hours" type="number" min="0" max="24" step="0.5" placeholder="小时"></div>
+          </div>
+        </div>
+
+        <div class="panel">
+          <h3 class="panel-title mb-3">情绪</h3>
+          <div class="form-grid">
+            <div class="field"><label>焦虑 0-10</label><div class="range-row"><input name="anxiety_score" type="range" min="0" max="10" value="5"><span class="score-value" data-score-output="anxiety_score">5</span></div></div>
+            <div class="field"><label>抑郁 0-10</label><div class="range-row"><input name="depression_score" type="range" min="0" max="10" value="5"><span class="score-value" data-score-output="depression_score">5</span></div></div>
+            <div class="field"><label>烦躁/心烦 0-10</label><div class="range-row"><input name="irritability_score" type="range" min="0" max="10" value="5"><span class="score-value" data-score-output="irritability_score">5</span></div></div>
+            <div class="field"><label>情绪低落 0-10</label><div class="range-row"><input name="low_mood_score" type="range" min="0" max="10" value="5"><span class="score-value" data-score-output="low_mood_score">5</span></div></div>
+          </div>
+        </div>
+
+        <details class="panel">
+          <summary class="panel-title">可选量表</summary>
+          <div class="grid mt-4">
+            <div>
+              <h3 class="panel-title mb-3">PSQI简化睡眠评估</h3>
+              <div class="form-grid">
+                <div class="field"><label>入睡困难 0-3</label><select name="psqi_sleep_latency"><option>0</option><option>1</option><option>2</option><option>3</option></select></div>
+                <div class="field"><label>夜间易醒 0-3</label><select name="psqi_night_wake"><option>0</option><option>1</option><option>2</option><option>3</option></select></div>
+                <div class="field"><label>早醒 0-3</label><select name="psqi_early_wake"><option>0</option><option>1</option><option>2</option><option>3</option></select></div>
+                <div class="field"><label>睡眠时长 0-3</label><select name="psqi_sleep_duration"><option>0</option><option>1</option><option>2</option><option>3</option></select></div>
+                <div class="field"><label>白天疲乏 0-3</label><select name="psqi_day_fatigue"><option>0</option><option>1</option><option>2</option><option>3</option></select></div>
+              </div>
+            </div>
+
+            <div>
+              <h3 class="panel-title mb-3">GAD-7焦虑量表</h3>
+              <div class="form-grid">
+                <div class="field"><label>感到紧张、焦虑 0-3</label><select name="gad7_1"><option>0</option><option>1</option><option>2</option><option>3</option></select></div>
+                <div class="field"><label>不能停止担忧 0-3</label><select name="gad7_2"><option>0</option><option>1</option><option>2</option><option>3</option></select></div>
+                <div class="field"><label>担忧过多 0-3</label><select name="gad7_3"><option>0</option><option>1</option><option>2</option><option>3</option></select></div>
+                <div class="field"><label>难以放松 0-3</label><select name="gad7_4"><option>0</option><option>1</option><option>2</option><option>3</option></select></div>
+                <div class="field"><label>坐立不安 0-3</label><select name="gad7_5"><option>0</option><option>1</option><option>2</option><option>3</option></select></div>
+                <div class="field"><label>容易烦恼 0-3</label><select name="gad7_6"><option>0</option><option>1</option><option>2</option><option>3</option></select></div>
+                <div class="field"><label>害怕不好事情发生 0-3</label><select name="gad7_7"><option>0</option><option>1</option><option>2</option><option>3</option></select></div>
+              </div>
+            </div>
+
+            <div>
+              <h3 class="panel-title mb-3">PHQ-9抑郁量表</h3>
+              <div class="form-grid">
+                <div class="field"><label>兴趣减退 0-3</label><select name="phq9_1"><option>0</option><option>1</option><option>2</option><option>3</option></select></div>
+                <div class="field"><label>情绪低落 0-3</label><select name="phq9_2"><option>0</option><option>1</option><option>2</option><option>3</option></select></div>
+                <div class="field"><label>睡眠问题 0-3</label><select name="phq9_3"><option>0</option><option>1</option><option>2</option><option>3</option></select></div>
+                <div class="field"><label>疲乏 0-3</label><select name="phq9_4"><option>0</option><option>1</option><option>2</option><option>3</option></select></div>
+                <div class="field"><label>食欲问题 0-3</label><select name="phq9_5"><option>0</option><option>1</option><option>2</option><option>3</option></select></div>
+                <div class="field"><label>自我评价差 0-3</label><select name="phq9_6"><option>0</option><option>1</option><option>2</option><option>3</option></select></div>
+                <div class="field"><label>注意力困难 0-3</label><select name="phq9_7"><option>0</option><option>1</option><option>2</option><option>3</option></select></div>
+                <div class="field"><label>动作或说话变化 0-3</label><select name="phq9_8"><option>0</option><option>1</option><option>2</option><option>3</option></select></div>
+                <div class="field"><label>消极想法 0-3</label><select name="phq9_9"><option>0</option><option>1</option><option>2</option><option>3</option></select></div>
+              </div>
+            </div>
+          </div>
+        </details>
+
+        <div class="panel">
+          <h3 class="panel-title mb-3">主要症状</h3>
+          <div class="form-grid">
+            <div class="field"><label>胸闷 0-10</label><div class="range-row"><input name="chest_tightness" type="range" min="0" max="10" value="5"><span class="score-value" data-score-output="chest_tightness">5</span></div></div>
+            <div class="field"><label>心悸 0-10</label><div class="range-row"><input name="palpitation" type="range" min="0" max="10" value="5"><span class="score-value" data-score-output="palpitation">5</span></div></div>
+            <div class="field"><label>头晕 0-10</label><div class="range-row"><input name="dizziness" type="range" min="0" max="10" value="5"><span class="score-value" data-score-output="dizziness">5</span></div></div>
+            <div class="field"><label>口苦 0-10</label><div class="range-row"><input name="bitter_mouth" type="range" min="0" max="10" value="5"><span class="score-value" data-score-output="bitter_mouth">5</span></div></div>
+            <div class="field"><label>口干 0-10</label><div class="range-row"><input name="dry_mouth" type="range" min="0" max="10" value="5"><span class="score-value" data-score-output="dry_mouth">5</span></div></div>
+            <div class="field"><label>乏力 0-10</label><div class="range-row"><input name="fatigue" type="range" min="0" max="10" value="5"><span class="score-value" data-score-output="fatigue">5</span></div></div>
+          </div>
+        </div>
+
+        <div class="panel">
+          <h3 class="panel-title mb-3">安全性</h3>
+          <div class="form-grid">
+            <div class="field"><label>是否出现不良反应</label><label class="check-row"><input id="hasAdverse" name="has_adverse_reaction" type="checkbox" value="1"> 是</label></div>
+          </div>
+          <div id="adverseFields" class="form-grid hidden mt-3">
+            <div class="field"><label>不良反应类型</label><input name="adverse_type"></div>
+            <div class="field"><label>严重程度</label><select name="severity"><option value="">请选择</option><option>轻</option><option>中</option><option>重</option></select></div>
+            <div class="field"><label>是否停药</label><label class="check-row"><input name="stopped_due_adverse" type="checkbox" value="1"> 是</label></div>
+            <div class="field"><label>是否就医</label><label class="check-row"><input name="sought_medical_help" type="checkbox" value="1"> 是</label></div>
+            <div class="field full"><label>描述</label><textarea name="adverse_description"></textarea></div>
+          </div>
+        </div>
+
+        <div class="field">
+          <label>患者备注</label>
+          <textarea name="patient_note"></textarea>
+        </div>
+
+        <button class="primary" type="submit"><i class="fa fa-check"></i> 提交随访</button>
+      </form>
+    </section>
+  </main>
+
+  <script src="/common.js"></script>
+  <script src="/patient.js"></script>
+</body>
+</html>

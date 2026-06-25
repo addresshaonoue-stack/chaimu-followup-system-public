@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>数据导出 - 柴牡开郁颗粒真实世界研究与患者随访管理系统</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="shell topbar-inner">
+      <a class="brand" href="/">
+        <span class="brand-mark"><i class="fa fa-leaf"></i></span>
+        <span>数据导出</span>
+      </a>
+      <nav class="nav">
+        <a href="/doctor.html"><i class="fa fa-stethoscope"></i> 医生工作台</a>
+        <a href="/research.html"><i class="fa fa-bar-chart"></i> 数据统计</a>
+        <a class="active" href="/export.html"><i class="fa fa-download"></i> 数据导出</a>
+        <button class="btn ghost" data-logout><i class="fa fa-sign-out"></i> 退出</button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="shell page">
+    <div class="panel-header">
+      <div>
+        <h1 class="panel-title">数据导出</h1>
+        <div class="muted" data-current-user></div>
+      </div>
+    </div>
+
+    <section class="grid cols-2">
+      <div class="panel">
+        <div class="panel-header">
+          <h2 class="panel-title">导出前确认</h2>
+        </div>
+        <div class="grid">
+          <div class="notice ok">
+            <i class="fa fa-download"></i>
+            <div>可导出随访明细、评分节点、服药情况、安全性记录和统计摘要，用于研究资料整理和成果展示。</div>
+          </div>
+          <label class="check-row"><input id="confirmMask" type="checkbox"> 已确认导出数据用途、权限和脱敏要求</label>
+          <label class="check-row"><input id="deidentifiedExport" type="checkbox" checked> 脱敏导出，仅保留研究编号，不导出姓名和手机号</label>
+        </div>
+      </div>
+
+      <div class="panel">
+        <div class="panel-header">
+          <h2 class="panel-title">下载</h2>
+        </div>
+        <div class="grid">
+          <button id="csvBtn" class="primary" type="button"><i class="fa fa-file-text-o"></i> 导出 CSV</button>
+          <button id="xlsxBtn" class="btn" type="button"><i class="fa fa-file-excel-o"></i> 导出 Excel</button>
+          <button id="statsCsvBtn" class="btn" type="button"><i class="fa fa-bar-chart"></i> 导出统计CSV</button>
+          <button id="statsXlsxBtn" class="btn" type="button"><i class="fa fa-file-excel-o"></i> 导出统计Excel</button>
+          <button id="summaryMdBtn" class="btn" type="button"><i class="fa fa-file-text-o"></i> 导出成果转化数据摘要</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel section">
+      <div class="panel-header">
+        <h2 class="panel-title">导出字段</h2>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <tbody>
+            <tr><th>患者标识</th><td>research_id、patient_id；脱敏导出时仅保留 research_id</td></tr>
+            <tr><th>基础字段</th><td>性别、年龄、诊断、证型、开始用药日期、管理医生、知情同意</td></tr>
+            <tr><th>随访评分</th><td>第0天、第7天、第14天、第28天、第56天、第84天的睡眠、焦虑、抑郁、心烦评分</td></tr>
+            <tr><th>量表与依从性</th><td>PSQI简表总分、GAD-7总分及分级、PHQ-9总分及分级、依从性评分及分级</td></tr>
+            <tr><th>安全性与备注</th><td>服药情况、不良反应、医生疗效评价、医生安全性评价、医生备注和处理记录</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="panel section">
+      <div class="panel-header">
+        <h2 class="panel-title">导出内容预览</h2>
+        <span class="pill info">前5行</span>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead id="previewHead"></thead>
+          <tbody id="previewRows"></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <script src="/common.js"></script>
+  <script src="/export.js"></script>
+</body>
+</html>

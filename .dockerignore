@@ -1,0 +1,11 @@
+node_modules
+npm-debug.log
+data/*.sqlite
+data/*.db
+review_package
+review_package.zip
+output
+.env
+.git
+server.log
+server.err.log

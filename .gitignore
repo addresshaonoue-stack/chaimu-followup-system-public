@@ -1,0 +1,12 @@
+node_modules/
+.env
+*.log
+server.log
+server.err.log
+data/*.sqlite
+data/*.db
+review_package/
+review_package.zip
+output/
+.DS_Store
+Thumbs.db
