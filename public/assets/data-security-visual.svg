@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 420" role="img" aria-labelledby="title desc">
+  <title id="title">脱敏导出与数据边界图</title>
+  <desc id="desc">以研究编号替代姓名和手机号，导出脱敏CSV或Excel，并保留审计日志</desc>
+  <defs>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="16" stdDeviation="16" flood-color="#21332e" flood-opacity="0.14"/>
+    </filter>
+  </defs>
+  <rect width="1120" height="420" rx="30" fill="#f8faf7"/>
+  <g filter="url(#shadow)">
+    <rect x="70" y="82" width="300" height="238" rx="22" fill="#ffffff" stroke="#d9ded6"/>
+    <rect x="410" y="82" width="300" height="238" rx="22" fill="#ffffff" stroke="#d9ded6"/>
+    <rect x="750" y="82" width="300" height="238" rx="22" fill="#ffffff" stroke="#d9ded6"/>
+  </g>
+  <text x="106" y="134" font-family="Microsoft YaHei, Arial" font-size="24" font-weight="900" fill="#1f2a24">默认脱敏展示</text>
+  <rect x="106" y="164" width="224" height="40" rx="10" fill="#eef4ff"/>
+  <text x="126" y="190" font-family="Arial" font-size="18" font-weight="800" fill="#2563eb">CMKY-2026-0001</text>
+  <rect x="106" y="222" width="150" height="18" rx="9" fill="#e5e7eb"/>
+  <rect x="106" y="254" width="108" height="18" rx="9" fill="#e5e7eb"/>
+  <text x="106" y="292" font-family="Microsoft YaHei, Arial" font-size="16" fill="#66736b">姓名、手机号默认不展示</text>
+
+  <text x="446" y="134" font-family="Microsoft YaHei, Arial" font-size="24" font-weight="900" fill="#1f2a24">脱敏数据导出</text>
+  <rect x="462" y="164" width="196" height="110" rx="16" fill="#fff7ed" stroke="#fed7aa"/>
+  <text x="500" y="204" font-family="Arial" font-size="30" font-weight="900" fill="#b45309">CSV</text>
+  <text x="574" y="204" font-family="Arial" font-size="30" font-weight="900" fill="#1f7a5c">XLSX</text>
+  <line x1="480" y1="226" x2="640" y2="226" stroke="#fed7aa" stroke-width="4"/>
+  <line x1="480" y1="248" x2="610" y2="248" stroke="#fed7aa" stroke-width="4"/>
+  <text x="446" y="292" font-family="Microsoft YaHei, Arial" font-size="16" fill="#66736b">导出前提示脱敏范围</text>
+
+  <text x="786" y="134" font-family="Microsoft YaHei, Arial" font-size="24" font-weight="900" fill="#1f2a24">审计与边界</text>
+  <path d="M900 165l76 30v58c0 38-30 66-76 86-46-20-76-48-76-86v-58z" fill="#dcfce7" stroke="#1f7a5c" stroke-width="6"/>
+  <path d="M866 245l24 25 48-58" fill="none" stroke="#1f7a5c" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="786" y="330" font-family="Microsoft YaHei, Arial" font-size="16" fill="#66736b">关键操作留痕，正式应用前完成审批</text>
+  <g stroke="#1f7a5c" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M372 202h28"/>
+    <path d="M394 192l12 10-12 10"/>
+    <path d="M712 202h28"/>
+    <path d="M734 192l12 10-12 10"/>
+  </g>
+</svg>

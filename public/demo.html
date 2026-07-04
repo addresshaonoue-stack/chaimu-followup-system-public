@@ -29,14 +29,13 @@
         <h1 class="text-4xl font-extrabold leading-tight">柴牡开郁颗粒真实世界研究与患者随访管理系统</h1>
         <p class="lead">医疗机构制剂真实世界研究数据闭环工具。</p>
       </div>
-      <div class="panel">
-        <div class="panel-header">
-          <h2 class="panel-title">系统定位</h2>
-          <span class="pill info">随访 · 统计 · 导出</span>
-        </div>
-        <div class="notice ok">
-          <i class="fa fa-database"></i>
-          <div>系统用于真实世界随访、量表趋势、安全性记录、依从性分析和脱敏数据导出。</div>
+      <div class="visual-card">
+        <img src="/assets/hero-evidence-loop.svg" alt="柴牡开郁颗粒真实世界随访系统主视觉">
+        <div class="visual-caption">
+          <div>
+            <strong>医疗机构制剂真实世界研究数据闭环工具</strong>
+            <span>随访 · 量表 · 安全性 · 依从性 · 导出</span>
+          </div>
         </div>
       </div>
     </section>
@@ -45,15 +44,16 @@
       <div class="panel-header">
         <h2 class="panel-title">数据闭环流程</h2>
       </div>
-      <div class="grid cols-4">
-        <div class="notice ok"><i class="fa fa-leaf"></i><div><strong>柴牡开郁颗粒</strong><br>医疗机构制剂随访对象</div></div>
-        <div class="notice ok"><i class="fa fa-address-card"></i><div><strong>患者建档</strong><br>生成研究编号</div></div>
-        <div class="notice ok"><i class="fa fa-qrcode"></i><div><strong>随访入口</strong><br>随机 token 与二维码</div></div>
-        <div class="notice ok"><i class="fa fa-pencil-square-o"></i><div><strong>随访填写</strong><br>症状、量表、安全性</div></div>
-        <div class="notice ok"><i class="fa fa-user-md"></i><div><strong>医生管理</strong><br>趋势、预警、评价</div></div>
-        <div class="notice ok"><i class="fa fa-bar-chart"></i><div><strong>数据统计</strong><br>完成率与趋势</div></div>
-        <div class="notice ok"><i class="fa fa-user-secret"></i><div><strong>脱敏处理</strong><br>默认研究编号</div></div>
-        <div class="notice ok"><i class="fa fa-download"></i><div><strong>数据导出</strong><br>CSV / Excel</div></div>
+      <div class="visual-split">
+        <div class="visual-panel">
+          <img src="/assets/scan-followup-flow.svg" alt="患者建档、二维码随访、患者填写和数据入库流程图">
+        </div>
+        <div class="grid">
+          <div class="notice ok"><i class="fa fa-address-card"></i><div><strong>患者建档</strong><br>生成研究编号与患者专属 token。</div></div>
+          <div class="notice ok"><i class="fa fa-qrcode"></i><div><strong>二维码随访</strong><br>患者扫码直达随访页面。</div></div>
+          <div class="notice ok"><i class="fa fa-bar-chart"></i><div><strong>数据统计</strong><br>医生端和数据统计页同步呈现趋势。</div></div>
+          <div class="notice ok"><i class="fa fa-download"></i><div><strong>脱敏导出</strong><br>CSV / Excel 默认按研究编号导出。</div></div>
+        </div>
       </div>
     </section>
 
@@ -62,19 +62,8 @@
         <h2 class="panel-title">三位一体成果闭环</h2>
         <span class="pill info">经验 · 特色 · 数据</span>
       </div>
-      <div class="grid cols-3">
-        <div class="notice ok">
-          <i class="fa fa-book"></i>
-          <div><strong>名中医经验方</strong><br>柴牡开郁颗粒源于柴胡加龙骨牡蛎汤加减，承接临床经验并用于医疗机构制剂随访观察。</div>
-        </div>
-        <div class="notice ok">
-          <i class="fa fa-leaf"></i>
-          <div><strong>海洋中药牡蛎</strong><br>突出牡蛎等海洋中药在情志病防治中的应用价值，体现广西区域特色。</div>
-        </div>
-        <div class="notice ok">
-          <i class="fa fa-line-chart"></i>
-          <div><strong>真实世界随访系统</strong><br>持续采集随访、量表、安全性、依从性和医生评价数据，为成果持续转化提供数据支撑。</div>
-        </div>
+      <div class="visual-panel">
+        <img src="/assets/triad-loop.svg" alt="三位一体成果闭环图">
       </div>
       <div class="notice mt-4">
         <i class="fa fa-refresh"></i>
@@ -130,6 +119,23 @@
           </table>
         </div>
       </div>
+    </section>
+
+    <section class="visual-gallery section">
+      <article class="visual-tile">
+        <img src="/assets/stats-dashboard-visual.svg" alt="数据统计驾驶舱预览图">
+        <div class="tile-body">
+          <h3>图表化数据驾驶舱</h3>
+          <p>顶部保留核心指标，其他信息以折线图、环形图、柱状图和个人轨迹呈现。</p>
+        </div>
+      </article>
+      <article class="visual-tile">
+        <img src="/assets/data-security-visual.svg" alt="脱敏导出与审计图">
+        <div class="tile-body">
+          <h3>数据脱敏与审计留痕</h3>
+          <p>数据统计页默认仅显示研究编号，导出前提示脱敏范围，关键操作写入审计日志。</p>
+        </div>
+      </article>
     </section>
   </main>
 

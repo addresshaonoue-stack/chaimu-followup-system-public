@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 680" role="img" aria-labelledby="title desc">
+  <title id="title">柴牡开郁颗粒真实世界证据闭环主视觉</title>
+  <desc id="desc">以医疗机构制剂、患者二维码随访、医生管理和数据统计为核心的真实世界随访系统视觉图</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f7fbf6"/>
+      <stop offset="0.55" stop-color="#eef6f7"/>
+      <stop offset="1" stop-color="#fff7ed"/>
+    </linearGradient>
+    <linearGradient id="screen" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="1" stop-color="#eef4ff"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="22" stdDeviation="24" flood-color="#21443a" flood-opacity="0.18"/>
+    </filter>
+  </defs>
+  <rect width="960" height="680" rx="36" fill="url(#bg)"/>
+  <circle cx="828" cy="114" r="72" fill="#fbe7c6"/>
+  <circle cx="112" cy="560" r="96" fill="#d8edf9"/>
+  <path d="M111 128c80-42 159-35 238 20 62 43 122 58 181 42 70-18 129-18 178 0 42 15 78 46 108 92" fill="none" stroke="#d6e6dd" stroke-width="24" stroke-linecap="round"/>
+
+  <g filter="url(#shadow)">
+    <rect x="198" y="112" width="528" height="382" rx="28" fill="#1f2a24"/>
+    <rect x="222" y="140" width="480" height="326" rx="18" fill="url(#screen)"/>
+    <rect x="248" y="170" width="148" height="56" rx="12" fill="#e8f3ee"/>
+    <rect x="416" y="170" width="112" height="56" rx="12" fill="#eaf0ff"/>
+    <rect x="548" y="170" width="126" height="56" rx="12" fill="#fff3d8"/>
+    <text x="270" y="193" font-family="Microsoft YaHei, Arial" font-size="15" fill="#587064">总患者数</text>
+    <text x="270" y="215" font-family="Arial" font-size="24" font-weight="700" fill="#1f7a5c">20</text>
+    <text x="438" y="193" font-family="Microsoft YaHei, Arial" font-size="15" fill="#56627a">完成率</text>
+    <text x="438" y="215" font-family="Arial" font-size="24" font-weight="700" fill="#2563eb">85%</text>
+    <text x="570" y="193" font-family="Microsoft YaHei, Arial" font-size="15" fill="#755b29">不良反应</text>
+    <text x="570" y="215" font-family="Arial" font-size="24" font-weight="700" fill="#b45309">0%</text>
+    <rect x="248" y="252" width="204" height="174" rx="14" fill="#ffffff" stroke="#d9ded6"/>
+    <polyline points="272,382 304,356 336,347 368,321 400,306 430,292" fill="none" stroke="#1f7a5c" stroke-width="6" stroke-linecap="round"/>
+    <polyline points="272,399 304,389 336,363 368,372 400,338 430,330" fill="none" stroke="#2563eb" stroke-width="5" stroke-linecap="round"/>
+    <text x="272" y="282" font-family="Microsoft YaHei, Arial" font-size="16" font-weight="700" fill="#1f2a24">量表趋势</text>
+    <rect x="486" y="252" width="188" height="174" rx="14" fill="#ffffff" stroke="#d9ded6"/>
+    <path d="M580 296a52 52 0 1 1-39 18" fill="none" stroke="#e5e7eb" stroke-width="22"/>
+    <path d="M580 296a52 52 0 0 1 47 74" fill="none" stroke="#1f7a5c" stroke-width="22" stroke-linecap="round"/>
+    <text x="556" y="352" font-family="Arial" font-size="26" font-weight="700" fill="#1f7a5c">94%</text>
+    <text x="536" y="392" font-family="Microsoft YaHei, Arial" font-size="15" fill="#66736b">数据完整率</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="88" y="246" width="162" height="226" rx="30" fill="#10251f"/>
+    <rect x="106" y="276" width="126" height="166" rx="16" fill="#ffffff"/>
+    <rect x="126" y="298" width="86" height="86" rx="10" fill="#f8faf7" stroke="#d9ded6"/>
+    <g fill="#1f2a24">
+      <rect x="137" y="309" width="18" height="18"/>
+      <rect x="181" y="309" width="18" height="18"/>
+      <rect x="137" y="353" width="18" height="18"/>
+      <rect x="162" y="333" width="12" height="12"/>
+      <rect x="181" y="349" width="18" height="18"/>
+      <rect x="158" y="310" width="8" height="8"/>
+      <rect x="190" y="335" width="8" height="8"/>
+    </g>
+    <text x="124" y="414" font-family="Microsoft YaHei, Arial" font-size="15" font-weight="700" fill="#1f7a5c">扫码随访</text>
+  </g>
+
+  <g>
+    <path d="M768 404c54-34 92-28 120 17 12 20 8 43-10 58-23 19-64 16-93-7-25-20-31-43-17-68z" fill="#fff7e6" stroke="#c98f4d" stroke-width="5"/>
+    <path d="M789 421c23 12 44 26 65 45" fill="none" stroke="#c98f4d" stroke-width="4" stroke-linecap="round"/>
+    <path d="M808 410c20 20 36 38 48 58" fill="none" stroke="#c98f4d" stroke-width="4" stroke-linecap="round"/>
+    <path d="M828 404c11 23 20 45 26 66" fill="none" stroke="#c98f4d" stroke-width="4" stroke-linecap="round"/>
+    <text x="762" y="524" font-family="Microsoft YaHei, Arial" font-size="18" font-weight="700" fill="#7c4a17">海洋中药牡蛎</text>
+  </g>
+
+  <g>
+    <rect x="704" y="86" width="142" height="56" rx="28" fill="#1f7a5c"/>
+    <rect x="742" y="124" width="142" height="56" rx="28" fill="#2563eb"/>
+    <text x="728" y="121" font-family="Microsoft YaHei, Arial" font-size="17" font-weight="700" fill="#ffffff">医疗机构制剂</text>
+    <text x="766" y="159" font-family="Microsoft YaHei, Arial" font-size="17" font-weight="700" fill="#ffffff">真实世界研究</text>
+  </g>
+
+  <g stroke="#1f7a5c" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M250 526c84 60 205 74 319 38"/>
+    <path d="M557 552l23 8-16 18"/>
+  </g>
+  <text x="338" y="618" font-family="Microsoft YaHei, Arial" font-size="22" font-weight="800" fill="#1f2a24">用药 - 随访 - 评价 - 数据 - 转化</text>
+</svg>
