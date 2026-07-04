@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 620" role="img" aria-label="真实世界证据闭环流程图">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F4FAFC"/><stop offset="1" stop-color="#ffffff"/></linearGradient>
+    <filter id="s" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="20" stdDeviation="22" flood-color="#0B4F6C" flood-opacity=".16"/></filter>
+  </defs>
+  <rect width="1120" height="620" rx="32" fill="url(#bg)"/>
+  <path d="M160 322c40-178 238-252 406-178 163 72 224 260 118 394" fill="none" stroke="#0B4F6C" stroke-width="18" opacity=".12"/>
+  <path d="M740 176c142 62 194 226 112 348" fill="none" stroke="#0E8F6E" stroke-width="18" opacity=".16"/>
+  <g filter="url(#s)" font-family="Microsoft YaHei, Arial">
+    <g transform="translate(74 78)"><rect width="230" height="118" rx="22" fill="#fff"/><text x="28" y="48" font-size="24" font-weight="900" fill="#0B4F6C">名中医经验传承</text><text x="28" y="84" font-size="16" fill="#647268">经验方形成与临床问题沉淀</text></g>
+    <g transform="translate(392 48)"><rect width="230" height="118" rx="22" fill="#fff"/><text x="28" y="48" font-size="24" font-weight="900" fill="#0B4F6C">海洋中药特色</text><text x="28" y="84" font-size="16" fill="#647268">北部湾牡蛎等资源应用</text></g>
+    <g transform="translate(716 92)"><rect width="230" height="118" rx="22" fill="#fff"/><text x="28" y="48" font-size="24" font-weight="900" fill="#0B4F6C">院内制剂研发</text><text x="28" y="84" font-size="16" fill="#647268">工艺、质控、备案与应用观察</text></g>
+    <g transform="translate(786 328)"><rect width="230" height="118" rx="22" fill="#fff"/><text x="28" y="48" font-size="24" font-weight="900" fill="#0E8F6E">真实世界随访</text><text x="28" y="84" font-size="16" fill="#647268">二维码、量表、安全性记录</text></g>
+    <g transform="translate(436 438)"><rect width="250" height="118" rx="22" fill="#fff"/><text x="28" y="48" font-size="24" font-weight="900" fill="#0E8F6E">数据证据闭环</text><text x="28" y="84" font-size="16" fill="#647268">可追溯、可脱敏、可导出</text></g>
+    <g transform="translate(96 348)"><rect width="250" height="118" rx="22" fill="#fff"/><text x="28" y="48" font-size="24" font-weight="900" fill="#C8A45D">成果转化示范</text><text x="28" y="84" font-size="16" fill="#647268">软件、数据资产与推广路径</text></g>
+  </g>
+  <g stroke="#0E8F6E" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M306 132h76"/><path d="M370 118l16 14-16 14"/>
+    <path d="M624 112l82 22"/><path d="M690 116l18 20-24 8"/>
+    <path d="M870 212l26 102"/><path d="M878 300l20 18 10-26"/>
+    <path d="M778 444l-82 38"/><path d="M712 460l-20 24 32 4"/>
+    <path d="M428 494l-72-52"/><path d="M376 438l-26-2 12 24"/>
+  </g>
+</svg>

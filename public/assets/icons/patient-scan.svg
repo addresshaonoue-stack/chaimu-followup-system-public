@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" role="img" aria-label="患者扫码图标">
+  <rect width="160" height="160" rx="34" fill="#EEF6FF"/>
+  <rect x="42" y="28" width="76" height="112" rx="18" fill="#0B4F6C"/>
+  <rect x="54" y="48" width="52" height="52" rx="8" fill="#fff"/>
+  <g fill="#0B4F6C"><rect x="62" y="56" width="12" height="12"/><rect x="86" y="56" width="12" height="12"/><rect x="62" y="80" width="12" height="12"/><rect x="80" y="74" width="8" height="8"/><rect x="90" y="84" width="8" height="8"/></g>
+  <circle cx="80" cy="118" r="5" fill="#C8A45D"/>
+</svg>

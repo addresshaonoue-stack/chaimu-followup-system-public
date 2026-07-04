@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 620" role="img" aria-labelledby="title desc">
   <title id="title">数据统计驾驶舱图像</title>
-  <desc id="desc">展示随访完成率、量表趋势、不良反应发生率、依从性分布和单患者轨迹的数据统计界面</desc>
+  <desc id="desc">展示随访完成率、量表趋势、不良事件记录、依从性分布和单患者轨迹的数据统计界面</desc>
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0" stop-color="#f8faf7"/>
@@ -20,21 +20,21 @@
     <rect x="574" y="140" width="240" height="82" rx="18" fill="#ffffff"/>
     <rect x="834" y="140" width="232" height="82" rx="18" fill="#ffffff"/>
   </g>
-  <text x="80" y="173" font-family="Microsoft YaHei, Arial" font-size="16" fill="#66736b">总患者数</text>
-  <text x="80" y="205" font-family="Arial" font-size="32" font-weight="800" fill="#1f7a5c">20</text>
-  <text x="340" y="173" font-family="Microsoft YaHei, Arial" font-size="16" fill="#66736b">综合随访完成率</text>
-  <text x="340" y="205" font-family="Arial" font-size="32" font-weight="800" fill="#2563eb">85%</text>
-  <text x="600" y="173" font-family="Microsoft YaHei, Arial" font-size="16" fill="#66736b">不良反应发生率</text>
-  <text x="600" y="205" font-family="Arial" font-size="32" font-weight="800" fill="#b45309">0%</text>
+  <text x="80" y="173" font-family="Microsoft YaHei, Arial" font-size="16" fill="#66736b">建档患者数</text>
+  <text x="80" y="205" font-family="Arial" font-size="32" font-weight="800" fill="#1f7a5c">120</text>
+  <text x="340" y="173" font-family="Microsoft YaHei, Arial" font-size="16" fill="#66736b">随访完成率</text>
+  <text x="340" y="205" font-family="Arial" font-size="32" font-weight="800" fill="#2563eb">87.5%</text>
+  <text x="600" y="173" font-family="Microsoft YaHei, Arial" font-size="16" fill="#66736b">不良事件记录</text>
+  <text x="600" y="205" font-family="Arial" font-size="32" font-weight="800" fill="#b45309">3例</text>
   <text x="860" y="173" font-family="Microsoft YaHei, Arial" font-size="16" fill="#66736b">数据完整率</text>
-  <text x="860" y="205" font-family="Arial" font-size="32" font-weight="800" fill="#1f7a5c">94%</text>
+  <text x="860" y="205" font-family="Arial" font-size="32" font-weight="800" fill="#1f7a5c">93.2%</text>
 
   <g filter="url(#shadow)">
     <rect x="54" y="252" width="480" height="286" rx="22" fill="#ffffff" stroke="#d9ded6"/>
     <rect x="562" y="252" width="238" height="286" rx="22" fill="#ffffff" stroke="#d9ded6"/>
     <rect x="828" y="252" width="238" height="286" rx="22" fill="#ffffff" stroke="#d9ded6"/>
   </g>
-  <text x="84" y="294" font-family="Microsoft YaHei, Arial" font-size="20" font-weight="800" fill="#1f2a24">PSQI / GAD-7 / PHQ-9 趋势</text>
+  <text x="84" y="294" font-family="Microsoft YaHei, Arial" font-size="20" font-weight="800" fill="#1f2a24">睡眠自评 / GAD-7 / PHQ-9 趋势</text>
   <line x1="104" y1="480" x2="492" y2="480" stroke="#d9ded6"/>
   <line x1="104" y1="330" x2="104" y2="480" stroke="#d9ded6"/>
   <polyline points="112,358 184,380 256,398 328,410 400,426 486,438" fill="none" stroke="#1f7a5c" stroke-width="6" stroke-linecap="round"/>
@@ -47,8 +47,8 @@
   <text x="594" y="294" font-family="Microsoft YaHei, Arial" font-size="20" font-weight="800" fill="#1f2a24">安全性记录</text>
   <circle cx="681" cy="390" r="74" fill="none" stroke="#e5e7eb" stroke-width="28"/>
   <circle cx="681" cy="390" r="74" fill="none" stroke="#1f7a5c" stroke-width="28" stroke-dasharray="464 464"/>
-  <text x="653" y="399" font-family="Arial" font-size="34" font-weight="800" fill="#1f7a5c">0%</text>
-  <text x="615" y="489" font-family="Microsoft YaHei, Arial" font-size="15" fill="#66736b">当前模拟随访数据未记录事件</text>
+  <text x="653" y="399" font-family="Arial" font-size="34" font-weight="800" fill="#1f7a5c">3例</text>
+  <text x="615" y="489" font-family="Microsoft YaHei, Arial" font-size="15" fill="#66736b">演示数据记录不良事件</text>
 
   <text x="858" y="294" font-family="Microsoft YaHei, Arial" font-size="20" font-weight="800" fill="#1f2a24">单患者轨迹</text>
   <rect x="862" y="326" width="168" height="34" rx="10" fill="#eef4ff"/>

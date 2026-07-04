@@ -1,0 +1,12 @@
+{
+  "note": "脱敏样例随访数据，仅用于图表展示。",
+  "nodes": ["基线", "第7天", "第14天", "第28天", "第56天", "第84天"],
+  "records": [
+    { "research_id": "CMKY-DEMO-0001", "node": "基线", "phq9": 12, "gad7": 11, "sleep": 8, "adherence": "中等依从性" },
+    { "research_id": "CMKY-DEMO-0001", "node": "第7天", "phq9": 11, "gad7": 10, "sleep": 7, "adherence": "中等依从性" },
+    { "research_id": "CMKY-DEMO-0001", "node": "第14天", "phq9": 9, "gad7": 9, "sleep": 7, "adherence": "高依从性" },
+    { "research_id": "CMKY-DEMO-0001", "node": "第28天", "phq9": 8, "gad7": 8, "sleep": 6, "adherence": "高依从性" },
+    { "research_id": "CMKY-DEMO-0001", "node": "第56天", "phq9": 8, "gad7": 7, "sleep": 6, "adherence": "高依从性" },
+    { "research_id": "CMKY-DEMO-0001", "node": "第84天", "phq9": 7, "gad7": 6, "sleep": 6, "adherence": "高依从性" }
+  ]
+}

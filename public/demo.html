@@ -4,21 +4,20 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>系统展示 - 柴牡开郁颗粒真实世界研究与患者随访管理系统</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
   <header class="topbar">
     <div class="shell topbar-inner">
       <a class="brand" href="/">
-        <span class="brand-mark"><i class="fa fa-leaf"></i></span>
+        <span class="brand-mark">展</span>
         <span>系统展示</span>
       </a>
       <nav class="nav">
-        <a href="/"><i class="fa fa-home"></i> 首页</a>
-        <a class="active" href="/demo.html"><i class="fa fa-television"></i> 展示页</a>
-        <a href="/login.html"><i class="fa fa-sign-in"></i> 登录</a>
+        <a href="/">首页</a>
+        <a class="active" href="/demo.html">展示页</a>
+        <a href="/ppt-assets.html">PPT大屏</a>
+        <a href="/login.html">登录</a>
       </nav>
     </div>
   </header>
@@ -26,15 +25,16 @@
   <main class="shell page">
     <section class="grid cols-2">
       <div>
-        <h1 class="text-4xl font-extrabold leading-tight">柴牡开郁颗粒真实世界研究与患者随访管理系统</h1>
-        <p class="lead">医疗机构制剂真实世界研究数据闭环工具。</p>
+        <h1>柴牡开郁颗粒真实世界随访与成果转化平台</h1>
+        <p class="lead">院内制剂应用观察、数字化随访与真实世界证据闭环展示。</p>
+        <div class="demo-badge">脱敏样例数据，不代表真实临床疗效、安全性或统计学结论。</div>
       </div>
       <div class="visual-card">
         <img src="/assets/hero-evidence-loop.svg" alt="柴牡开郁颗粒真实世界随访系统主视觉">
         <div class="visual-caption">
           <div>
-            <strong>医疗机构制剂真实世界研究数据闭环工具</strong>
-            <span>随访 · 量表 · 安全性 · 依从性 · 导出</span>
+            <strong>医疗机构制剂真实世界证据闭环工具</strong>
+            <span>随访 · 量表 · 不良事件记录 · 依从性 · 脱敏导出</span>
           </div>
         </div>
       </div>
@@ -49,10 +49,10 @@
           <img src="/assets/scan-followup-flow.svg" alt="患者建档、二维码随访、患者填写和数据入库流程图">
         </div>
         <div class="grid">
-          <div class="notice ok"><i class="fa fa-address-card"></i><div><strong>患者建档</strong><br>生成研究编号与患者专属 token。</div></div>
-          <div class="notice ok"><i class="fa fa-qrcode"></i><div><strong>二维码随访</strong><br>患者扫码直达随访页面。</div></div>
-          <div class="notice ok"><i class="fa fa-bar-chart"></i><div><strong>数据统计</strong><br>医生端和数据统计页同步呈现趋势。</div></div>
-          <div class="notice ok"><i class="fa fa-download"></i><div><strong>脱敏导出</strong><br>CSV / Excel 默认按研究编号导出。</div></div>
+          <div class="notice ok"><div><strong>患者建档</strong><br>生成研究编号与患者专属 token。</div></div>
+          <div class="notice ok"><div><strong>二维码随访</strong><br>患者扫码直达随访页面。</div></div>
+          <div class="notice ok"><div><strong>数据统计</strong><br>医生端和数据统计页同步呈现趋势。</div></div>
+          <div class="notice ok"><div><strong>脱敏导出</strong><br>CSV / Excel 默认按研究编号导出。</div></div>
         </div>
       </div>
     </section>
@@ -66,12 +66,11 @@
         <img src="/assets/triad-loop.svg" alt="三位一体成果闭环图">
       </div>
       <div class="notice mt-4">
-        <i class="fa fa-refresh"></i>
         <div>形成名中医经验传承、广西海洋中药资源利用与真实世界数据评价协同推进的成果转化模式。</div>
       </div>
     </section>
 
-    <section id="metricGrid" class="grid cols-4 section"></section>
+    <section id="metricGrid" class="grid cols-6 section"></section>
 
     <section class="grid cols-2 section">
       <div class="panel">
@@ -79,18 +78,16 @@
           <h2 class="panel-title">随访完成率</h2>
           <span class="pill info">第7天至第84天</span>
         </div>
-        <div style="height:340px"><canvas id="demoCompletionChart"></canvas></div>
+        <div id="demoCompletionChart" class="svg-chart compact"></div>
       </div>
 
       <div class="panel">
         <div class="panel-header">
-          <h2 class="panel-title">不良反应发生率</h2>
-          <span class="pill info">安全性记录</span>
+          <h2 class="panel-title">不良事件记录情况</h2>
+          <span class="pill info">演示数据</span>
         </div>
-        <div style="height:340px;position:relative">
-          <canvas id="demoAdverseChart"></canvas>
-          <div id="demoAdverseCenter" style="position:absolute;inset:0;display:grid;place-items:center;font-weight:800;font-size:30px;pointer-events:none">0%</div>
-        </div>
+        <div id="demoAdverseChart" class="svg-chart compact"></div>
+        <div class="muted">当前演示数据记录不良事件3例，不代表真实安全性结论。</div>
       </div>
     </section>
 
@@ -98,9 +95,9 @@
       <div class="panel">
         <div class="panel-header">
           <h2 class="panel-title">量表趋势</h2>
-          <span class="pill info">PSQI / GAD-7 / PHQ-9</span>
+          <span class="pill info">睡眠自评 / GAD-7 / PHQ-9</span>
         </div>
-        <div style="height:360px"><canvas id="demoScaleChart"></canvas></div>
+        <div id="demoScaleChart" class="svg-chart"></div>
       </div>
 
       <div class="panel">
@@ -139,7 +136,6 @@
     </section>
   </main>
 
-  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
   <script src="/common.js"></script>
   <script src="/demo.js"></script>
 </body>

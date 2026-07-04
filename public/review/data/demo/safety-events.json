@@ -1,0 +1,38 @@
+{
+  "note": "脱敏演示数据，仅用于系统功能和成果转化路径展示，不代表真实临床疗效、安全性或统计学结论。",
+  "summary": {
+    "adverseEvents": 3,
+    "message": "当前演示数据记录不良事件3例，不代表真实安全性结论。"
+  },
+  "adverseTypes": [
+    {
+      "label": "胃肠不适",
+      "value": 1
+    },
+    {
+      "label": "口干",
+      "value": 1
+    },
+    {
+      "label": "头晕",
+      "value": 1
+    }
+  ],
+  "rows": [
+    {
+      "type": "胃肠不适",
+      "severity": "轻度",
+      "status": "已随访"
+    },
+    {
+      "type": "口干",
+      "severity": "轻度",
+      "status": "已关闭"
+    },
+    {
+      "type": "头晕",
+      "severity": "中度",
+      "status": "建议线下复核"
+    }
+  ]
+}

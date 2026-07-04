@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1180 360" role="img" aria-label="成果转化路径时间轴">
+  <rect width="1180" height="360" rx="30" fill="#F4FAFC"/>
+  <line x1="90" y1="182" x2="1090" y2="182" stroke="#0B4F6C" stroke-width="8" opacity=".22"/>
+  <g font-family="Microsoft YaHei, Arial">
+    <g transform="translate(52 82)"><circle cx="60" cy="100" r="38" fill="#0B4F6C"/><text x="44" y="110" font-size="26" font-weight="900" fill="#fff">1</text><text x="0" y="178" font-size="19" font-weight="900" fill="#1f2a24">经验方形成</text></g>
+    <g transform="translate(232 82)"><circle cx="60" cy="100" r="38" fill="#0E8F6E"/><text x="44" y="110" font-size="26" font-weight="900" fill="#fff">2</text><text x="-8" y="178" font-size="19" font-weight="900" fill="#1f2a24">院内制剂研发</text></g>
+    <g transform="translate(422 82)"><circle cx="60" cy="100" r="38" fill="#C8A45D"/><text x="44" y="110" font-size="26" font-weight="900" fill="#fff">3</text><text x="-34" y="178" font-size="19" font-weight="900" fill="#1f2a24">质量标准与稳定性</text></g>
+    <g transform="translate(622 82)"><circle cx="60" cy="100" r="38" fill="#0B4F6C"/><text x="44" y="110" font-size="26" font-weight="900" fill="#fff">4</text><text x="-18" y="178" font-size="19" font-weight="900" fill="#1f2a24">临床应用观察</text></g>
+    <g transform="translate(812 82)"><circle cx="60" cy="100" r="38" fill="#0E8F6E"/><text x="44" y="110" font-size="26" font-weight="900" fill="#fff">5</text><text x="-18" y="178" font-size="19" font-weight="900" fill="#1f2a24">数字化随访平台</text></g>
+    <g transform="translate(1002 82)"><circle cx="60" cy="100" r="38" fill="#C8A45D"/><text x="44" y="110" font-size="26" font-weight="900" fill="#fff">6</text><text x="-38" y="178" font-size="19" font-weight="900" fill="#1f2a24">研究与成果转化</text></g>
+  </g>
+</svg>

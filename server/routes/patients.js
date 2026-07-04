@@ -1,4 +1,4 @@
-const crypto = require("crypto");
+﻿const crypto = require("crypto");
 const express = require("express");
 const dayjs = require("dayjs");
 const QRCode = require("qrcode");
@@ -53,6 +53,17 @@ function maskPhone(phone) {
   if (!text) return "";
   if (text.length < 7) return `${text.slice(0, 2)}****`;
   return `${text.slice(0, 3)}****${text.slice(-4)}`;
+}
+
+function normalizeClinicianSafety(value) {
+  const text = String(value || "未记录明显不良事件").trim();
+  const legacy = {
+    未见明显不良反应: "未记录明显不良事件",
+    轻度不良反应: "轻度不良事件",
+    中度不良反应: "中度不良事件",
+    重度不良反应: "重度不良事件"
+  };
+  return legacy[text] || text;
 }
 
 function buildPatientSummary(patient, followups) {
@@ -360,13 +371,13 @@ router.post("/:id/evaluations", requirePatientAccess, (req, res) => {
 
   const evaluationDate = String(req.body.evaluation_date || "").trim();
   const clinicianEffect = String(req.body.clinician_effect || "暂未评价").trim();
-  const clinicianSafety = String(req.body.clinician_safety || "未见明显不良反应").trim();
+  const clinicianSafety = normalizeClinicianSafety(req.body.clinician_safety);
   const clinicianNote = String(req.body.clinician_note || "").trim();
-  const effects = ["显效", "有效", "无效", "加重", "暂未评价"];
-  const safeties = ["未见明显不良反应", "轻度不良反应", "中度不良反应", "重度不良反应"];
+  const effects = ["明显改善", "部分改善", "暂未见明显改善", "需进一步评估", "暂未评价"];
+  const safeties = ["未记录明显不良事件", "轻度不良事件", "中度不良事件", "重度不良事件"];
 
   if (!dayjs(evaluationDate).isValid()) return res.status(400).json({ error: "评价日期无效" });
-  if (!effects.includes(clinicianEffect)) return res.status(400).json({ error: "疗效评价无效" });
+  if (!effects.includes(clinicianEffect)) return res.status(400).json({ error: "医生综合观察评价无效" });
   if (!safeties.includes(clinicianSafety)) return res.status(400).json({ error: "安全性评价无效" });
 
   const result = run(`
@@ -388,7 +399,7 @@ router.post("/:id/evaluations", requirePatientAccess, (req, res) => {
     JOIN users u ON u.id = e.evaluator_doctor
     WHERE e.id = ?
   `, [result.lastID]);
-  writeAudit(req, "医生疗效评价", "patient", patient.research_id || patient.patient_id, `${clinicianEffect} / ${clinicianSafety}`);
+  writeAudit(req, "医生综合观察评价", "patient", patient.research_id || patient.patient_id, `${clinicianEffect} / ${clinicianSafety}`);
   res.status(201).json({ evaluation });
 });
 
@@ -400,13 +411,13 @@ router.put("/:id/evaluations/:evaluationId", requirePatientAccess, (req, res) =>
 
   const evaluationDate = String(req.body.evaluation_date || evaluation.evaluation_date).trim();
   const clinicianEffect = String(req.body.clinician_effect || evaluation.clinician_effect).trim();
-  const clinicianSafety = String(req.body.clinician_safety || evaluation.clinician_safety).trim();
+  const clinicianSafety = normalizeClinicianSafety(req.body.clinician_safety || evaluation.clinician_safety);
   const clinicianNote = String(req.body.clinician_note || "").trim();
-  const effects = ["显效", "有效", "无效", "加重", "暂未评价"];
-  const safeties = ["未见明显不良反应", "轻度不良反应", "中度不良反应", "重度不良反应"];
+  const effects = ["明显改善", "部分改善", "暂未见明显改善", "需进一步评估", "暂未评价"];
+  const safeties = ["未记录明显不良事件", "轻度不良事件", "中度不良事件", "重度不良事件"];
 
   if (!dayjs(evaluationDate).isValid()) return res.status(400).json({ error: "评价日期无效" });
-  if (!effects.includes(clinicianEffect)) return res.status(400).json({ error: "疗效评价无效" });
+  if (!effects.includes(clinicianEffect)) return res.status(400).json({ error: "医生综合观察评价无效" });
   if (!safeties.includes(clinicianSafety)) return res.status(400).json({ error: "安全性评价无效" });
 
   run(`
@@ -433,7 +444,7 @@ router.put("/:id/evaluations/:evaluationId", requirePatientAccess, (req, res) =>
     JOIN users u ON u.id = e.evaluator_doctor
     WHERE e.id = ?
   `, [evaluation.id]);
-  writeAudit(req, "修改医生疗效评价", "patient", patient.research_id || patient.patient_id, `${clinicianEffect} / ${clinicianSafety}`);
+  writeAudit(req, "修改医生综合观察评价", "patient", patient.research_id || patient.patient_id, `${clinicianEffect} / ${clinicianSafety}`);
   res.json({ evaluation: updated });
 });
 
@@ -492,3 +503,4 @@ router.get("/:id/access-check", (req, res) => {
 });
 
 module.exports = router;
+

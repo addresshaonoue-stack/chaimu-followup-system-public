@@ -13,9 +13,9 @@ async function loadSummary() {
   const { summary } = await App.api("/api/admin/summary");
   document.getElementById("summary").innerHTML = [
     metric("医生账号", summary.doctors, "fa-user-md"),
-    metric("患者总数", summary.patients, "fa-address-book"),
-    metric("随访记录", summary.followups, "fa-calendar-check-o"),
-    metric("不良反应", summary.adverseReactions, "fa-exclamation-circle")
+    metric("功能测试库患者", summary.patients, "fa-address-book"),
+    metric("功能测试库随访", summary.followups, "fa-calendar-check-o"),
+    metric("功能测试库不良事件", summary.adverseReactions, "fa-exclamation-circle")
   ].join("");
 }
 

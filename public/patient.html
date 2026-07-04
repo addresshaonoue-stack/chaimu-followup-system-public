@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="zh-CN">
 <head>
   <meta charset="utf-8">
@@ -48,11 +48,16 @@
         <h2 class="panel-title">填写随访表</h2>
       </div>
       <form id="followupForm" class="grid">
+        <div class="notice">
+          <i class="fa fa-info-circle"></i>
+          <div>本问卷仅用于用药后症状变化随访，不替代医生诊断。如出现明显不适，请及时联系医生或线下就诊。</div>
+        </div>
+
         <div id="consentPanel" class="notice hidden">
           <i class="fa fa-shield"></i>
           <div>
             <strong>知情同意提示</strong><br>
-            本系统仅用于用药随访和科研数据采集，不提供在线诊疗、不自动诊断、不调整用药。如有明显不适，请及时联系医生或到医疗机构就诊。
+            本系统仅用于用药随访和科研数据采集，不提供在线诊疗、不生成诊断结论、不调整用药。如有明显不适，请及时联系医生或到医疗机构就诊。
             <label class="check-row mt-3">
               <input id="consentConfirmed" name="consent_confirmed" type="checkbox" value="1">
               我已阅读并确认上述提示
@@ -135,7 +140,7 @@
           <summary class="panel-title">可选量表</summary>
           <div class="grid mt-4">
             <div>
-              <h3 class="panel-title mb-3">PSQI简化睡眠评估</h3>
+              <h3 class="panel-title mb-3">睡眠自评简表</h3>
               <div class="form-grid">
                 <div class="field"><label>入睡困难 0-3</label><select name="psqi_sleep_latency"><option>0</option><option>1</option><option>2</option><option>3</option></select></div>
                 <div class="field"><label>夜间易醒 0-3</label><select name="psqi_night_wake"><option>0</option><option>1</option><option>2</option><option>3</option></select></div>
@@ -190,10 +195,10 @@
         <div class="panel">
           <h3 class="panel-title mb-3">安全性</h3>
           <div class="form-grid">
-            <div class="field"><label>是否出现不良反应</label><label class="check-row"><input id="hasAdverse" name="has_adverse_reaction" type="checkbox" value="1"> 是</label></div>
+            <div class="field"><label>是否出现不适或不良事件</label><label class="check-row"><input id="hasAdverse" name="has_adverse_reaction" type="checkbox" value="1"> 是</label></div>
           </div>
           <div id="adverseFields" class="form-grid hidden mt-3">
-            <div class="field"><label>不良反应类型</label><input name="adverse_type"></div>
+            <div class="field"><label>不适或不良事件类型</label><select name="adverse_type"><option value="">请选择</option><option>胃肠不适</option><option>头晕</option><option>皮疹</option><option>口干</option><option>嗜睡</option><option>其他</option></select></div>
             <div class="field"><label>严重程度</label><select name="severity"><option value="">请选择</option><option>轻</option><option>中</option><option>重</option></select></div>
             <div class="field"><label>是否停药</label><label class="check-row"><input name="stopped_due_adverse" type="checkbox" value="1"> 是</label></div>
             <div class="field"><label>是否就医</label><label class="check-row"><input name="sought_medical_help" type="checkbox" value="1"> 是</label></div>
@@ -215,3 +220,4 @@
   <script src="/patient.js"></script>
 </body>
 </html>
+

@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" role="img" aria-label="医生随访图标">
+  <rect width="160" height="160" rx="34" fill="#E8F8F2"/>
+  <circle cx="70" cy="54" r="26" fill="#0B4F6C"/>
+  <path d="M26 126c16-34 40-50 72-46 23 3 40 18 52 46" fill="#0E8F6E"/>
+  <path d="M102 76v50M78 101h48" stroke="#fff" stroke-width="12" stroke-linecap="round"/>
+</svg>

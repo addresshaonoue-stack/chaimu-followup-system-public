@@ -1,4 +1,4 @@
-const token = new URLSearchParams(window.location.search).get("token");
+﻿const token = new URLSearchParams(window.location.search).get("token");
 let publicPatient = null;
 let schedules = [];
 
@@ -25,6 +25,33 @@ function currentSchedule() {
   return schedules.find((item) => !item.followup_id) || schedules[schedules.length - 1] || null;
 }
 
+function renderFollowupProgress() {
+  const preferred = ["第0天基线", "第7天", "第14天", "第28天"];
+  const rows = preferred.map((label) => schedules.find((item) => item.label === label)).filter(Boolean);
+  const completed = rows.filter((item) => item.followup_id).length;
+  const rate = rows.length ? Math.round((completed / rows.length) * 100) : 0;
+
+  return `
+    <div class="panel">
+      <div class="panel-header">
+        <h2 class="panel-title">随访进度</h2>
+        <span class="pill info">${completed}/${rows.length} · ${rate}%</span>
+      </div>
+      <div style="height:12px;background:#eef4ef;border-radius:999px;overflow:hidden">
+        <div style="width:${rate}%;height:12px;background:#0E8F6E"></div>
+      </div>
+      <div class="grid cols-4 mt-4">
+        ${rows.map((item) => `
+          <div class="notice ${item.followup_id ? "ok" : ""}">
+            <i class="fa ${item.followup_id ? "fa-check-circle" : "fa-clock-o"}"></i>
+            <div><strong>${e(item.label)}</strong><br>${e(item.due_date)} · ${item.followup_id ? "已完成" : "待填写"}</div>
+          </div>
+        `).join("")}
+      </div>
+    </div>
+  `;
+}
+
 function renderPatient() {
   const current = currentSchedule();
   const diagnosis = publicPatient.diagnosis || "郁病";
@@ -45,8 +72,9 @@ function renderPatient() {
       </div>
       <div class="notice">
         <i class="fa fa-info-circle"></i>
-        <div>本系统仅用于用药随访和科研数据采集，不提供在线诊疗、不自动诊断、不调整用药。如有明显不适，请及时联系医生或到医疗机构就诊。</div>
+        <div>本系统仅用于用药随访和科研数据采集，不提供在线诊疗、不生成诊断结论、不调整用药。如有明显不适，请及时联系医生或到医疗机构就诊。</div>
       </div>
+      ${renderFollowupProgress()}
       <div>
         <button id="startFollowupButton" class="primary" type="button"><i class="fa fa-pencil-square-o"></i> 开始填写</button>
       </div>
@@ -101,6 +129,22 @@ async function loadPatient() {
   renderSchedules();
 }
 
+function renderSubmitSuccess() {
+  const panel = document.getElementById("followupFormPanel");
+  if (!panel) return;
+  panel.innerHTML = `
+    <div class="success-panel">
+      <i class="fa fa-check-circle" style="font-size:42px;color:#0E8F6E"></i>
+      <h2>已完成本次随访</h2>
+      <p>医生将在后台查看本次随访记录。若症状明显加重或出现明显不适，请及时联系医生或线下就诊。</p>
+      <button id="reloadAfterSuccess" class="btn" type="button"><i class="fa fa-list"></i> 查看随访进度</button>
+    </div>
+  `;
+  document.getElementById("reloadAfterSuccess")?.addEventListener("click", () => {
+    window.location.reload();
+  });
+}
+
 document.addEventListener("DOMContentLoaded", async () => {
   document.querySelector('[name="visit_date"]').value = new Date().toISOString().slice(0, 10);
   App.bindScoreOutputs();
@@ -137,6 +181,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       document.getElementById("adverseFields").classList.add("hidden");
       App.bindScoreOutputs();
       await loadPatient();
+      renderSubmitSuccess();
     } catch (error) {
       App.toast(error.message);
     } finally {
@@ -144,3 +189,4 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
   });
 });
+

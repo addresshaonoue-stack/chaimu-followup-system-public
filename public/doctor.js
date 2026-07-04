@@ -4,6 +4,9 @@ let selectedPatientId = null;
 let scoreChart = null;
 let scaleChart = null;
 let patientFilter = "all";
+const EVALUATION_EFFECTS = ["暂未评价", "明显改善", "部分改善", "暂未见明显改善", "需进一步评估"];
+const EFFECT_LABEL_MAP = {};
+const HANDLING_STATUS_OPTIONS = ["未处理", "已联系", "已复诊", "已转介", "已关闭"];
 
 function e(value) {
   return String(value ?? "")
@@ -12,6 +15,10 @@ function e(value) {
     .replace(/>/g, "&gt;")
     .replace(/"/g, "&quot;")
     .replace(/'/g, "&#039;");
+}
+
+function effectLabel(value) {
+  return EFFECT_LABEL_MAP[value] || value || "暂未评价";
 }
 
 function patientButton(patient) {
@@ -186,7 +193,7 @@ function renderFollowups(followups) {
             <th>抑郁</th>
             <th>心烦</th>
             <th>服药</th>
-            <th>不良反应</th>
+            <th>不良事件</th>
           </tr>
         </thead>
         <tbody>
@@ -210,13 +217,13 @@ function renderFollowups(followups) {
 
 function renderAdverse(followups) {
   const adverse = followups.filter((item) => item.has_adverse_reaction || item.self_discontinued);
-  if (!adverse.length) return `<div class="empty">当前模拟随访数据未记录不良反应事件，正式应用中将持续开展安全性监测。</div>`;
+  if (!adverse.length) return `<div class="empty">当前随访记录未见患者主动记录的不良事件；正式应用中需持续记录、复核和追踪。</div>`;
 
   return adverse.map((item) => `
     <form class="panel adverse-form" data-followup-id="${item.id}">
       <div class="panel-header">
         <h3 class="panel-title">${e(item.visit_label)} · ${e(item.visit_date)}</h3>
-        ${item.has_adverse_reaction ? App.pill(`${e(item.severity || "未分级")}不良反应`, item.severity === "重" ? "danger" : "warn") : App.pill("自行停药", "danger")}
+        ${item.has_adverse_reaction ? App.pill(`${e(item.severity || "未分级")}不良事件`, item.severity === "重" ? "danger" : "warn") : App.pill("自行停药", "danger")}
       </div>
       <div class="grid cols-2">
         <div>
@@ -229,7 +236,13 @@ function renderAdverse(followups) {
           <div class="field">
             <label>处理状态</label>
             <select name="doctor_handling_status">
-              ${["未处理", "处理中", "已处理", "无需处理"].map((status) => `<option ${status === item.doctor_handling_status ? "selected" : ""}>${status}</option>`).join("")}
+              ${HANDLING_STATUS_OPTIONS.map((status) => `<option ${status === item.doctor_handling_status ? "selected" : ""}>${status}</option>`).join("")}
+            </select>
+          </div>
+          <div class="field">
+            <label>与用药相关性</label>
+            <select name="adverse_relation">
+              ${["待医生评估", "可能相关", "可能无关", "无法判断"].map((status) => `<option>${status}</option>`).join("")}
             </select>
           </div>
           <div class="field">
@@ -245,6 +258,102 @@ function renderAdverse(followups) {
       </div>
     </form>
   `).join("");
+}
+
+function visitOrder(label) {
+  const order = { "第0天基线": 0, "第7天": 7, "第14天": 14, "第28天": 28, "第56天": 56, "第84天": 84 };
+  return order[label] ?? 999;
+}
+
+function orderedFollowups(followups) {
+  return [...(followups || [])].sort((a, b) => {
+    const byVisit = visitOrder(a.visit_label) - visitOrder(b.visit_label);
+    if (byVisit !== 0) return byVisit;
+    return String(a.visit_date || "").localeCompare(String(b.visit_date || ""));
+  });
+}
+
+function scorePack(item) {
+  if (!item) return "暂无记录";
+  return `睡眠${App.fmt(item.sleep_score)} / 焦虑${App.fmt(item.anxiety_score)} / 抑郁${App.fmt(item.depression_score)}`;
+}
+
+function changeText(baseline, latest, key, label) {
+  if (!baseline || !latest || baseline[key] == null || latest[key] == null) return `${label}暂无`;
+  const delta = Number(latest[key]) - Number(baseline[key]);
+  if (Math.abs(delta) < 0.1) return `${label}基本持平`;
+  return `${label}${delta < 0 ? "下降" : "上升"} ${Math.abs(delta).toFixed(1)}分`;
+}
+
+function renderEvidenceCards(patient, schedules, followups, evaluations) {
+  const rows = orderedFollowups(followups);
+  const baseline = rows.find((item) => item.visit_label === "第0天基线") || rows[0];
+  const latest = rows[rows.length - 1];
+  const completed = schedules.filter((item) => item.followup_id).length;
+  const adverseCount = followups.filter((item) => item.has_adverse_reaction || item.self_discontinued).length;
+  const reviewed = evaluations && evaluations.length ? "已形成医生审核记录" : "待医生审核";
+  const trend = [
+    changeText(baseline, latest, "gad7_score", "GAD-7"),
+    changeText(baseline, latest, "phq9_score", "PHQ-9"),
+    changeText(baseline, latest, "psqi_simple_score", "睡眠自评简表")
+  ].join("；");
+
+  return `
+    <div class="section grid cols-3">
+      <div class="panel metric"><span class="label">基线评分</span><span class="value" style="font-size:20px">${e(scorePack(baseline))}</span><span class="muted">${e(baseline?.visit_date || "未记录")}</span></div>
+      <div class="panel metric"><span class="label">最近一次评分</span><span class="value" style="font-size:20px">${e(scorePack(latest))}</span><span class="muted">${e(latest?.visit_label || "未记录")}</span></div>
+      <div class="panel metric"><span class="label">变化趋势</span><span class="value" style="font-size:18px">${e(trend)}</span><span class="muted">仅用于随访观察</span></div>
+      <div class="panel metric"><span class="label">随访完成</span><span class="value">${completed}/${schedules.length}</span><span class="muted">含固定与自定义节点</span></div>
+      <div class="panel metric"><span class="label">安全性记录</span><span class="value">${adverseCount}</span><span class="muted">需结合原始随访描述</span></div>
+      <div class="panel metric"><span class="label">医生审核状态</span><span class="value" style="font-size:20px">${e(reviewed)}</span><span class="muted">${e(patient.research_id || patient.patient_id)}</span></div>
+    </div>
+  `;
+}
+
+function renderMoodRiskModule(followups) {
+  const rows = orderedFollowups(followups);
+  const latest = rows[rows.length - 1];
+  const recent = rows.slice(-3);
+  const gadUp = recent.length >= 2 && recent.every((item, index, arr) => index === 0 || Number(item.gad7_score || 0) >= Number(arr[index - 1].gad7_score || 0));
+  const phqUp = recent.length >= 2 && recent.every((item, index, arr) => index === 0 || Number(item.phq9_score || 0) >= Number(arr[index - 1].phq9_score || 0));
+  const highScore = latest && (Number(latest.gad7_score || 0) >= 15 || Number(latest.phq9_score || 0) >= 15);
+  const phq9Item9Positive = latest && Number(latest.phq9_9 || 0) > 0;
+  const needsAttention = Boolean(gadUp || phqUp || highScore || phq9Item9Positive);
+
+  return `
+    <div class="section panel">
+      <div class="panel-header">
+        <h3 class="panel-title">高风险情绪预警</h3>
+        ${needsAttention ? App.pill("需关注", "warn") : App.pill("常规随访", "ok")}
+      </div>
+      <div class="notice ${needsAttention ? "" : "ok"}">
+        <i class="fa ${needsAttention ? "fa-exclamation-triangle" : "fa-check-circle"}"></i>
+        <div>
+          <strong>${needsAttention ? "发现需医生复核的随访信号" : "当前未触发高风险情绪预警"}</strong><br>
+          系统仅进行随访风险提示，不作诊断结论。请医生结合线下问诊、病史和必要时心理专科评估进行处理。
+        </div>
+      </div>
+      <div class="grid cols-3 mt-3">
+        <div class="notice"><i class="fa fa-heartbeat"></i><div><strong>PHQ-9总分</strong><br>${latest ? App.fmt(latest.phq9_score) : "暂无"} ${highScore ? "· 达到重度区间需重点关注" : ""}</div></div>
+        <div class="notice"><i class="fa fa-user-md"></i><div><strong>PHQ-9第9项</strong><br>${phq9Item9Positive ? "阳性，需重点关注并线下评估" : "未触发阳性提示"}</div></div>
+        <div class="notice"><i class="fa fa-history"></i><div><strong>审计留痕</strong><br>医生查看时间、处理动作、处理备注、处理人和状态变更记录应进入审计日志。</div></div>
+      </div>
+      <div class="form-grid mt-3">
+        <div class="field">
+          <label>处理状态</label>
+          <select>${HANDLING_STATUS_OPTIONS.map((status) => `<option>${status}</option>`).join("")}</select>
+        </div>
+        <div class="field full">
+          <label>处理记录</label>
+          <textarea placeholder="记录联系、复诊、转介或关闭原因。"></textarea>
+        </div>
+        <div class="field full">
+          <label>审计摘要</label>
+          <textarea placeholder="记录处理动作、处理人、状态变更和复核时间，便于后续追溯。"></textarea>
+        </div>
+      </div>
+    </div>
+  `;
 }
 
 function renderNotes(notes) {
@@ -317,7 +426,7 @@ function renderScaleTrend(followups) {
     data: {
       labels: followups.map((item) => item.visit_label),
       datasets: [
-        { label: "PSQI简表", data: followups.map((item) => item.psqi_simple_score), borderColor: "#1f7a5c", backgroundColor: "#1f7a5c", tension: 0.25 },
+        { label: "睡眠自评简表", data: followups.map((item) => item.psqi_simple_score), borderColor: "#1f7a5c", backgroundColor: "#1f7a5c", tension: 0.25 },
         { label: "GAD-7", data: followups.map((item) => item.gad7_score), borderColor: "#2563eb", backgroundColor: "#2563eb", tension: 0.25 },
         { label: "PHQ-9", data: followups.map((item) => item.phq9_score), borderColor: "#b45309", backgroundColor: "#b45309", tension: 0.25 },
         { label: "依从性", data: followups.map((item) => item.adherence_score), borderColor: "#b91c1c", backgroundColor: "#b91c1c", tension: 0.25 }
@@ -336,8 +445,8 @@ function renderEvaluationForm(patientId) {
   return `
     <form id="evaluationForm" class="form-grid">
       <div class="field"><label>评价日期</label><input name="evaluation_date" type="date" required value="${new Date().toISOString().slice(0, 10)}"></div>
-      <div class="field"><label>疗效评价</label><select name="clinician_effect"><option>暂未评价</option><option>显效</option><option>有效</option><option>无效</option><option>加重</option></select></div>
-      <div class="field"><label>安全性评价</label><select name="clinician_safety"><option>未见明显不良反应</option><option>轻度不良反应</option><option>中度不良反应</option><option>重度不良反应</option></select></div>
+      <div class="field"><label>医生综合观察评价</label><select name="clinician_effect">${EVALUATION_EFFECTS.map((value) => `<option>${value}</option>`).join("")}</select></div>
+      <div class="field"><label>安全性评价</label><select name="clinician_safety"><option>未记录明显不良事件</option><option>轻度不良事件</option><option>中度不良事件</option><option>重度不良事件</option></select></div>
       <div class="field full"><label>评价备注</label><textarea name="clinician_note"></textarea></div>
       <div class="field full"><button class="primary" type="submit"><i class="fa fa-save"></i> 保存评价</button></div>
     </form>
@@ -360,17 +469,17 @@ function renderPatientEditForm(patient) {
 }
 
 function renderEvaluations(evaluations) {
-  if (!evaluations || !evaluations.length) return `<div class="empty">暂无医生疗效评价</div>`;
+  if (!evaluations || !evaluations.length) return `<div class="empty">暂无医生综合观察评价</div>`;
   return evaluations.map((item) => `
     <form class="panel evaluation-edit-form" data-evaluation-id="${item.id}">
       <div class="panel-header">
-        <h3 class="panel-title">${e(item.evaluation_date)} · ${e(item.clinician_effect)}</h3>
+        <h3 class="panel-title">${e(item.evaluation_date)} · ${e(effectLabel(item.clinician_effect))}</h3>
         <span>${App.pill(e(item.clinician_safety), item.clinician_safety.includes("重度") ? "danger" : item.clinician_safety.includes("中度") ? "warn" : "ok")}</span>
       </div>
       <div class="form-grid">
         <div class="field"><label>评价日期</label><input name="evaluation_date" type="date" value="${e(item.evaluation_date)}" required></div>
-        <div class="field"><label>疗效评价</label><select name="clinician_effect">${["暂未评价", "显效", "有效", "无效", "加重"].map((value) => `<option ${value === item.clinician_effect ? "selected" : ""}>${value}</option>`).join("")}</select></div>
-        <div class="field"><label>安全性评价</label><select name="clinician_safety">${["未见明显不良反应", "轻度不良反应", "中度不良反应", "重度不良反应"].map((value) => `<option ${value === item.clinician_safety ? "selected" : ""}>${value}</option>`).join("")}</select></div>
+        <div class="field"><label>医生综合观察评价</label><select name="clinician_effect">${EVALUATION_EFFECTS.map((value) => `<option ${value === effectLabel(item.clinician_effect) ? "selected" : ""}>${value}</option>`).join("")}</select></div>
+        <div class="field"><label>安全性评价</label><select name="clinician_safety">${["未记录明显不良事件", "轻度不良事件", "中度不良事件", "重度不良事件"].map((value) => `<option ${value === item.clinician_safety ? "selected" : ""}>${value}</option>`).join("")}</select></div>
         <div class="field full"><label>评价备注</label><textarea name="clinician_note">${e(item.clinician_note || "")}</textarea></div>
         <div class="field full"><button class="btn" type="submit"><i class="fa fa-save"></i> 更新评价</button></div>
       </div>
@@ -413,8 +522,11 @@ function renderDetail(data) {
     <div class="grid cols-3">
       <div class="panel metric"><span class="label">开始用药日期</span><span class="value" style="font-size:24px">${e(patient.medication_start_date)}</span></div>
       <div class="panel metric"><span class="label">随访记录</span><span class="value">${followups.length}</span></div>
-      <div class="panel metric"><span class="label">不良反应</span><span class="value">${followups.filter((item) => item.has_adverse_reaction).length}</span></div>
+      <div class="panel metric"><span class="label">不良事件</span><span class="value">${followups.filter((item) => item.has_adverse_reaction).length}</span></div>
     </div>
+
+    ${renderEvidenceCards(patient, schedules, followups, evaluations || [])}
+    ${renderMoodRiskModule(followups)}
 
     <div class="section">${renderProgress(schedules)}</div>
 
@@ -463,7 +575,7 @@ function renderDetail(data) {
 
     <div class="section panel">
       <div class="panel-header">
-        <h3 class="panel-title">医生疗效评价</h3>
+        <h3 class="panel-title">医生综合观察评价</h3>
       </div>
       ${renderEvaluationForm(patient.id)}
       <div class="section grid">${renderEvaluations(evaluations || [])}</div>
@@ -502,7 +614,7 @@ function renderDetail(data) {
     </div>
 
     <div class="section">
-      <h3 class="panel-title mb-3">不良反应列表与处理</h3>
+      <h3 class="panel-title mb-3">不良事件列表与处理</h3>
       <div class="grid">${renderAdverse(followups)}</div>
     </div>
   `;

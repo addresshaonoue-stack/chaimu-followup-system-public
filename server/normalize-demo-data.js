@@ -1,4 +1,4 @@
-const dayjs = require("dayjs");
+﻿const dayjs = require("dayjs");
 const { initDb, all, get, run, transaction } = require("./db");
 
 const names = [
@@ -193,7 +193,7 @@ function insertFollowup(patient, schedule, patientIndex, visitIndex, override = 
     adverse_description: "",
     patient_note: override.label ? "第7天节点未按期填写，后续完成补访。" : (visitIndex === 0 ? "基线信息已填写。" : "本次随访已填写。"),
     doctor_note: "",
-    doctor_handling_status: severity === "中" ? "已处理" : "无需处理",
+    doctor_handling_status: severity === "中" ? "已联系" : "已关闭",
     doctor_handling_note: ""
   });
 }
@@ -268,8 +268,8 @@ async function main() {
         ]);
       }
 
-      const clinicianEffect = patientIndex === 9 || patientIndex === 17 ? "无效" : patientIndex % 4 === 0 ? "显效" : "有效";
-      const clinicianSafety = "未见明显不良反应";
+      const clinicianEffect = patientIndex === 9 || patientIndex === 17 ? "暂未见明显改善" : patientIndex % 4 === 0 ? "明显改善" : "部分改善";
+      const clinicianSafety = "未记录明显不良事件";
       run(`
         INSERT INTO clinician_evaluations (
           patient_id, evaluation_date, clinician_effect, clinician_safety, clinician_note, evaluator_doctor
@@ -300,7 +300,7 @@ async function main() {
 
     run(`
       INSERT INTO audit_logs (actor_id, actor_name, actor_role, action_type, object_type, object_id, summary)
-      SELECT id, display_name, role, '医生疗效评价', 'evaluation', 'demo-normalize', '规范化医生疗效评价示例数据'
+      SELECT id, display_name, role, '医生综合观察评价', 'evaluation', 'demo-normalize', '规范化医生综合观察评价示例数据'
       FROM users
       WHERE role = 'doctor'
       ORDER BY id ASC
@@ -325,3 +325,4 @@ main().catch((error) => {
   console.error(error);
   process.exit(1);
 });
+

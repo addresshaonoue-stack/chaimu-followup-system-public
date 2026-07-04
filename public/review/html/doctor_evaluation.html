@@ -1,0 +1,753 @@
+<html lang="zh-CN"><head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>医生工作台 - 柴牡开郁颗粒真实世界研究与患者随访管理系统</title>
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="../styles.css">
+<style>*, ::before, ::after{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/* ! tailwindcss v3.4.17 | MIT License | https://tailwindcss.com */*,::after,::before{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e5e7eb}::after,::before{--tw-content:''}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4;font-family:ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0;padding:0}legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}.mt-1{margin-top:0.25rem}.mt-2{margin-top:0.5rem}.mb-3{margin-bottom:0.75rem}.mb-4{margin-bottom:1rem}.mt-3{margin-top:0.75rem}.mt-4{margin-top:1rem}.flex{display:flex}.grid{display:grid}.flex-wrap{flex-wrap:wrap}.gap-2{gap:0.5rem}</style></head>
+<body>
+  <header class="topbar">
+    <div class="shell topbar-inner">
+      <a class="brand" href="index.html">
+        <span class="brand-mark"><i class="fa fa-leaf"></i></span>
+        <span>医生工作台</span>
+      </a>
+      <nav class="nav">
+        <a class="active" href="doctor.html"><i class="fa fa-stethoscope"></i> 工作台</a>
+        <a href="research.html"><i class="fa fa-bar-chart"></i> 数据统计</a>
+        <a href="export.html"><i class="fa fa-download"></i> 数据导出</a>
+        <button class="btn ghost" data-logout=""><i class="fa fa-sign-out"></i> 退出</button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="shell page">
+    <div class="panel-header">
+      <div>
+        <h1 class="panel-title">患者随访管理</h1>
+        <div class="muted" data-current-user="">示例医生 · 医生</div>
+      </div>
+      <button id="reloadPatients" class="btn"><i class="fa fa-refresh"></i></button>
+    </div>
+
+    <section id="quickFilterGrid" class="grid cols-3 section">
+    <button class="panel metric quick-filter " type="button" data-filter="due">
+      <span class="label"><i class="fa fa-calendar-check-o"></i> 本次应随访患者</span>
+      <span class="value">3</span>
+      <span class="muted">到期或待处理节点</span>
+    </button>
+  
+    <button class="panel metric quick-filter " type="button" data-filter="overdue">
+      <span class="label"><i class="fa fa-clock-o"></i> 逾期随访患者</span>
+      <span class="value">3</span>
+      <span class="muted">计划日期已过</span>
+    </button>
+  
+    <button class="panel metric quick-filter " type="button" data-filter="attention">
+      <span class="label"><i class="fa fa-exclamation-triangle"></i> 需关注患者</span>
+      <span class="value">8</span>
+      <span class="muted">风险、漏服、缺失或医生标记</span>
+    </button>
+  </section>
+
+    <section class="panel">
+      <div class="panel-header">
+        <h2 class="panel-title">创建患者档案</h2>
+      </div>
+      <form id="patientForm" class="form-grid">
+        <div class="field"><label>姓名</label><input name="name" required=""></div>
+        <div class="field"><label>性别</label><select name="sex" required=""><option>男</option><option>女</option><option>其他</option></select></div>
+        <div class="field"><label>年龄</label><input name="age" type="number" min="0" max="120" required=""></div>
+        <div class="field"><label>手机号</label><input name="phone" placeholder="可选填"></div>
+        <div class="field"><label>诊断</label><input name="diagnosis" required=""></div>
+        <div class="field"><label>中医证型</label><input name="tcm_syndrome" required=""></div>
+        <div class="field"><label>开始用药日期</label><input name="medication_start_date" type="date" required=""></div>
+        <div class="field"><label>知情同意</label><label class="check-row"><input name="consent_signed" type="checkbox" value="1"> 已签署</label></div>
+        <div class="field full"><label>备注</label><textarea name="notes"></textarea></div>
+        <div class="field full"><button class="primary" type="submit"><i class="fa fa-plus"></i> 新增患者</button></div>
+      </form>
+    </section>
+
+    <section class="split section">
+      <aside class="panel">
+        <div class="panel-header">
+          <h2 class="panel-title">患者列表</h2>
+          <span id="patientCount" class="pill info">20</span>
+        </div>
+        <div id="patientList" class="list">
+    <button class="patient-row active" data-patient-id="10">
+      <div class="patient-main">
+        <strong>陈景行</strong>
+        <span class="pill ok">风险低</span>
+      </div>
+      <div class="muted">女 / 58岁 · 痰热内扰</div>
+      <div class="muted mt-1">CMKY-2026-0010 · CMKY-20260705-010</div>
+      <div class="mt-2">
+        <span class="pill info">完成率 100%</span>
+        <span class="pill ok">未逾期</span>
+      </div>
+      <div class="muted mt-1">最近：2026-07-25 · 下次：无 </div>
+      <div class="mt-2"><span class="pill ok">无预警</span></div>
+    </button>
+  
+    <button class="patient-row " data-patient-id="11">
+      <div class="patient-main">
+        <strong>褚佳怡</strong>
+        <span class="pill warn">风险中</span>
+      </div>
+      <div class="muted">男 / 61岁 · 痰热内扰</div>
+      <div class="muted mt-1">CMKY-2026-0011 · CMKY-20260705-011</div>
+      <div class="mt-2">
+        <span class="pill info">完成率 50%</span>
+        <span class="pill warn">逾期</span>
+      </div>
+      <div class="muted mt-1">最近：2026-06-08 · 下次：第28天 2026-06-01</div>
+      <div class="mt-2"><span class="pill warn">连续7天未随访</span></div>
+    </button>
+  
+    <button class="patient-row " data-patient-id="12">
+      <div class="patient-main">
+        <strong>卫子墨</strong>
+        <span class="pill warn">风险中</span>
+      </div>
+      <div class="muted">女 / 64岁 · 痰热内扰</div>
+      <div class="muted mt-1">CMKY-2026-0012 · CMKY-20260705-012</div>
+      <div class="mt-2">
+        <span class="pill info">完成率 100%</span>
+        <span class="pill ok">未逾期</span>
+      </div>
+      <div class="muted mt-1">最近：2026-07-29 · 下次：无 </div>
+      <div class="mt-2"><span class="pill warn">多次漏服</span></div>
+    </button>
+  
+    <button class="patient-row " data-patient-id="13">
+      <div class="patient-main">
+        <strong>蒋舒然</strong>
+        <span class="pill ok">风险低</span>
+      </div>
+      <div class="muted">男 / 67岁 · 痰热内扰</div>
+      <div class="muted mt-1">CMKY-2026-0013 · CMKY-20260705-013</div>
+      <div class="mt-2">
+        <span class="pill info">完成率 100%</span>
+        <span class="pill ok">未逾期</span>
+      </div>
+      <div class="muted mt-1">最近：2026-07-31 · 下次：无 </div>
+      <div class="mt-2"><span class="pill ok">无预警</span></div>
+    </button>
+  
+    <button class="patient-row " data-patient-id="14">
+      <div class="patient-main">
+        <strong>沈浩然</strong>
+        <span class="pill warn">风险中</span>
+      </div>
+      <div class="muted">女 / 28岁 · 痰热内扰</div>
+      <div class="muted mt-1">CMKY-2026-0014 · CMKY-20260705-014</div>
+      <div class="mt-2">
+        <span class="pill info">完成率 66.7%</span>
+        <span class="pill ok">未逾期</span>
+      </div>
+      <div class="muted mt-1">最近：2026-06-07 · 下次：第56天 2026-07-05</div>
+      <div class="mt-2"><span class="pill warn">连续7天未随访</span></div>
+    </button>
+  
+    <button class="patient-row " data-patient-id="15">
+      <div class="patient-main">
+        <strong>韩青禾</strong>
+        <span class="pill ok">风险低</span>
+      </div>
+      <div class="muted">男 / 31岁 · 痰热内扰</div>
+      <div class="muted mt-1">CMKY-2026-0015 · CMKY-20260705-015</div>
+      <div class="mt-2">
+        <span class="pill info">完成率 100%</span>
+        <span class="pill ok">未逾期</span>
+      </div>
+      <div class="muted mt-1">最近：2026-08-04 · 下次：无 </div>
+      <div class="mt-2"><span class="pill ok">无预警</span></div>
+    </button>
+  
+    <button class="patient-row " data-patient-id="16">
+      <div class="patient-main">
+        <strong>杨知远</strong>
+        <span class="pill ok">风险低</span>
+      </div>
+      <div class="muted">女 / 34岁 · 痰热内扰</div>
+      <div class="muted mt-1">CMKY-2026-0016 · CMKY-20260705-016</div>
+      <div class="mt-2">
+        <span class="pill info">完成率 100%</span>
+        <span class="pill ok">未逾期</span>
+      </div>
+      <div class="muted mt-1">最近：2026-08-06 · 下次：无 </div>
+      <div class="mt-2"><span class="pill ok">无预警</span></div>
+    </button>
+  
+    <button class="patient-row " data-patient-id="17">
+      <div class="patient-main">
+        <strong>朱沁宁</strong>
+        <span class="pill ok">风险低</span>
+      </div>
+      <div class="muted">男 / 37岁 · 痰热内扰</div>
+      <div class="muted mt-1">CMKY-2026-0017 · CMKY-20260705-017</div>
+      <div class="mt-2">
+        <span class="pill info">完成率 83.3%</span>
+        <span class="pill ok">未逾期</span>
+      </div>
+      <div class="muted mt-1">最近：2026-07-11 · 下次：第84天 2026-08-08</div>
+      <div class="mt-2"><span class="pill ok">无预警</span></div>
+    </button>
+  
+    <button class="patient-row " data-patient-id="18">
+      <div class="patient-main">
+        <strong>秦沐阳</strong>
+        <span class="pill warn">风险中</span>
+      </div>
+      <div class="muted">女 / 40岁 · 痰热内扰</div>
+      <div class="muted mt-1">CMKY-2026-0018 · CMKY-20260705-018</div>
+      <div class="mt-2">
+        <span class="pill info">完成率 100%</span>
+        <span class="pill ok">未逾期</span>
+      </div>
+      <div class="muted mt-1">最近：2026-08-10 · 下次：无 </div>
+      <div class="mt-2"><span class="pill warn">多次漏服</span></div>
+    </button>
+  
+    <button class="patient-row " data-patient-id="19">
+      <div class="patient-main">
+        <strong>尤安澜</strong>
+        <span class="pill ok">风险低</span>
+      </div>
+      <div class="muted">男 / 43岁 · 痰热内扰</div>
+      <div class="muted mt-1">CMKY-2026-0019 · CMKY-20260705-019</div>
+      <div class="mt-2">
+        <span class="pill info">完成率 100%</span>
+        <span class="pill ok">未逾期</span>
+      </div>
+      <div class="muted mt-1">最近：2026-08-12 · 下次：无 </div>
+      <div class="mt-2"><span class="pill ok">无预警</span></div>
+    </button>
+  
+    <button class="patient-row " data-patient-id="20">
+      <div class="patient-main">
+        <strong>许星河</strong>
+        <span class="pill ok">风险低</span>
+      </div>
+      <div class="muted">女 / 46岁 · 痰热内扰</div>
+      <div class="muted mt-1">CMKY-2026-0020 · CMKY-20260705-020</div>
+      <div class="mt-2">
+        <span class="pill info">完成率 100%</span>
+        <span class="pill ok">未逾期</span>
+      </div>
+      <div class="muted mt-1">最近：2026-08-14 · 下次：无 </div>
+      <div class="mt-2"><span class="pill ok">无预警</span></div>
+    </button>
+  
+    <button class="patient-row " data-patient-id="1">
+      <div class="patient-main">
+        <strong>林清和</strong>
+        <span class="pill ok">风险低</span>
+      </div>
+      <div class="muted">男 / 31岁 · 痰热内扰</div>
+      <div class="muted mt-1">CMKY-2026-0001 · CMKY-20260705-001</div>
+      <div class="mt-2">
+        <span class="pill info">完成率 100%</span>
+        <span class="pill ok">未逾期</span>
+      </div>
+      <div class="muted mt-1">最近：2026-07-07 · 下次：无 </div>
+      <div class="mt-2"><span class="pill ok">无预警</span></div>
+    </button>
+  
+    <button class="patient-row " data-patient-id="2">
+      <div class="patient-main">
+        <strong>钱雅婷</strong>
+        <span class="pill ok">风险低</span>
+      </div>
+      <div class="muted">女 / 34岁 · 痰热内扰</div>
+      <div class="muted mt-1">CMKY-2026-0002 · CMKY-20260705-002</div>
+      <div class="mt-2">
+        <span class="pill info">完成率 100%</span>
+        <span class="pill ok">未逾期</span>
+      </div>
+      <div class="muted mt-1">最近：2026-07-09 · 下次：无 </div>
+      <div class="mt-2"><span class="pill ok">无预警</span></div>
+    </button>
+  
+    <button class="patient-row " data-patient-id="3">
+      <div class="patient-main">
+        <strong>孙明远</strong>
+        <span class="pill warn">风险中</span>
+      </div>
+      <div class="muted">男 / 37岁 · 痰热内扰</div>
+      <div class="muted mt-1">CMKY-2026-0003 · CMKY-20260705-003</div>
+      <div class="mt-2">
+        <span class="pill info">完成率 100%</span>
+        <span class="pill ok">未逾期</span>
+      </div>
+      <div class="muted mt-1">最近：2026-07-11 · 下次：无 </div>
+      <div class="mt-2"><span class="pill warn">多次漏服</span></div>
+    </button>
+  
+    <button class="patient-row " data-patient-id="4">
+      <div class="patient-main">
+        <strong>李若溪</strong>
+        <span class="pill ok">风险低</span>
+      </div>
+      <div class="muted">女 / 40岁 · 痰热内扰</div>
+      <div class="muted mt-1">CMKY-2026-0004 · CMKY-20260705-004</div>
+      <div class="mt-2">
+        <span class="pill info">完成率 100%</span>
+        <span class="pill ok">未逾期</span>
+      </div>
+      <div class="muted mt-1">最近：2026-07-13 · 下次：无 </div>
+      <div class="mt-2"><span class="pill ok">无预警</span></div>
+    </button>
+  
+    <button class="patient-row " data-patient-id="5">
+      <div class="patient-main">
+        <strong>周安宁</strong>
+        <span class="pill warn">风险中</span>
+      </div>
+      <div class="muted">男 / 43岁 · 痰热内扰</div>
+      <div class="muted mt-1">CMKY-2026-0005 · CMKY-20260705-005</div>
+      <div class="mt-2">
+        <span class="pill info">完成率 16.7%</span>
+        <span class="pill warn">逾期</span>
+      </div>
+      <div class="muted mt-1">最近：2026-05-02 · 下次：第7天 2026-04-29</div>
+      <div class="mt-2"><span class="pill warn">连续7天未随访</span></div>
+    </button>
+  
+    <button class="patient-row " data-patient-id="6">
+      <div class="patient-main">
+        <strong>吴思远</strong>
+        <span class="pill ok">风险低</span>
+      </div>
+      <div class="muted">女 / 46岁 · 痰热内扰</div>
+      <div class="muted mt-1">CMKY-2026-0006 · CMKY-20260705-006</div>
+      <div class="mt-2">
+        <span class="pill info">完成率 100%</span>
+        <span class="pill ok">未逾期</span>
+      </div>
+      <div class="muted mt-1">最近：2026-07-17 · 下次：无 </div>
+      <div class="mt-2"><span class="pill ok">无预警</span></div>
+    </button>
+  
+    <button class="patient-row " data-patient-id="7">
+      <div class="patient-main">
+        <strong>郑雨晴</strong>
+        <span class="pill ok">风险低</span>
+      </div>
+      <div class="muted">男 / 49岁 · 痰热内扰</div>
+      <div class="muted mt-1">CMKY-2026-0007 · CMKY-20260705-007</div>
+      <div class="mt-2">
+        <span class="pill info">完成率 100%</span>
+        <span class="pill ok">未逾期</span>
+      </div>
+      <div class="muted mt-1">最近：2026-07-19 · 下次：无 </div>
+      <div class="mt-2"><span class="pill ok">无预警</span></div>
+    </button>
+  
+    <button class="patient-row " data-patient-id="8">
+      <div class="patient-main">
+        <strong>王嘉禾</strong>
+        <span class="pill warn">风险中</span>
+      </div>
+      <div class="muted">女 / 52岁 · 痰热内扰</div>
+      <div class="muted mt-1">CMKY-2026-0008 · CMKY-20260705-008</div>
+      <div class="mt-2">
+        <span class="pill info">完成率 33.3%</span>
+        <span class="pill warn">逾期</span>
+      </div>
+      <div class="muted mt-1">最近：2026-05-19 · 下次：第14天 2026-05-12</div>
+      <div class="mt-2"><span class="pill warn">连续7天未随访</span></div>
+    </button>
+  
+    <button class="patient-row " data-patient-id="9">
+      <div class="patient-main">
+        <strong>冯晓岚</strong>
+        <span class="pill ok">风险低</span>
+      </div>
+      <div class="muted">男 / 55岁 · 痰热内扰</div>
+      <div class="muted mt-1">CMKY-2026-0009 · CMKY-20260705-009</div>
+      <div class="mt-2">
+        <span class="pill info">完成率 100%</span>
+        <span class="pill ok">未逾期</span>
+      </div>
+      <div class="muted mt-1">最近：2026-07-23 · 下次：无 </div>
+      <div class="mt-2"><span class="pill ok">无预警</span></div>
+    </button>
+  </div>
+      </aside>
+
+      <section id="patientDetail" class="panel">
+    <div class="panel-header">
+      <div>
+        <h2 class="panel-title">陈景行 <span class="muted">CMKY-2026-0010</span></h2>
+        <div class="muted">女 / 58岁 · 郁病 · 痰热内扰 · 手机 138****1010</div>
+      </div>
+      <span><span class="pill ok">已签署知情同意</span> <span class="pill ok">链接有效</span></span>
+    </div>
+
+    <div class="grid cols-3">
+      <div class="panel metric"><span class="label">开始用药日期</span><span class="value" style="font-size:24px">2026-05-02</span></div>
+      <div class="panel metric"><span class="label">随访记录</span><span class="value">6</span></div>
+      <div class="panel metric"><span class="label">不良事件</span><span class="value">0</span></div>
+    </div>
+
+    
+    <div class="section grid cols-3">
+      <div class="panel metric"><span class="label">基线评分</span><span class="value" style="font-size:20px">睡眠7 / 焦虑6 / 抑郁7</span><span class="muted">2026-05-02</span></div>
+      <div class="panel metric"><span class="label">最近一次评分</span><span class="value" style="font-size:20px">睡眠2 / 焦虑2 / 抑郁1</span><span class="muted">第84天</span></div>
+      <div class="panel metric"><span class="label">变化趋势</span><span class="value" style="font-size:18px">GAD-7下降 9.0分；PHQ-9下降 12.0分；睡眠自评简表下降 5.0分</span><span class="muted">仅用于随访观察</span></div>
+      <div class="panel metric"><span class="label">随访完成</span><span class="value">6/6</span><span class="muted">含固定与自定义节点</span></div>
+      <div class="panel metric"><span class="label">安全性记录</span><span class="value">0</span><span class="muted">需结合原始随访描述</span></div>
+      <div class="panel metric"><span class="label">医生审核状态</span><span class="value" style="font-size:20px">已形成医生审核记录</span><span class="muted">CMKY-2026-0010</span></div>
+    </div>
+  
+    
+    <div class="section panel">
+      <div class="panel-header">
+        <h3 class="panel-title">高风险情绪预警</h3>
+        <span class="pill ok">常规随访</span>
+      </div>
+      <div class="notice ok">
+        <i class="fa fa-check-circle"></i>
+        <div>
+          <strong>当前未触发高风险情绪预警</strong><br>
+          系统仅进行随访风险提示，不作诊断结论。请医生结合线下问诊、病史和必要时心理专科评估进行处理。
+        </div>
+      </div>
+      <div class="grid cols-3 mt-3">
+        <div class="notice"><i class="fa fa-heartbeat"></i><div><strong>PHQ-9总分</strong><br>7 </div></div>
+        <div class="notice"><i class="fa fa-user-md"></i><div><strong>PHQ-9第9项</strong><br>未触发阳性提示</div></div>
+        <div class="notice"><i class="fa fa-history"></i><div><strong>审计留痕</strong><br>医生查看时间、处理动作、处理备注、处理人和状态变更记录应进入审计日志。</div></div>
+      </div>
+      <div class="form-grid mt-3">
+        <div class="field">
+          <label>处理状态</label>
+          <select><option>未处理</option><option>已联系</option><option>已复诊</option><option>已转介</option><option>已关闭</option></select>
+        </div>
+        <div class="field full">
+          <label>处理记录</label>
+          <textarea placeholder="记录联系、复诊、转介或关闭原因。"></textarea>
+        </div>
+        <div class="field full">
+          <label>审计摘要</label>
+          <textarea placeholder="记录处理动作、处理人、状态变更和复核时间，便于后续追溯。"></textarea>
+        </div>
+      </div>
+    </div>
+  
+
+    <div class="section">
+    <div class="panel">
+      <div class="panel-header">
+        <h3 class="panel-title">84天随访进度</h3>
+        <span class="pill info">6/6 · 100%</span>
+      </div>
+      <div style="height:12px;background:#eef4ef;border-radius:999px;overflow:hidden">
+        <div style="width:100%;height:12px;background:#1f7a5c"></div>
+      </div>
+      <div class="grid cols-3 mt-4">
+        
+            <div class="notice ok">
+              <i class="fa fa-check-circle"></i>
+              <div><strong>第0天基线</strong><br>2026-05-02 · 已完成</div>
+            </div>
+          
+            <div class="notice ok">
+              <i class="fa fa-check-circle"></i>
+              <div><strong>第7天</strong><br>2026-05-09 · 已完成</div>
+            </div>
+          
+            <div class="notice ok">
+              <i class="fa fa-check-circle"></i>
+              <div><strong>第14天</strong><br>2026-05-16 · 已完成</div>
+            </div>
+          
+            <div class="notice ok">
+              <i class="fa fa-check-circle"></i>
+              <div><strong>第28天</strong><br>2026-05-30 · 已完成</div>
+            </div>
+          
+            <div class="notice ok">
+              <i class="fa fa-check-circle"></i>
+              <div><strong>第56天</strong><br>2026-06-27 · 已完成</div>
+            </div>
+          
+            <div class="notice ok">
+              <i class="fa fa-check-circle"></i>
+              <div><strong>第84天</strong><br>2026-07-25 · 已完成</div>
+            </div>
+          
+      </div>
+    </div>
+  </div>
+
+    <div class="section panel">
+      <div class="panel-header">
+        <h3 class="panel-title">患者档案维护</h3>
+        <span class="muted">研究编号：CMKY-2026-0010</span>
+      </div>
+      
+    <form id="patientEditForm" class="form-grid">
+      <div class="field"><label>姓名</label><input name="name" value="陈景行" required=""></div>
+      <div class="field"><label>性别</label><select name="sex"><option>男</option><option selected="">女</option><option>其他</option></select></div>
+      <div class="field"><label>年龄</label><input name="age" type="number" min="0" max="120" value="58" required=""></div>
+      <div class="field"><label>中医诊断</label><input name="diagnosis" value="郁病" required=""></div>
+      <div class="field"><label>证型</label><input name="tcm_syndrome" value="痰热内扰" required=""></div>
+      <label class="check-row"><input name="consent_signed" type="checkbox" checked=""> 已签署知情同意</label>
+      <div class="field full"><label>备注</label><textarea name="notes">模拟真实世界随访患者资料。</textarea></div>
+      <div class="field full"><button class="btn" type="submit"><i class="fa fa-save"></i> 保存档案</button></div>
+    </form>
+  
+    </div>
+
+    <div class="section grid cols-2">
+      <div>
+        <h3 class="panel-title mb-3">风险预警</h3>
+        <div class="grid"><div class="notice ok"><i class="fa fa-check-circle"></i><div>当前无风险预警</div></div></div>
+      </div>
+      <div>
+        <h3 class="panel-title mb-3">患者随访链接</h3>
+        <div class="grid">
+          <div class="notice ok"><i class="fa fa-link"></i><div><strong>随访链接状态：</strong>有效</div></div>
+          <div id="qrHolder"><img class="qr" src="data:image/png;base64,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" alt="患者随访二维码"></div>
+          <div class="field">
+            <input id="followupLink" readonly="" data-qr-data-url="data:image/png;base64,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">
+          </div>
+          <div class="flex flex-wrap gap-2">
+            <button id="copyLink" class="btn" type="button"><i class="fa fa-copy"></i> 复制链接</button>
+            <button id="openPatientPage" class="btn" type="button"><i class="fa fa-external-link"></i> 打开患者页</button>
+            <button id="printQr" class="btn" type="button"><i class="fa fa-print"></i> 打印二维码</button>
+            <button id="toggleToken" class="btn danger" type="button">
+              <i class="fa fa-ban"></i> 禁用链接
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h3 class="panel-title mb-3">睡眠、焦虑、抑郁、心烦趋势</h3>
+      <div style="height:320px"><canvas id="scoreChart" width="806" height="320" style="display: block; box-sizing: border-box; height: 320px; width: 806px;"></canvas></div>
+    </div>
+
+    <div class="section">
+      <h3 class="panel-title mb-3">量表与依从性趋势</h3>
+      <div style="height:320px"><canvas id="scaleChart" width="806" height="320" style="display: block; box-sizing: border-box; height: 320px; width: 806px;"></canvas></div>
+    </div>
+
+    <div class="section panel">
+      <div class="panel-header">
+        <h3 class="panel-title">医生综合观察评价</h3>
+      </div>
+      
+    <form id="evaluationForm" class="form-grid">
+      <div class="field"><label>评价日期</label><input name="evaluation_date" type="date" required="" value="2026-07-04"></div>
+      <div class="field"><label>医生综合观察评价</label><select name="clinician_effect"><option>暂未评价</option><option>明显改善</option><option>部分改善</option><option>暂未见明显改善</option><option>需进一步评估</option></select></div>
+      <div class="field"><label>安全性评价</label><select name="clinician_safety"><option>未记录明显不良事件</option><option>轻度不良事件</option><option>中度不良事件</option><option>重度不良事件</option></select></div>
+      <div class="field full"><label>评价备注</label><textarea name="clinician_note"></textarea></div>
+      <div class="field full"><button class="primary" type="submit"><i class="fa fa-save"></i> 保存评价</button></div>
+    </form>
+  
+      <div class="section grid">
+    <form class="panel evaluation-edit-form" data-evaluation-id="30">
+      <div class="panel-header">
+        <h3 class="panel-title">2026-07-25 · 部分改善</h3>
+        <span><span class="pill ok">未记录明显不良事件</span></span>
+      </div>
+      <div class="form-grid">
+        <div class="field"><label>评价日期</label><input name="evaluation_date" type="date" value="2026-07-25" required=""></div>
+        <div class="field"><label>医生综合观察评价</label><select name="clinician_effect"><option>暂未评价</option><option>明显改善</option><option selected="">部分改善</option><option>暂未见明显改善</option><option>需进一步评估</option></select></div>
+        <div class="field"><label>安全性评价</label><select name="clinician_safety"><option selected="">未记录明显不良事件</option><option>轻度不良事件</option><option>中度不良事件</option><option>重度不良事件</option></select></div>
+        <div class="field full"><label>评价备注</label><textarea name="clinician_note">CMKY-2026-0010 84天随访资料已完成医生评价记录。</textarea></div>
+        <div class="field full"><button class="btn" type="submit"><i class="fa fa-save"></i> 更新评价</button></div>
+      </div>
+      <div class="muted mt-2">评价医生：示例医生 · 更新时间：2026-07-05 01:54:34</div>
+    </form>
+  </div>
+    </div>
+
+    <div class="section grid cols-2">
+      <div>
+        <div class="panel-header">
+          <h3 class="panel-title">随访计划</h3>
+        </div>
+        
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>节点</th><th>计划日期</th><th>类型</th><th>状态</th></tr></thead>
+        <tbody>
+          
+            <tr>
+              <td>第0天基线</td>
+              <td>2026-05-02</td>
+              <td>固定</td>
+              <td><span class="pill ok">已完成</span></td>
+            </tr>
+          
+            <tr>
+              <td>第7天</td>
+              <td>2026-05-09</td>
+              <td>固定</td>
+              <td><span class="pill ok">已完成</span></td>
+            </tr>
+          
+            <tr>
+              <td>第14天</td>
+              <td>2026-05-16</td>
+              <td>固定</td>
+              <td><span class="pill ok">已完成</span></td>
+            </tr>
+          
+            <tr>
+              <td>第28天</td>
+              <td>2026-05-30</td>
+              <td>固定</td>
+              <td><span class="pill ok">已完成</span></td>
+            </tr>
+          
+            <tr>
+              <td>第56天</td>
+              <td>2026-06-27</td>
+              <td>固定</td>
+              <td><span class="pill ok">已完成</span></td>
+            </tr>
+          
+            <tr>
+              <td>第84天</td>
+              <td>2026-07-25</td>
+              <td>固定</td>
+              <td><span class="pill ok">已完成</span></td>
+            </tr>
+          
+        </tbody>
+      </table>
+    </div>
+  
+        <form id="customScheduleForm" class="form-grid mt-4">
+          <div class="field"><label>自定义节点</label><input name="label" placeholder="如：第42天电话随访"></div>
+          <div class="field"><label>日期</label><input name="due_date" type="date" required=""></div>
+          <div class="field"><label>&nbsp;</label><button class="btn" type="submit"><i class="fa fa-calendar-plus-o"></i> 添加</button></div>
+        </form>
+      </div>
+      <div>
+        <h3 class="panel-title mb-3">医生备注</h3>
+        <form id="noteForm" class="grid mb-4">
+          <textarea name="note" required=""></textarea>
+          <button class="primary" type="submit"><i class="fa fa-pencil"></i> 添加备注</button>
+        </form>
+        <div class="grid"><div class="empty">暂无医生备注</div></div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h3 class="panel-title mb-3">医生处理记录时间线</h3>
+      <div class="grid"><div class="empty">暂无处理时间线</div></div>
+    </div>
+
+    <div class="section">
+      <h3 class="panel-title mb-3">随访记录</h3>
+      
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>节点</th>
+            <th>日期</th>
+            <th>睡眠</th>
+            <th>焦虑</th>
+            <th>抑郁</th>
+            <th>心烦</th>
+            <th>服药</th>
+            <th>不良事件</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+            <tr>
+              <td>第0天基线</td>
+              <td>2026-05-02</td>
+              <td>7</td>
+              <td>6</td>
+              <td>7</td>
+              <td>7</td>
+              <td>按时；漏服0次</td>
+              <td><span class="pill ok">未记录</span></td>
+            </tr>
+          
+            <tr>
+              <td>第7天</td>
+              <td>2026-05-09</td>
+              <td>6</td>
+              <td>6</td>
+              <td>5</td>
+              <td>6</td>
+              <td>按时；漏服0次</td>
+              <td><span class="pill ok">未记录</span></td>
+            </tr>
+          
+            <tr>
+              <td>第14天</td>
+              <td>2026-05-16</td>
+              <td>6</td>
+              <td>4</td>
+              <td>4</td>
+              <td>5</td>
+              <td>按时；漏服0次</td>
+              <td><span class="pill ok">未记录</span></td>
+            </tr>
+          
+            <tr>
+              <td>第28天</td>
+              <td>2026-05-30</td>
+              <td>4</td>
+              <td>3</td>
+              <td>3</td>
+              <td>5</td>
+              <td>按时；漏服0次</td>
+              <td><span class="pill ok">未记录</span></td>
+            </tr>
+          
+            <tr>
+              <td>第56天</td>
+              <td>2026-06-27</td>
+              <td>3</td>
+              <td>2</td>
+              <td>3</td>
+              <td>3</td>
+              <td>按时；漏服0次</td>
+              <td><span class="pill ok">未记录</span></td>
+            </tr>
+          
+            <tr>
+              <td>第84天</td>
+              <td>2026-07-25</td>
+              <td>2</td>
+              <td>2</td>
+              <td>1</td>
+              <td>2</td>
+              <td>按时；漏服0次</td>
+              <td><span class="pill ok">未记录</span></td>
+            </tr>
+          
+        </tbody>
+      </table>
+    </div>
+  
+    </div>
+
+    <div class="section">
+      <h3 class="panel-title mb-3">不良事件列表与处理</h3>
+      <div class="grid"><div class="empty">当前随访记录未见患者主动记录的不良事件；正式应用中需持续记录、复核和追踪。</div></div>
+    </div>
+  </section>
+    </section>
+  </main>
+
+  
+  
+  
+
+
+</body></html>

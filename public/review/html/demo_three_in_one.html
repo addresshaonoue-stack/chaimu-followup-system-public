@@ -1,0 +1,224 @@
+<html lang="zh-CN"><head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>系统展示 - 柴牡开郁颗粒真实世界研究与患者随访管理系统</title>
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="shell topbar-inner">
+      <a class="brand" href="index.html">
+        <span class="brand-mark">展</span>
+        <span>系统展示</span>
+      </a>
+      <nav class="nav">
+        <a href="index.html">首页</a>
+        <a class="active" href="demo.html">展示页</a>
+        <a href="ppt-assets.html">PPT大屏</a>
+        <a href="login.html">登录</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="shell page">
+    <section class="grid cols-2">
+      <div>
+        <h1>柴牡开郁颗粒真实世界随访与成果转化平台</h1>
+        <p class="lead">院内制剂应用观察、数字化随访与真实世界证据闭环展示。</p>
+        <div class="demo-badge">脱敏样例数据，不代表真实临床疗效、安全性或统计学结论。</div>
+      </div>
+      <div class="visual-card">
+        <img src="../assets/hero-evidence-loop.svg" alt="柴牡开郁颗粒真实世界随访系统主视觉">
+        <div class="visual-caption">
+          <div>
+            <strong>医疗机构制剂真实世界证据闭环工具</strong>
+            <span>随访 · 量表 · 不良事件记录 · 依从性 · 脱敏导出</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel section">
+      <div class="panel-header">
+        <h2 class="panel-title">数据闭环流程</h2>
+      </div>
+      <div class="visual-split">
+        <div class="visual-panel">
+          <img src="../assets/scan-followup-flow.svg" alt="患者建档、二维码随访、患者填写和数据入库流程图">
+        </div>
+        <div class="grid">
+          <div class="notice ok"><div><strong>患者建档</strong><br>生成研究编号与患者专属 token。</div></div>
+          <div class="notice ok"><div><strong>二维码随访</strong><br>患者扫码直达随访页面。</div></div>
+          <div class="notice ok"><div><strong>数据统计</strong><br>医生端和数据统计页同步呈现趋势。</div></div>
+          <div class="notice ok"><div><strong>脱敏导出</strong><br>CSV / Excel 默认按研究编号导出。</div></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="threeInOneLoop" class="panel section">
+      <div class="panel-header">
+        <h2 class="panel-title">三位一体成果闭环</h2>
+        <span class="pill info">经验 · 特色 · 数据</span>
+      </div>
+      <div class="visual-panel">
+        <img src="../assets/triad-loop.svg" alt="三位一体成果闭环图">
+      </div>
+      <div class="notice mt-4">
+        <div>形成名中医经验传承、广西海洋中药资源利用与真实世界数据评价协同推进的成果转化模式。</div>
+      </div>
+    </section>
+
+    <section id="metricGrid" class="grid cols-6 section">
+    <div class="panel metric premium-stat">
+      <span class="label">建档患者数</span>
+      <span class="value">120例</span>
+      <span class="muted">演示数据</span>
+    </div>
+  
+    <div class="panel metric premium-stat">
+      <span class="label">有效随访记录</span>
+      <span class="value">486条</span>
+      <span class="muted">演示数据</span>
+    </div>
+  
+    <div class="panel metric premium-stat">
+      <span class="label">随访完成率</span>
+      <span class="value">87.5%</span>
+      <span class="muted">演示数据</span>
+    </div>
+  
+    <div class="panel metric premium-stat">
+      <span class="label">数据完整率</span>
+      <span class="value">93.2%</span>
+      <span class="muted">演示数据</span>
+    </div>
+  
+    <div class="panel metric premium-stat">
+      <span class="label">已记录不良事件</span>
+      <span class="value">3例</span>
+      <span class="muted">演示数据</span>
+    </div>
+  
+    <div class="panel metric premium-stat">
+      <span class="label">医生已审核记录</span>
+      <span class="value">428条</span>
+      <span class="muted">演示数据</span>
+    </div>
+  </section>
+
+    <section class="grid cols-2 section">
+      <div class="panel">
+        <div class="panel-header">
+          <h2 class="panel-title">随访完成率</h2>
+          <span class="pill info">第7天至第84天</span>
+        </div>
+        <div id="demoCompletionChart" class="svg-chart compact">
+    <svg viewBox="0 0 560 260" class="mini-line">
+      <g stroke="#d8e5ea" stroke-width="1">
+        <line x1="42" y1="50" x2="530" y2="50"></line><line x1="42" y1="100" x2="530" y2="100"></line><line x1="42" y1="150" x2="530" y2="150"></line><line x1="42" y1="200" x2="530" y2="200"></line>
+      </g>
+      <polyline points="50,50 203.33333333333334,62.06 356.6666666666667,73.94 510,91.94" fill="none" stroke="#1F7A5C" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"></polyline>
+      <circle cx="50" cy="50" r="7" fill="#1F7A5C"></circle><text x="50" y="248" text-anchor="middle" font-size="16" fill="#617781">基线</text><circle cx="203.33333333333334" cy="62.06" r="7" fill="#1F7A5C"></circle><text x="203.33333333333334" y="248" text-anchor="middle" font-size="16" fill="#617781">第7天</text><circle cx="356.6666666666667" cy="73.94" r="7" fill="#1F7A5C"></circle><text x="356.6666666666667" y="248" text-anchor="middle" font-size="16" fill="#617781">第14天</text><circle cx="510" cy="91.94" r="7" fill="#1F7A5C"></circle><text x="510" y="248" text-anchor="middle" font-size="16" fill="#617781">第28天</text>
+    </svg>
+  </div>
+      </div>
+
+      <div class="panel">
+        <div class="panel-header">
+          <h2 class="panel-title">不良事件记录情况</h2>
+          <span class="pill info">演示数据</span>
+        </div>
+        <div id="demoAdverseChart" class="svg-chart compact">
+    <svg viewBox="0 0 360 260">
+      <circle cx="130" cy="130" r="82" fill="none" stroke="#dfeaed" stroke-width="28"></circle>
+      <circle cx="130" cy="130" r="82" fill="none" stroke="#D4AF37" stroke-width="28" stroke-dasharray="12.880529879718152 515.221195188726" transform="rotate(-90 130 130)"></circle>
+      <text x="130" y="124" text-anchor="middle" font-size="34" fill="#0B4F6C" font-weight="900">3例</text>
+      <text x="130" y="154" text-anchor="middle" font-size="16" fill="#617781">已记录不良事件</text>
+      <text x="248" y="112" font-size="18" fill="#334155">已记录 3</text>
+      <text x="248" y="146" font-size="18" fill="#334155">未记录 117</text>
+    </svg>
+  </div>
+        <div class="muted">当前演示数据记录不良事件3例，不代表真实安全性结论。</div>
+      </div>
+    </section>
+
+    <section class="grid cols-2 section">
+      <div class="panel">
+        <div class="panel-header">
+          <h2 class="panel-title">量表趋势</h2>
+          <span class="pill info">睡眠自评 / GAD-7 / PHQ-9</span>
+        </div>
+        <div id="demoScaleChart" class="svg-chart">
+    <div class="grid">
+      <div><div class="muted">睡眠自评</div>
+    <svg viewBox="0 0 560 260" class="mini-line">
+      <g stroke="#d8e5ea" stroke-width="1">
+        <line x1="42" y1="50" x2="530" y2="50"></line><line x1="42" y1="100" x2="530" y2="100"></line><line x1="42" y1="150" x2="530" y2="150"></line><line x1="42" y1="200" x2="530" y2="200"></line>
+      </g>
+      <polyline points="50,71.6 203.33333333333334,90.80000000000001 356.6666666666667,108.8 510,123.19999999999999" fill="none" stroke="#D4AF37" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"></polyline>
+      <circle cx="50" cy="71.6" r="7" fill="#D4AF37"></circle><text x="50" y="248" text-anchor="middle" font-size="16" fill="#617781">基线</text><circle cx="203.33333333333334" cy="90.80000000000001" r="7" fill="#D4AF37"></circle><text x="203.33333333333334" y="248" text-anchor="middle" font-size="16" fill="#617781">第7天</text><circle cx="356.6666666666667" cy="108.8" r="7" fill="#D4AF37"></circle><text x="356.6666666666667" y="248" text-anchor="middle" font-size="16" fill="#617781">第14天</text><circle cx="510" cy="123.19999999999999" r="7" fill="#D4AF37"></circle><text x="510" y="248" text-anchor="middle" font-size="16" fill="#617781">第28天</text>
+    </svg>
+  </div>
+      <div><div class="muted">GAD-7</div>
+    <svg viewBox="0 0 560 260" class="mini-line">
+      <g stroke="#d8e5ea" stroke-width="1">
+        <line x1="42" y1="50" x2="530" y2="50"></line><line x1="42" y1="100" x2="530" y2="100"></line><line x1="42" y1="150" x2="530" y2="150"></line><line x1="42" y1="200" x2="530" y2="200"></line>
+      </g>
+      <polyline points="50,66.61538461538458 203.33333333333334,88.76923076923077 356.6666666666667,106.76923076923077 510,123.38461538461539" fill="none" stroke="#1F7A5C" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"></polyline>
+      <circle cx="50" cy="66.61538461538458" r="7" fill="#1F7A5C"></circle><text x="50" y="248" text-anchor="middle" font-size="16" fill="#617781">基线</text><circle cx="203.33333333333334" cy="88.76923076923077" r="7" fill="#1F7A5C"></circle><text x="203.33333333333334" y="248" text-anchor="middle" font-size="16" fill="#617781">第7天</text><circle cx="356.6666666666667" cy="106.76923076923077" r="7" fill="#1F7A5C"></circle><text x="356.6666666666667" y="248" text-anchor="middle" font-size="16" fill="#617781">第14天</text><circle cx="510" cy="123.38461538461539" r="7" fill="#1F7A5C"></circle><text x="510" y="248" text-anchor="middle" font-size="16" fill="#617781">第28天</text>
+    </svg>
+  </div>
+      <div><div class="muted">PHQ-9</div>
+    <svg viewBox="0 0 560 260" class="mini-line">
+      <g stroke="#d8e5ea" stroke-width="1">
+        <line x1="42" y1="50" x2="530" y2="50"></line><line x1="42" y1="100" x2="530" y2="100"></line><line x1="42" y1="150" x2="530" y2="150"></line><line x1="42" y1="200" x2="530" y2="200"></line>
+      </g>
+      <polyline points="50,68 203.33333333333334,91.14285714285714 356.6666666666667,109.14285714285714 510,125.85714285714286" fill="none" stroke="#0B4F6C" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"></polyline>
+      <circle cx="50" cy="68" r="7" fill="#0B4F6C"></circle><text x="50" y="248" text-anchor="middle" font-size="16" fill="#617781">基线</text><circle cx="203.33333333333334" cy="91.14285714285714" r="7" fill="#0B4F6C"></circle><text x="203.33333333333334" y="248" text-anchor="middle" font-size="16" fill="#617781">第7天</text><circle cx="356.6666666666667" cy="109.14285714285714" r="7" fill="#0B4F6C"></circle><text x="356.6666666666667" y="248" text-anchor="middle" font-size="16" fill="#617781">第14天</text><circle cx="510" cy="125.85714285714286" r="7" fill="#0B4F6C"></circle><text x="510" y="248" text-anchor="middle" font-size="16" fill="#617781">第28天</text>
+    </svg>
+  </div>
+    </div>
+  </div>
+      </div>
+
+      <div class="panel">
+        <div class="panel-header">
+          <h2 class="panel-title">数据导出与脱敏</h2>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <tbody>
+              <tr><th>默认标识</th><td>research_id</td></tr>
+              <tr><th>脱敏导出</th><td>不导出姓名和手机号</td></tr>
+              <tr><th>导出格式</th><td>CSV、Excel</td></tr>
+              <tr><th>导出内容</th><td>随访节点、症状评分、量表分级、依从性、安全性记录</td></tr>
+              <tr><th>审计记录</th><td>数据导出写入审计日志</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="visual-gallery section">
+      <article class="visual-tile">
+        <img src="../assets/stats-dashboard-visual.svg" alt="数据统计驾驶舱预览图">
+        <div class="tile-body">
+          <h3>图表化数据驾驶舱</h3>
+          <p>顶部保留核心指标，其他信息以折线图、环形图、柱状图和个人轨迹呈现。</p>
+        </div>
+      </article>
+      <article class="visual-tile">
+        <img src="../assets/data-security-visual.svg" alt="脱敏导出与审计图">
+        <div class="tile-body">
+          <h3>数据脱敏与审计留痕</h3>
+          <p>数据统计页默认仅显示研究编号，导出前提示脱敏范围，关键操作写入审计日志。</p>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  
+  
+
+
+</body></html>

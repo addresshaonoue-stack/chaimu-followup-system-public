@@ -1,0 +1,344 @@
+{
+  "note": "脱敏演示数据，仅用于系统功能和成果转化路径展示，不代表真实临床疗效、安全性或统计学结论。",
+  "overview": {
+    "patients": 120,
+    "followups": 486,
+    "completionRate": 87.5,
+    "dataCompleteness": 93.2,
+    "adverseEvents": 3,
+    "doctorReviewed": 428,
+    "auditLogs": 632
+  },
+  "visits": [
+    "基线",
+    "第7天",
+    "第14天",
+    "第28天"
+  ],
+  "scaleTrends": {
+    "moodLow": [
+      12.6,
+      10.8,
+      9.4,
+      8.1
+    ],
+    "phq9": [
+      12.6,
+      10.8,
+      9.4,
+      8.1
+    ],
+    "gad7": [
+      11.8,
+      10.2,
+      8.9,
+      7.7
+    ],
+    "sleep": [
+      13.2,
+      11.6,
+      10.1,
+      8.9
+    ],
+    "tcmSymptoms": [
+      18.5,
+      15.9,
+      13.8,
+      12.2
+    ]
+  },
+  "cohort": {
+    "averageAge": 45.8,
+    "ageRange": "18-72岁",
+    "male": 42,
+    "female": 78,
+    "initialVisits": 86,
+    "revisitFollowups": 34,
+    "completedDay28": 92,
+    "atLeastTwoFollowups": 108
+  },
+  "ageDistribution": [
+    {
+      "label": "18-30岁",
+      "value": 18
+    },
+    {
+      "label": "31-45岁",
+      "value": 42
+    },
+    {
+      "label": "46-60岁",
+      "value": 38
+    },
+    {
+      "label": "61-72岁",
+      "value": 22
+    }
+  ],
+  "sexDistribution": [
+    {
+      "label": "男性",
+      "value": 42
+    },
+    {
+      "label": "女性",
+      "value": 78
+    }
+  ],
+  "symptomDistribution": [
+    {
+      "label": "失眠",
+      "value": 76
+    },
+    {
+      "label": "焦虑",
+      "value": 68
+    },
+    {
+      "label": "情绪低落",
+      "value": 51
+    },
+    {
+      "label": "心悸",
+      "value": 44
+    },
+    {
+      "label": "胸闷",
+      "value": 39
+    },
+    {
+      "label": "乏力",
+      "value": 57
+    },
+    {
+      "label": "易怒",
+      "value": 36
+    },
+    {
+      "label": "纳差",
+      "value": 29
+    }
+  ],
+  "syndromeDistribution": [
+    {
+      "label": "肝郁化火",
+      "value": 34
+    },
+    {
+      "label": "痰热内扰",
+      "value": 28
+    },
+    {
+      "label": "肝郁脾虚",
+      "value": 26
+    },
+    {
+      "label": "心脾两虚",
+      "value": 18
+    },
+    {
+      "label": "阴虚火旺",
+      "value": 14
+    }
+  ],
+  "completion": [
+    {
+      "label": "基线",
+      "completed": 120,
+      "rate": 100
+    },
+    {
+      "label": "第7天",
+      "completed": 112,
+      "rate": 93.3
+    },
+    {
+      "label": "第14天",
+      "completed": 104,
+      "rate": 86.7
+    },
+    {
+      "label": "第28天",
+      "completed": 92,
+      "rate": 76.7
+    }
+  ],
+  "safety": {
+    "adverseEvents": 3,
+    "message": "当前演示数据记录不良事件3例，不代表真实安全性结论。"
+  },
+  "adverseTypes": [
+    {
+      "label": "胃肠不适",
+      "value": 1
+    },
+    {
+      "label": "口干",
+      "value": 1
+    },
+    {
+      "label": "头晕",
+      "value": 1
+    }
+  ],
+  "quality": [
+    {
+      "label": "完整性",
+      "value": 93.2
+    },
+    {
+      "label": "及时性",
+      "value": 88.6
+    },
+    {
+      "label": "一致性",
+      "value": 91.4
+    },
+    {
+      "label": "可追溯性",
+      "value": 96.8
+    },
+    {
+      "label": "脱敏合规性",
+      "value": 98.5
+    },
+    {
+      "label": "医生审核闭环率",
+      "value": 88.1
+    }
+  ],
+  "researchAssets": {
+    "variables": 42,
+    "structuredFields": 86,
+    "exportTables": 8,
+    "auditLogs": 632,
+    "paperIndicators": 18,
+    "copyrightModules": 12,
+    "transformationAttachments": 9
+  },
+  "monthlyFollowups": [
+    {
+      "label": "1月",
+      "value": 58
+    },
+    {
+      "label": "2月",
+      "value": 72
+    },
+    {
+      "label": "3月",
+      "value": 80
+    },
+    {
+      "label": "4月",
+      "value": 86
+    },
+    {
+      "label": "5月",
+      "value": 92
+    },
+    {
+      "label": "6月",
+      "value": 98
+    }
+  ],
+  "exportTrend": [
+    {
+      "label": "1月",
+      "value": 2
+    },
+    {
+      "label": "2月",
+      "value": 4
+    },
+    {
+      "label": "3月",
+      "value": 5
+    },
+    {
+      "label": "4月",
+      "value": 7
+    },
+    {
+      "label": "5月",
+      "value": 8
+    },
+    {
+      "label": "6月",
+      "value": 10
+    }
+  ],
+  "auditDistribution": [
+    {
+      "label": "创建患者",
+      "value": 120
+    },
+    {
+      "label": "提交随访",
+      "value": 486
+    },
+    {
+      "label": "医生审核",
+      "value": 428
+    },
+    {
+      "label": "不良事件处理",
+      "value": 3
+    },
+    {
+      "label": "脱敏导出",
+      "value": 24
+    },
+    {
+      "label": "二维码生成",
+      "value": 120
+    }
+  ],
+  "reviewerStack": [
+    {
+      "label": "已审核",
+      "value": 428
+    },
+    {
+      "label": "待复核",
+      "value": 38
+    },
+    {
+      "label": "需补充",
+      "value": 20
+    }
+  ],
+  "singlePatient": {
+    "research_id": "CMKY-DEMO-0086",
+    "sex": "女",
+    "age": 46,
+    "diagnosis": "郁病",
+    "syndrome": "痰热内扰",
+    "trajectory": {
+      "moodLow": [
+        12,
+        11,
+        10,
+        9
+      ],
+      "gad7": [
+        11,
+        10,
+        9,
+        8
+      ],
+      "sleep": [
+        13,
+        12,
+        10,
+        9
+      ],
+      "tcmSymptoms": [
+        19,
+        16,
+        14,
+        12
+      ]
+    }
+  }
+}

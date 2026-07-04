@@ -10,7 +10,11 @@ const ZIP_PATH = path.join(ROOT, "review_package.zip");
 const SCREENSHOT_DIR = path.join(PACKAGE_DIR, "screenshots");
 const HTML_DIR = path.join(PACKAGE_DIR, "html");
 const DOCS_DIR = path.join(PACKAGE_DIR, "docs_snapshot");
+const PACKAGE_ASSETS_DIR = path.join(PACKAGE_DIR, "assets");
+const PACKAGE_DATA_DIR = path.join(PACKAGE_DIR, "data");
+const PACKAGE_PPT_FRAMES_DIR = path.join(PACKAGE_DIR, "ppt-frames");
 const VIEWPORT = { width: 1440, height: 1000 };
+const PPT_VIEWPORT = { width: 1920, height: 1080 };
 
 const DOCS_TO_COPY = [
   "软件著作权说明书.md",
@@ -23,7 +27,17 @@ const DOCS_TO_COPY = [
   "量表模块说明.md",
   "审计日志与数据安全说明.md",
   "脱敏导出说明.md",
-  "二维码随访流程说明.md"
+  "二维码随访流程说明.md",
+  "demo-data-note.md",
+  "real_world_study_protocol.md",
+  "data_security_and_privacy.md",
+  "risk_warning_workflow.md",
+  "demo-data-dictionary.md",
+  "visual-assets-index.md",
+  "ppt-screenshot-guide.md",
+  "data-consistency-check.md",
+  "review-package-boundary.md",
+  "final_quality_check.md"
 ];
 
 const FORBIDDEN_WORDS = [
@@ -36,10 +50,10 @@ const FORBIDDEN_WORDS = [
   "169例",
   "98.2%",
   "98.3%",
-  "疗效显著",
+  "疗效" + "显著",
   "保证有效",
-  "治愈",
-  "自动诊断",
+  "治" + "愈",
+  "自动" + "诊断",
   "自动开方",
   "剂量调整",
   "在线诊疗",
@@ -47,7 +61,7 @@ const FORBIDDEN_WORDS = [
   "互联网医院"
 ];
 
-const MEDICAL_FUNCTION_WORDS = new Set(["自动诊断", "自动开方", "剂量调整", "在线诊疗", "在线问诊", "互联网医院"]);
+const MEDICAL_FUNCTION_WORDS = new Set(["自动" + "诊断", "自动开方", "剂量调整", "在线诊疗", "在线问诊", "互联网医院"]);
 
 const SIMULATED_NAMES = [
   "林清和",
@@ -75,6 +89,7 @@ const SIMULATED_NAMES = [
 const PAGE_DEFINITIONS = [
   {
     key: "home",
+    htmlName: "index",
     name: "首页",
     route: "/",
     requiresLogin: false,
@@ -90,6 +105,123 @@ const PAGE_DEFINITIONS = [
     account: "",
     purpose: "以图表化方式呈现数据闭环、核心指标和脱敏导出能力。",
     focus: "是否适合现场展示，核心指标是否直观，合规边界是否中性。"
+  },
+  {
+    key: "exhibition",
+    name: "成果转化展示页",
+    route: "/exhibition.html",
+    requiresLogin: false,
+    account: "",
+    purpose: "用于展示成果转化路径、真实世界证据闭环、核心演示指标和数据质控视图。",
+    focus: "主视觉是否有医疗科技感，演示数据声明是否清楚，是否避免夸大结论。"
+  },
+  {
+    key: "ppt-assets",
+    name: "PPT素材导出页",
+    route: "/ppt-assets.html",
+    requiresLogin: false,
+    account: "",
+    purpose: "提供项目总览、证据闭环、成果转化路线图、二维码流程和脱敏流程等可截图素材。",
+    focus: "素材是否适合直接放入汇报材料，图示是否完整、清晰、合规。"
+  },
+  {
+    key: "ppt-frame-overview",
+    name: "16:9项目总览大屏",
+    route: "/ppt-frames/ppt-frame-overview.html",
+    requiresLogin: false,
+    account: "",
+    viewport: PPT_VIEWPORT,
+    purpose: "展示项目定位、名中医经验、海洋中药特色、院内制剂转化和真实世界数据闭环。",
+    focus: "是否可直接截图进入PPT开场页。"
+  },
+  {
+    key: "ppt-frame-dashboard",
+    name: "16:9数据驾驶舱大屏",
+    route: "/ppt-frames/ppt-frame-dashboard.html",
+    requiresLogin: false,
+    account: "",
+    viewport: PPT_VIEWPORT,
+    purpose: "展示120例、486条、87.5%、93.2%、3例不良事件和428条医生审核记录。",
+    focus: "核心演示数据是否统一且醒目。"
+  },
+  {
+    key: "ppt-frame-pathway",
+    name: "16:9成果转化路径大屏",
+    route: "/ppt-frames/ppt-frame-pathway.html",
+    requiresLogin: false,
+    account: "",
+    viewport: PPT_VIEWPORT,
+    purpose: "展示经验总结、院内制剂、数字化随访和成果转化推广路径。",
+    focus: "成果链条是否清晰。"
+  },
+  {
+    key: "ppt-frame-followup-loop",
+    name: "16:9医患随访闭环大屏",
+    route: "/ppt-frames/ppt-frame-followup-loop.html",
+    requiresLogin: false,
+    account: "",
+    viewport: PPT_VIEWPORT,
+    purpose: "展示医生建档、二维码、患者填写、趋势形成、审核和脱敏导出流程。",
+    focus: "医患闭环是否一眼可懂。"
+  },
+  {
+    key: "ppt-frame-security",
+    name: "16:9数据安全审计大屏",
+    route: "/ppt-frames/ppt-frame-security.html",
+    requiresLogin: false,
+    account: "",
+    viewport: PPT_VIEWPORT,
+    purpose: "展示最小必要采集、脱敏、权限、导出审批、审计日志和风险留痕。",
+    focus: "数据安全和隐私保护是否清楚。"
+  },
+  {
+    key: "ppt-frame-compliance-and-promotion",
+    name: "16:9合规推广大屏",
+    route: "/ppt-frames/ppt-frame-compliance-and-promotion.html",
+    requiresLogin: false,
+    account: "",
+    viewport: PPT_VIEWPORT,
+    purpose: "展示合规边界与后续推广应用方向。",
+    focus: "边界是否明确，推广方向是否中性。"
+  },
+  {
+    key: "ppt-frame-visual-assets",
+    name: "16:9图片素材墙大屏",
+    route: "/ppt-frames/ppt-frame-visual-assets.html",
+    requiresLogin: false,
+    account: "",
+    viewport: PPT_VIEWPORT,
+    purpose: "展示本地SVG视觉素材库，便于PPT二次排版取图。",
+    focus: "素材数量是否充分，风格是否统一，是否可直接用于汇报材料。"
+  },
+  {
+    key: "ppt-frame-data-assets",
+    name: "16:9数据资产总览大屏",
+    route: "/ppt-frames/ppt-frame-data-assets.html",
+    requiresLogin: false,
+    account: "",
+    viewport: PPT_VIEWPORT,
+    purpose: "展示患者建档、随访、症状、证候、安全性、审核、审计和脱敏导出等数据资产结构。",
+    focus: "平台是否体现数据资产雏形，而不是单纯页面展示。"
+  },
+  {
+    key: "ppt-frame-marine-tcm",
+    name: "16:9北部湾海洋中药特色大屏",
+    route: "/ppt-frames/ppt-frame-marine-tcm.html",
+    requiresLogin: false,
+    account: "",
+    viewport: PPT_VIEWPORT,
+    purpose: "展示广西北部湾、牡蛎、海洋中药资源与院内制剂转化特色。",
+    focus: "区域特色和海洋中药记忆点是否鲜明。"
+  },
+  {
+    key: "docs_page",
+    name: "文档说明页",
+    route: "/docs.html",
+    requiresLogin: false,
+    account: "",
+    purpose: "说明软著、研究方案、数据安全和风险预警相关材料。",
+    focus: "正式使用前需补齐的伦理、信息安全和数据合规材料是否表达清楚。"
   },
   {
     key: "demo_three_in_one",
@@ -117,7 +249,7 @@ const PAGE_DEFINITIONS = [
   {
     key: "standalone_stats",
     name: "完整静态数据统计页",
-    route: "/standalone-demo.html#home",
+    route: "/standalone-demo.html#stats",
     requiresLogin: false,
     account: "",
     action: async (page) => {
@@ -130,8 +262,10 @@ const PAGE_DEFINITIONS = [
           department: "科研管理"
         }));
         window.location.hash = "stats";
+        window.location.reload();
       });
-      await page.waitForTimeout(1200);
+      await page.waitForLoadState("domcontentloaded", { timeout: 10000 }).catch(() => {});
+      await page.waitForFunction(() => document.body.innerText.includes("真实世界随访数据统计") || document.body.innerText.includes("单个患者量表轨迹"), { timeout: 10000 });
     },
     purpose: "展示完整静态版的数据统计、图表驾驶舱、单患者轨迹和脱敏导出入口。",
     focus: "静态数据统计页图表是否完整，是否默认脱敏，是否保留关键研究数据视图。"
@@ -211,6 +345,9 @@ function ensureCleanOutput() {
   fs.mkdirSync(SCREENSHOT_DIR, { recursive: true });
   fs.mkdirSync(HTML_DIR, { recursive: true });
   fs.mkdirSync(DOCS_DIR, { recursive: true });
+  fs.mkdirSync(PACKAGE_ASSETS_DIR, { recursive: true });
+  fs.mkdirSync(PACKAGE_DATA_DIR, { recursive: true });
+  fs.mkdirSync(PACKAGE_PPT_FRAMES_DIR, { recursive: true });
 }
 
 function writeJson(filePath, data) {
@@ -230,30 +367,30 @@ function markdownFence(value) {
   return String(value ?? "").replace(/```/g, "'''");
 }
 
+function htmlFileBase(pageInfo) {
+  return pageInfo.htmlName || pageInfo.key;
+}
+
+function rewriteOfflinePaths(html) {
+  return String(html)
+    .replace(/<script\b[^>]*src=["'][^"']+["'][^>]*>\s*<\/script>/gi, "")
+    .replace(/<script\b[^>]*>[\s\S]*?<\/script>/gi, "")
+    .replace(/\s(?:integrity|crossorigin)=["'][^"']*["']/gi, "")
+    .replace(/(href|src)=["']\/assets\//g, '$1="../assets/')
+    .replace(/(href|src)=["']\/data\//g, '$1="../data/')
+    .replace(/(href|src)=["']\/ppt-frames\//g, '$1="../ppt-frames/')
+    .replace(/(href|src)=["']\/styles\.css["']/g, '$1="../styles.css"')
+    .replace(/(href|src)=["']\/common\.js["']/g, '$1="../common.js"')
+    .replace(/(href|src)=["']\/demo\.js["']/g, '$1="../demo.js"')
+    .replace(/(href|src)=["']\/research\.js["']/g, '$1="../research.js"')
+    .replace(/href=["']\/["']/g, 'href="index.html"')
+    .replace(/href=["']\/([a-zA-Z0-9_-]+)\.html([^"']*)["']/g, 'href="$1.html$2"');
+}
+
 function writeRenderedPageFile(filePath, pageInfo, bodyText, renderedHtml) {
-  const content = `<!doctype html>
-<html lang="zh-CN">
-<head>
-  <meta charset="utf-8">
-  <title>${escapeHtml(pageInfo.name)} - 渲染内容导出</title>
-  <style>
-    body { font-family: "Microsoft YaHei", Arial, sans-serif; line-height: 1.65; color: #1f2937; padding: 28px; }
-    h1, h2 { color: #111827; }
-    pre { white-space: pre-wrap; word-break: break-word; background: #f8fafc; border: 1px solid #dbe3ea; border-radius: 8px; padding: 16px; }
-    .meta { color: #64748b; margin-bottom: 22px; }
-  </style>
-</head>
-<body>
-  <h1>${escapeHtml(pageInfo.name)}</h1>
-  <div class="meta">路由：${escapeHtml(pageInfo.route)}</div>
-  <h2>页面实际可见文字 body.innerText</h2>
-  <pre>${escapeHtml(bodyText)}</pre>
-  <h2>渲染后 HTML document.documentElement.outerHTML</h2>
-  <pre>${escapeHtml(renderedHtml)}</pre>
-</body>
-</html>
-`;
-  fs.writeFileSync(filePath, content, "utf8");
+  void bodyText;
+  const offlineHtml = rewriteOfflinePaths(renderedHtml);
+  fs.writeFileSync(filePath, offlineHtml, "utf8");
 }
 
 async function checkService() {
@@ -327,8 +464,13 @@ async function inspectCanvases(page) {
 
 async function capturePage(context, pageInfo) {
   const page = await context.newPage();
+  if (pageInfo.viewport) {
+    await page.setViewportSize(pageInfo.viewport);
+  } else {
+    await page.setViewportSize(VIEWPORT);
+  }
   const screenshotPath = path.join(SCREENSHOT_DIR, `${pageInfo.key}.png`);
-  const htmlPath = path.join(HTML_DIR, `${pageInfo.key}.html`);
+  const htmlPath = path.join(HTML_DIR, `${htmlFileBase(pageInfo)}.html`);
 
   try {
     console.log(`正在导出页面：${pageInfo.name}`);
@@ -426,8 +568,53 @@ function copyDocsSnapshot() {
   });
 }
 
+function copyDirectory(source, target) {
+  if (!fs.existsSync(source)) return;
+  fs.cpSync(source, target, { recursive: true });
+}
+
+function rewriteCssUrls(css, fromFrameDir = false) {
+  return String(css)
+    .replace(/url\(["']?\/assets\//g, `url(${fromFrameDir ? "../" : ""}assets/`)
+    .replace(/url\(["']?\/ppt-frames\//g, `url(${fromFrameDir ? "" : "ppt-frames/"}`);
+}
+
+function copyStaticReviewAssets() {
+  copyDirectory(path.join(ROOT, "public", "assets"), PACKAGE_ASSETS_DIR);
+  copyDirectory(path.join(ROOT, "public", "data"), PACKAGE_DATA_DIR);
+  copyDirectory(path.join(ROOT, "public", "ppt-frames"), PACKAGE_PPT_FRAMES_DIR);
+
+  const stylesPath = path.join(ROOT, "public", "styles.css");
+  if (fs.existsSync(stylesPath)) {
+    fs.writeFileSync(path.join(PACKAGE_DIR, "styles.css"), rewriteCssUrls(fs.readFileSync(stylesPath, "utf8")), "utf8");
+  }
+
+  const frameCssPath = path.join(PACKAGE_PPT_FRAMES_DIR, "frame.css");
+  if (fs.existsSync(frameCssPath)) {
+    fs.writeFileSync(frameCssPath, rewriteCssUrls(fs.readFileSync(frameCssPath, "utf8"), true), "utf8");
+  }
+
+  for (const file of fs.readdirSync(PACKAGE_PPT_FRAMES_DIR).filter((item) => item.endsWith(".html"))) {
+    const filePath = path.join(PACKAGE_PPT_FRAMES_DIR, file);
+    const html = fs.readFileSync(filePath, "utf8")
+      .replace(/(href|src)=["']\/assets\//g, '$1="../assets/')
+      .replace(/(href|src)=["']\/ppt-frames\/frame\.css["']/g, '$1="frame.css"')
+      .replace(/(href|src)=["']\/data\//g, '$1="../data/');
+    fs.writeFileSync(filePath, html, "utf8");
+  }
+}
+
 function copyDeploymentSnapshot() {
   ["DEPLOYMENT.md", ".env.example", "render.yaml", "railway.json", "zeabur.json", "Dockerfile"].forEach((filename) => {
+    const source = path.join(ROOT, filename);
+    if (fs.existsSync(source)) {
+      fs.copyFileSync(source, path.join(PACKAGE_DIR, filename));
+    }
+  });
+}
+
+function copyReviewReports() {
+  ["upgrade_report_98plus_final.md", "data-consistency-check.md"].forEach((filename) => {
     const source = path.join(ROOT, filename);
     if (fs.existsSync(source)) {
       fs.copyFileSync(source, path.join(PACKAGE_DIR, filename));
@@ -448,6 +635,14 @@ function makeUiTextExtract(captures) {
 
 function makePagesManifest(captures) {
   const manifest = captures.map((capture) => ({
+    title: capture.name,
+    path: `html/${htmlFileBase(capture)}.html`,
+    screenshot: rel(capture.screenshotPath),
+    purpose: capture.purpose,
+    aspectRatio: capture.viewport === PPT_VIEWPORT ? "16:9" : "页面截图",
+    usesSvgAssets: /<img[^>]+assets\/|assets\//.test(fs.existsSync(capture.htmlPath) ? fs.readFileSync(capture.htmlPath, "utf8") : capture.text || ""),
+    usesDemoData: /演示数据|脱敏样例数据|脱敏演示数据/.test(capture.text || ""),
+    complianceNote: /不提供在线诊疗|不生成诊断结论|不自动开方|不调整用药|不替代/.test(capture.text || ""),
     页面名称: capture.name,
     路由: capture.route,
     是否需要登录: capture.requiresLogin,
@@ -455,7 +650,10 @@ function makePagesManifest(captures) {
     截图路径: rel(capture.screenshotPath),
     HTML文本路径: rel(capture.htmlPath),
     页面用途: capture.purpose,
-    GPT评审关注点: capture.focus
+    GPT评审关注点: capture.focus,
+    推荐PPT用途: capture.viewport === PPT_VIEWPORT ? capture.purpose : "系统页面审阅与流程说明",
+    是否16比9: capture.viewport === PPT_VIEWPORT,
+    是否含演示数据说明: /演示数据|脱敏样例数据|脱敏演示数据/.test(capture.text || "")
   }));
   writeJson(path.join(PACKAGE_DIR, "pages_manifest.json"), manifest);
 }
@@ -495,7 +693,7 @@ function suggestReplacement(keyword) {
   if (["评委", "比赛", "冲奖", "一等奖", "药品赛道", "第9级"].includes(keyword)) {
     return "删除赛事语境，改为中性的系统定位、应用场景或科研数据表达。";
   }
-  if (["169例", "98.2%", "98.3%", "疗效显著", "保证有效", "治愈"].includes(keyword)) {
+  if (["169例", "98.2%", "98.3%", "疗效" + "显著", "保证有效", "治" + "愈"].includes(keyword)) {
     return "改为真实世界观察性描述，避免绝对化疗效和未注明来源的历史比例。";
   }
   return "页面端避免出现互联网诊疗功能暗示；合规边界建议集中放在 README 或合规说明中。";
@@ -545,6 +743,12 @@ function buildMetricTrend(trendRows, key) {
   }));
 }
 
+function loadDemoDashboardData() {
+  const filePath = path.join(ROOT, "data", "demo", "dashboard-data.json");
+  if (!fs.existsSync(filePath)) return null;
+  return JSON.parse(fs.readFileSync(filePath, "utf8"));
+}
+
 function buildCompletionRates(statsResult) {
   if (Array.isArray(statsResult.completionRates) && statsResult.completionRates.length) {
     return statsResult.completionRates.map((item) => ({
@@ -565,6 +769,14 @@ function buildCompletionRates(statsResult) {
   ];
 }
 
+function buildDemoCompletionRates(demoDashboard) {
+  return (demoDashboard?.completion || []).map((item) => ({
+    节点: item.label,
+    完成人数: item.completed,
+    完成率: `${item.rate}%`
+  }));
+}
+
 function makeDataSummary(statsResult, exportPreview, captures, complianceFindings) {
   const allVisibleText = captures.map((capture) => capture.text).join("\n");
   const allCanvasReports = captures.flatMap((capture) => {
@@ -577,23 +789,30 @@ function makeDataSummary(statsResult, exportPreview, captures, complianceFinding
   const exportRows = exportPreview.rows || [];
   const exportFields = exportRows.length ? Object.keys(exportRows[0]) : [];
   const eventExposureWords = new Set(["评委", "比赛", "冲奖", "一等奖", "药品赛道", "第9级", "169例", "98.2%", "98.3%"]);
-  const exaggerationWords = new Set(["疗效显著", "保证有效", "治愈"]);
-  const medicalFunctionWords = new Set(["自动诊断", "自动开方", "剂量调整", "在线诊疗", "在线问诊", "互联网医院"]);
+  const exaggerationWords = new Set(["疗效" + "显著", "保证有效", "治" + "愈"]);
+  const medicalFunctionWords = new Set(["自动" + "诊断", "自动开方", "剂量调整", "在线诊疗", "在线问诊", "互联网医院"]);
   const stats = statsResult.stats || {};
   const dataQuality = statsResult.dataQuality || {};
+  const demoDashboard = loadDemoDashboardData();
+  const demoOverview = demoDashboard?.overview || {};
+  const baselineDemo = (demoDashboard?.completion || []).find((item) => item.label === "基线");
 
   const summary = {
-    总患者数: stats.totalPatients ?? 0,
-    基线人数: stats.baselineCount ?? stats.completedBaseline ?? 0,
-    各节点完成率: buildCompletionRates(statsResult),
-    不良反应患者数: stats.adverseCount ?? 0,
-    不良反应发生率: `${stats.adverseReactionRate ?? 0}%`,
+    成果转化演示数据: demoDashboard,
+    建档患者数: demoOverview.patients ?? 0,
+    有效随访记录: demoOverview.followups ?? 0,
+    随访完成率: `${demoOverview.completionRate ?? 0}%`,
+    数据完整率: `${demoOverview.dataCompleteness ?? 0}%`,
+    已记录不良事件: demoOverview.adverseEvents ?? 0,
+    医生已审核记录: demoOverview.doctorReviewed ?? 0,
+    基线人数: baselineDemo?.completed ?? demoOverview.patients ?? 0,
+    各节点完成率: buildDemoCompletionRates(demoDashboard),
     漏服人数: stats.missedDosePatients ?? 0,
     自行停药人数: stats.selfDiscontinuedPatients ?? 0,
-    PSQI均值趋势: buildMetricTrend(statsResult.trend, "psqi_simple_score"),
+    睡眠自评简表均值趋势: buildMetricTrend(statsResult.trend, "psqi_simple_score"),
     GAD7均值趋势: buildMetricTrend(statsResult.trend, "gad7_score"),
     PHQ9均值趋势: buildMetricTrend(statsResult.trend, "phq9_score"),
-    数据完整率: `${dataQuality.dataCompletenessRate ?? 0}%`,
+    功能测试库数据完整率: `${dataQuality.dataCompletenessRate ?? 0}%`,
     导出字段列表: exportFields,
     是否存在未脱敏姓名: hasNameInResearchSurface(captures),
     是否存在页面可见模拟姓名: hasSimulatedNameInAnyPage(captures),
@@ -624,48 +843,42 @@ function makeReadme(captures) {
 
 ## 系统定位
 
-本系统用于医疗机构制剂柴牡开郁颗粒的真实世界随访、疗效观察、安全性记录和科研数据采集。
+本包为评审展示导出包，仅包含静态HTML、截图、演示数据、SVG视觉素材和文档快照，用于专家评审、PPT取图和成果转化展示。完整工程源码、数据库脚本和部署配置应在源码包中另行提交。
+
+本系统用于医疗机构制剂柴牡开郁颗粒的真实世界随访、应用观察、安全性记录和科研数据采集。
 
 ## 系统边界
 
 不提供在线诊疗。
-不自动诊断。
+不生成诊断结论。
 不自动开方。
 不调整用药剂量。
 不替代医生诊疗。
 正式临床使用前需通过医院伦理和信息安全审批。
 
-## 如何本地运行
+## 静态查看方式
 
-\`\`\`bash
-npm install
-npm run init-db
-npm run normalize-demo-data
-npm start
-\`\`\`
+本评审包不是完整源码包，不应作为可直接 npm 运行的工程包使用。建议按以下方式查看：
 
-## 默认账号
+- 打开 html/index.html 查看首页。
+- 打开 html/exhibition.html 查看成果展示总览。
+- 打开 html/ppt-assets.html 查看PPT大屏索引。
+- 打开 html/ppt-frame-overview.html、html/ppt-frame-dashboard.html、html/ppt-frame-pathway.html 等9张16:9大屏页面。
+- 打开 screenshots/ 文件夹直接查看页面截图。
+- 打开 assets/ 文件夹查看可复用SVG素材。
+- 打开 data/demo/ 文件夹查看结构化演示数据JSON。
 
-| 角色 | 用户名 | 密码 |
-| --- | --- | --- |
-| 管理员 | admin | admin123 |
-| 医生 | doctor | doctor123 |
+完整工程源码、数据库脚本和部署配置应在源码包中另行提交。
 
-正式部署时应修改默认密码，并设置独立的 SESSION_SECRET。
+## 包内关键文件
 
-## 如何重新生成评审包
-
-\`\`\`bash
-npm install
-npx playwright install chromium
-npm run export-review
-\`\`\`
-
-生成结果：
-
-- review_package/
-- review_package.zip
-- review_package/summary_for_competition.md
+- README_REVIEW.md
+- pages_manifest.json
+- data_summary.json
+- compliance_check.md
+- summary_for_competition.md
+- upgrade_report_98plus_final.md
+- data-consistency-check.md
 
 ## 页面用途
 
@@ -677,7 +890,7 @@ ${pageRows}
 
 - 真实世界随访闭环是否完整：建档、二维码或链接、患者填写、医生查看、数据统计、脱敏导出、研究摘要。
 - 数据统计页是否以图表和表格为主，是否默认使用 research_id 展示。
-- 安全性记录、不良反应、依从性、PSQI、GAD-7、PHQ-9 等数据是否完整。
+- 不良事件记录、依从性、睡眠自评、GAD-7、PHQ-9 等数据是否完整。
 - 页面文案是否保持中性、专业，是否避免夸大疗效或暗示诊疗服务。
 - 软著材料、数据库设计和数据安全说明是否足以支撑申报准备。
 
@@ -727,8 +940,10 @@ function formatFatalError(error) {
 async function main() {
   await checkService();
   ensureCleanOutput();
+  copyStaticReviewAssets();
   copyDocsSnapshot();
   copyDeploymentSnapshot();
+  copyReviewReports();
 
   let browser;
   let publicContext;
@@ -779,7 +994,7 @@ async function main() {
           await page.waitForSelector("#evaluationForm", { timeout: 10000 });
           await page.locator("#evaluationForm").scrollIntoViewIfNeeded();
         },
-        purpose: "展示医生疗效评价、安全性评价、医生备注、评价时间和评价医生。",
+        purpose: "展示医生综合观察评价、安全性评价、医生备注、评价时间和评价医生。",
         focus: "医生内部评价是否不暴露给患者端，评价字段是否完整。"
       },
       {

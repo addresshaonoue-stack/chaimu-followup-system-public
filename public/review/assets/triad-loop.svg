@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 520" role="img" aria-labelledby="title desc">
+  <title id="title">三位一体成果闭环</title>
+  <desc id="desc">名中医经验方、海洋中药牡蛎和真实世界随访系统协同形成成果转化闭环</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#eef7f1"/>
+      <stop offset="0.5" stop-color="#f6f8ff"/>
+      <stop offset="1" stop-color="#fff6e8"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="18" stdDeviation="18" flood-color="#21332e" flood-opacity="0.15"/>
+    </filter>
+  </defs>
+  <rect width="1120" height="520" rx="34" fill="url(#bg)"/>
+  <text x="56" y="70" font-family="Microsoft YaHei, Arial" font-size="34" font-weight="900" fill="#1f2a24">三位一体成果闭环</text>
+  <text x="58" y="108" font-family="Microsoft YaHei, Arial" font-size="18" fill="#66736b">名中医经验传承、广西海洋中药资源利用与真实世界数据评价协同推进</text>
+
+  <g filter="url(#shadow)">
+    <rect x="74" y="158" width="286" height="244" rx="24" fill="#ffffff" stroke="#d9ded6"/>
+    <circle cx="217" cy="228" r="48" fill="#dcfce7"/>
+    <path d="M194 213h46M194 233h46M202 253h30" stroke="#1f7a5c" stroke-width="8" stroke-linecap="round"/>
+    <rect x="180" y="190" width="74" height="92" rx="8" fill="none" stroke="#1f7a5c" stroke-width="6"/>
+    <text x="128" y="324" font-family="Microsoft YaHei, Arial" font-size="25" font-weight="800" fill="#1f2a24">名中医经验方</text>
+    <text x="116" y="358" font-family="Microsoft YaHei, Arial" font-size="16" fill="#66736b">承接经验传承与制剂应用场景</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="418" y="158" width="286" height="244" rx="24" fill="#ffffff" stroke="#d9ded6"/>
+    <circle cx="561" cy="228" r="48" fill="#fef3c7"/>
+    <path d="M525 238c26-44 72-47 92-7 12 24-5 52-35 58-34 7-65-13-57-51z" fill="#fff7e6" stroke="#b45309" stroke-width="6"/>
+    <path d="M543 238c21 12 40 27 57 47M561 225c13 21 23 42 31 63M581 222c5 24 7 46 6 66" stroke="#b45309" stroke-width="4" fill="none" stroke-linecap="round"/>
+    <text x="484" y="324" font-family="Microsoft YaHei, Arial" font-size="25" font-weight="800" fill="#1f2a24">海洋中药牡蛎</text>
+    <text x="462" y="358" font-family="Microsoft YaHei, Arial" font-size="16" fill="#66736b">体现区域特色与资源应用价值</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="762" y="158" width="286" height="244" rx="24" fill="#ffffff" stroke="#d9ded6"/>
+    <circle cx="905" cy="228" r="48" fill="#dbeafe"/>
+    <rect x="858" y="196" width="94" height="70" rx="10" fill="#ffffff" stroke="#2563eb" stroke-width="6"/>
+    <polyline points="875,246 892,228 908,235 934,211" fill="none" stroke="#2563eb" stroke-width="6" stroke-linecap="round"/>
+    <rect x="878" y="279" width="54" height="10" rx="5" fill="#2563eb"/>
+    <text x="806" y="324" font-family="Microsoft YaHei, Arial" font-size="25" font-weight="800" fill="#1f2a24">真实世界随访系统</text>
+    <text x="804" y="358" font-family="Microsoft YaHei, Arial" font-size="16" fill="#66736b">采集随访、量表、安全性与评价数据</text>
+  </g>
+
+  <g stroke="#1f7a5c" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M361 280h45"/>
+    <path d="M396 268l12 12-12 12"/>
+    <path d="M705 280h45"/>
+    <path d="M740 268l12 12-12 12"/>
+    <path d="M850 421c-188 64-370 62-548-4"/>
+    <path d="M317 407l-26 5 17 20"/>
+  </g>
+  <rect x="250" y="430" width="620" height="48" rx="24" fill="#1f7a5c"/>
+  <text x="302" y="462" font-family="Microsoft YaHei, Arial" font-size="19" font-weight="800" fill="#ffffff">制剂应用 - 患者随访 - 数据评价 - 持续优化 - 区域推广</text>
+</svg>

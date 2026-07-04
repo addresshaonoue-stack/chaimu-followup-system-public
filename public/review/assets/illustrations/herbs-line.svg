@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 780 260" role="img" aria-label="柴胡牡蛎龙骨茯苓中药线稿">
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <g stroke="#0E8F6E" stroke-width="8">
+      <path d="M82 210c30-70 38-130 24-180"/>
+      <path d="M104 100c42-34 80-44 114-30-16 38-52 58-108 60"/>
+      <path d="M92 154c-42-28-70-32-104-12 22 34 54 48 98 44"/>
+    </g>
+    <g stroke="#C8A45D" stroke-width="8">
+      <path d="M318 54c74 22 116 66 126 132-50 40-124 32-166-18-34-40-24-88 40-114z"/>
+      <path d="M304 112c46 20 82 46 108 78M346 82c22 36 38 78 48 126"/>
+    </g>
+    <g stroke="#0B4F6C" stroke-width="8">
+      <path d="M520 196c38-78 96-118 174-120 18 72-14 120-96 144-30 8-56 0-78-24z"/>
+      <path d="M552 182c38-14 72-38 102-72M602 164c20-4 40-4 60 0"/>
+    </g>
+  </g>
+  <g font-family="Microsoft YaHei, Arial" font-size="24" font-weight="800" fill="#1f2a24">
+    <text x="52" y="244">柴胡</text>
+    <text x="344" y="244">牡蛎</text>
+    <text x="604" y="244">龙骨 / 茯苓</text>
+  </g>
+</svg>

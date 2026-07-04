@@ -1,0 +1,29 @@
+{
+  "note": "脱敏样例患者数据，仅用于页面演示和评审截图。",
+  "patients": [
+    {
+      "research_id": "CMKY-DEMO-0001",
+      "sex": "女",
+      "age": 42,
+      "diagnosis": "郁病",
+      "syndrome": "痰热内扰",
+      "baseline": { "phq9": 12, "gad7": 11, "sleep": 8 },
+      "latest": { "phq9": 7, "gad7": 6, "sleep": 6 },
+      "completion": "6/6",
+      "safety": "记录胃肠不适1次，已联系复核",
+      "reviewStatus": "医生已审核"
+    },
+    {
+      "research_id": "CMKY-DEMO-0002",
+      "sex": "男",
+      "age": 36,
+      "diagnosis": "郁病",
+      "syndrome": "肝郁化火",
+      "baseline": { "phq9": 10, "gad7": 12, "sleep": 7 },
+      "latest": { "phq9": 8, "gad7": 7, "sleep": 6 },
+      "completion": "5/6",
+      "safety": "当前样例未记录不良事件",
+      "reviewStatus": "待医生审核"
+    }
+  ]
+}

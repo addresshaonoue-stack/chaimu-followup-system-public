@@ -71,8 +71,8 @@ function computePatientRisks(patient, followups, now = dayjs()) {
       alerts.push({
         type: "adverse_reaction",
         level: item.severity === "重" ? "danger" : "warning",
-        title: "中重度不良反应",
-        message: `${item.visit_label} 出现${item.severity}度不良反应：${item.adverse_type || "未填写类型"}`
+        title: "中重度不良事件",
+        message: `${item.visit_label} 出现${item.severity}度不良事件：${item.adverse_type || "未填写类型"}`
       });
     }
 

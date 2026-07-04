@@ -1,0 +1,468 @@
+{
+  "note": "本文件列出评审包内可离线复用的SVG视觉素材。",
+  "total": 66,
+  "assets": [
+    {
+      "title": "北部湾海浪背景",
+      "file": "beibu-gulf-waves.svg",
+      "category": "北部湾海洋中药",
+      "path": "/assets/illustrations/beibu-gulf-waves.svg",
+      "recommendedUse": "项目特色页、开场页"
+    },
+    {
+      "title": "海洋科技网格背景",
+      "file": "ocean-grid-bg.svg",
+      "category": "北部湾海洋中药",
+      "path": "/assets/illustrations/ocean-grid-bg.svg",
+      "recommendedUse": "项目特色页、开场页"
+    },
+    {
+      "title": "牡蛎壳水印",
+      "file": "oyster-shell-watermark.svg",
+      "category": "北部湾海洋中药",
+      "path": "/assets/illustrations/oyster-shell-watermark.svg",
+      "recommendedUse": "项目特色页、开场页"
+    },
+    {
+      "title": "牡蛎药材卡片",
+      "file": "oyster-medicine-card.svg",
+      "category": "北部湾海洋中药",
+      "path": "/assets/illustrations/oyster-medicine-card.svg",
+      "recommendedUse": "项目特色页、开场页"
+    },
+    {
+      "title": "北部湾海洋中药资源示意图",
+      "file": "marine-medicine-map.svg",
+      "category": "北部湾海洋中药",
+      "path": "/assets/illustrations/marine-medicine-map.svg",
+      "recommendedUse": "项目特色页、开场页"
+    },
+    {
+      "title": "金色海岸线装饰",
+      "file": "golden-coastline-line.svg",
+      "category": "北部湾海洋中药",
+      "path": "/assets/illustrations/golden-coastline-line.svg",
+      "recommendedUse": "项目特色页、开场页"
+    },
+    {
+      "title": "海平线与湾区轮廓",
+      "file": "gulf-horizon.svg",
+      "category": "北部湾海洋中药",
+      "path": "/assets/illustrations/gulf-horizon.svg",
+      "recommendedUse": "项目特色页、开场页"
+    },
+    {
+      "title": "海洋药材资源图",
+      "file": "marine-herb-resource.svg",
+      "category": "北部湾海洋中药",
+      "path": "/assets/illustrations/marine-herb-resource.svg",
+      "recommendedUse": "项目特色页、开场页"
+    },
+    {
+      "title": "数据海浪曲线",
+      "file": "ocean-data-wave.svg",
+      "category": "北部湾海洋中药",
+      "path": "/assets/illustrations/ocean-data-wave.svg",
+      "recommendedUse": "项目特色页、开场页"
+    },
+    {
+      "title": "牡蛎群落线稿",
+      "file": "oyster-cluster.svg",
+      "category": "北部湾海洋中药",
+      "path": "/assets/illustrations/oyster-cluster.svg",
+      "recommendedUse": "项目特色页、开场页"
+    },
+    {
+      "title": "北部湾资源到医院转化图",
+      "file": "bay-to-hospital.svg",
+      "category": "北部湾海洋中药",
+      "path": "/assets/illustrations/bay-to-hospital.svg",
+      "recommendedUse": "项目特色页、开场页"
+    },
+    {
+      "title": "海洋中药特色徽章",
+      "file": "marine-tcm-badge.svg",
+      "category": "北部湾海洋中药",
+      "path": "/assets/illustrations/marine-tcm-badge.svg",
+      "recommendedUse": "项目特色页、开场页"
+    },
+    {
+      "title": "柴胡线稿",
+      "file": "chaihu-line.svg",
+      "category": "中药组方",
+      "path": "/assets/herbs/chaihu-line.svg",
+      "recommendedUse": "组方来源页、机制说明页"
+    },
+    {
+      "title": "牡蛎线稿",
+      "file": "oyster-line.svg",
+      "category": "中药组方",
+      "path": "/assets/herbs/oyster-line.svg",
+      "recommendedUse": "组方来源页、机制说明页"
+    },
+    {
+      "title": "龙骨线稿",
+      "file": "longgu-line.svg",
+      "category": "中药组方",
+      "path": "/assets/herbs/longgu-line.svg",
+      "recommendedUse": "组方来源页、机制说明页"
+    },
+    {
+      "title": "茯苓线稿",
+      "file": "fuling-line.svg",
+      "category": "中药组方",
+      "path": "/assets/herbs/fuling-line.svg",
+      "recommendedUse": "组方来源页、机制说明页"
+    },
+    {
+      "title": "黄芩线稿",
+      "file": "huangqin-line.svg",
+      "category": "中药组方",
+      "path": "/assets/herbs/huangqin-line.svg",
+      "recommendedUse": "组方来源页、机制说明页"
+    },
+    {
+      "title": "半夏线稿",
+      "file": "banxia-line.svg",
+      "category": "中药组方",
+      "path": "/assets/herbs/banxia-line.svg",
+      "recommendedUse": "组方来源页、机制说明页"
+    },
+    {
+      "title": "甘草线稿",
+      "file": "gancao-line.svg",
+      "category": "中药组方",
+      "path": "/assets/herbs/gancao-line.svg",
+      "recommendedUse": "组方来源页、机制说明页"
+    },
+    {
+      "title": "桂枝线稿",
+      "file": "guizhi-line.svg",
+      "category": "中药组方",
+      "path": "/assets/herbs/guizhi-line.svg",
+      "recommendedUse": "组方来源页、机制说明页"
+    },
+    {
+      "title": "白芍线稿",
+      "file": "baishao-line.svg",
+      "category": "中药组方",
+      "path": "/assets/herbs/baishao-line.svg",
+      "recommendedUse": "组方来源页、机制说明页"
+    },
+    {
+      "title": "酸枣仁线稿",
+      "file": "suanzaoren-line.svg",
+      "category": "中药组方",
+      "path": "/assets/herbs/suanzaoren-line.svg",
+      "recommendedUse": "组方来源页、机制说明页"
+    },
+    {
+      "title": "远志线稿",
+      "file": "yuanzhi-line.svg",
+      "category": "中药组方",
+      "path": "/assets/herbs/yuanzhi-line.svg",
+      "recommendedUse": "组方来源页、机制说明页"
+    },
+    {
+      "title": "组方药材组合线稿",
+      "file": "herb-cluster.svg",
+      "category": "中药组方",
+      "path": "/assets/herbs/herb-cluster.svg",
+      "recommendedUse": "组方来源页、机制说明页"
+    },
+    {
+      "title": "古方卷轴与现代制剂结合图",
+      "file": "formula-scroll.svg",
+      "category": "中药组方",
+      "path": "/assets/herbs/formula-scroll.svg",
+      "recommendedUse": "组方来源页、机制说明页"
+    },
+    {
+      "title": "院内制剂颗粒瓶",
+      "file": "granule-bottle.svg",
+      "category": "中药组方",
+      "path": "/assets/herbs/granule-bottle.svg",
+      "recommendedUse": "组方来源页、机制说明页"
+    },
+    {
+      "title": "医生建档",
+      "file": "doctor-profile.svg",
+      "category": "医患随访",
+      "path": "/assets/icons/doctor-profile.svg",
+      "recommendedUse": "随访闭环页、流程页"
+    },
+    {
+      "title": "二维码随访",
+      "file": "qr-followup.svg",
+      "category": "医患随访",
+      "path": "/assets/icons/qr-followup.svg",
+      "recommendedUse": "随访闭环页、流程页"
+    },
+    {
+      "title": "患者手机填写",
+      "file": "patient-phone.svg",
+      "category": "医患随访",
+      "path": "/assets/icons/patient-phone.svg",
+      "recommendedUse": "随访闭环页、流程页"
+    },
+    {
+      "title": "症状量表",
+      "file": "symptom-scale.svg",
+      "category": "医患随访",
+      "path": "/assets/icons/symptom-scale.svg",
+      "recommendedUse": "随访闭环页、流程页"
+    },
+    {
+      "title": "医生审核",
+      "file": "doctor-review.svg",
+      "category": "医患随访",
+      "path": "/assets/icons/doctor-review.svg",
+      "recommendedUse": "随访闭环页、流程页"
+    },
+    {
+      "title": "风险提示",
+      "file": "risk-warning.svg",
+      "category": "医患随访",
+      "path": "/assets/icons/risk-warning.svg",
+      "recommendedUse": "随访闭环页、流程页"
+    },
+    {
+      "title": "不良事件记录",
+      "file": "adverse-event.svg",
+      "category": "医患随访",
+      "path": "/assets/icons/adverse-event.svg",
+      "recommendedUse": "随访闭环页、流程页"
+    },
+    {
+      "title": "随访时间轴",
+      "file": "followup-calendar.svg",
+      "category": "医患随访",
+      "path": "/assets/icons/followup-calendar.svg",
+      "recommendedUse": "随访闭环页、流程页"
+    },
+    {
+      "title": "基线建档",
+      "file": "baseline-visit.svg",
+      "category": "医患随访",
+      "path": "/assets/icons/baseline-visit.svg",
+      "recommendedUse": "随访闭环页、流程页"
+    },
+    {
+      "title": "第7天随访",
+      "file": "day7-followup.svg",
+      "category": "医患随访",
+      "path": "/assets/icons/day7-followup.svg",
+      "recommendedUse": "随访闭环页、流程页"
+    },
+    {
+      "title": "第14天随访",
+      "file": "day14-followup.svg",
+      "category": "医患随访",
+      "path": "/assets/icons/day14-followup.svg",
+      "recommendedUse": "随访闭环页、流程页"
+    },
+    {
+      "title": "第28天随访",
+      "file": "day28-followup.svg",
+      "category": "医患随访",
+      "path": "/assets/icons/day28-followup.svg",
+      "recommendedUse": "随访闭环页、流程页"
+    },
+    {
+      "title": "数据驾驶舱",
+      "file": "data-dashboard.svg",
+      "category": "数据平台",
+      "path": "/assets/icons/data-dashboard.svg",
+      "recommendedUse": "数据大屏、背景装饰"
+    },
+    {
+      "title": "真实世界数据池",
+      "file": "data-lake.svg",
+      "category": "数据平台",
+      "path": "/assets/icons/data-lake.svg",
+      "recommendedUse": "数据大屏、背景装饰"
+    },
+    {
+      "title": "审计日志",
+      "file": "audit-log.svg",
+      "category": "安全合规",
+      "path": "/assets/icons/audit-log.svg",
+      "recommendedUse": "安全审计页、合规边界页"
+    },
+    {
+      "title": "数据脱敏",
+      "file": "privacy-mask.svg",
+      "category": "安全合规",
+      "path": "/assets/icons/privacy-mask.svg",
+      "recommendedUse": "安全审计页、合规边界页"
+    },
+    {
+      "title": "脱敏导出",
+      "file": "export-table.svg",
+      "category": "安全合规",
+      "path": "/assets/icons/export-table.svg",
+      "recommendedUse": "安全审计页、合规边界页"
+    },
+    {
+      "title": "论文产出",
+      "file": "research-paper.svg",
+      "category": "科研转化",
+      "path": "/assets/icons/research-paper.svg",
+      "recommendedUse": "成果路径页、资料清单页"
+    },
+    {
+      "title": "软著",
+      "file": "software-copyright.svg",
+      "category": "科研转化",
+      "path": "/assets/icons/software-copyright.svg",
+      "recommendedUse": "成果路径页、资料清单页"
+    },
+    {
+      "title": "成果转化奖杯",
+      "file": "transformation-award.svg",
+      "category": "科研转化",
+      "path": "/assets/icons/transformation-award.svg",
+      "recommendedUse": "成果路径页、资料清单页"
+    },
+    {
+      "title": "医院平台",
+      "file": "hospital-platform.svg",
+      "category": "数据平台",
+      "path": "/assets/icons/hospital-platform.svg",
+      "recommendedUse": "数据大屏、背景装饰"
+    },
+    {
+      "title": "基层推广",
+      "file": "grassroots-promotion.svg",
+      "category": "科研转化",
+      "path": "/assets/icons/grassroots-promotion.svg",
+      "recommendedUse": "成果路径页、资料清单页"
+    },
+    {
+      "title": "数据字典",
+      "file": "data-dictionary.svg",
+      "category": "数据平台",
+      "path": "/assets/icons/data-dictionary.svg",
+      "recommendedUse": "数据大屏、背景装饰"
+    },
+    {
+      "title": "结构化字段",
+      "file": "structured-field.svg",
+      "category": "数据平台",
+      "path": "/assets/icons/structured-field.svg",
+      "recommendedUse": "数据大屏、背景装饰"
+    },
+    {
+      "title": "患者队列数据库",
+      "file": "cohort-database.svg",
+      "category": "数据平台",
+      "path": "/assets/icons/cohort-database.svg",
+      "recommendedUse": "数据大屏、背景装饰"
+    },
+    {
+      "title": "证据立方体",
+      "file": "evidence-cube.svg",
+      "category": "科研转化",
+      "path": "/assets/icons/evidence-cube.svg",
+      "recommendedUse": "成果路径页、资料清单页"
+    },
+    {
+      "title": "审核闭环",
+      "file": "review-closed-loop.svg",
+      "category": "数据平台",
+      "path": "/assets/icons/review-closed-loop.svg",
+      "recommendedUse": "数据大屏、背景装饰"
+    },
+    {
+      "title": "科研资产",
+      "file": "research-assets.svg",
+      "category": "科研转化",
+      "path": "/assets/icons/research-assets.svg",
+      "recommendedUse": "成果路径页、资料清单页"
+    },
+    {
+      "title": "科技环形装饰",
+      "file": "tech-orbit.svg",
+      "category": "大屏装饰",
+      "path": "/assets/patterns/tech-orbit.svg",
+      "recommendedUse": "数据大屏、背景装饰"
+    },
+    {
+      "title": "证据闭环大图",
+      "file": "evidence-loop.svg",
+      "category": "大屏装饰",
+      "path": "/assets/diagrams/evidence-loop.svg",
+      "recommendedUse": "数据大屏、背景装饰"
+    },
+    {
+      "title": "数字粒子背景",
+      "file": "digital-particles.svg",
+      "category": "大屏装饰",
+      "path": "/assets/patterns/digital-particles.svg",
+      "recommendedUse": "数据大屏、背景装饰"
+    },
+    {
+      "title": "中医药与数字科技桥梁图",
+      "file": "tcm-tech-bridge.svg",
+      "category": "大屏装饰",
+      "path": "/assets/diagrams/tcm-tech-bridge.svg",
+      "recommendedUse": "数据大屏、背景装饰"
+    },
+    {
+      "title": "临床观察路径图",
+      "file": "clinical-pathway.svg",
+      "category": "大屏装饰",
+      "path": "/assets/diagrams/clinical-pathway.svg",
+      "recommendedUse": "数据大屏、背景装饰"
+    },
+    {
+      "title": "合规盾牌",
+      "file": "compliance-shield.svg",
+      "category": "安全合规",
+      "path": "/assets/icons/compliance-shield.svg",
+      "recommendedUse": "安全审计页、合规边界页"
+    },
+    {
+      "title": "数据流向图",
+      "file": "data-flow-river.svg",
+      "category": "大屏装饰",
+      "path": "/assets/diagrams/data-flow-river.svg",
+      "recommendedUse": "数据大屏、背景装饰"
+    },
+    {
+      "title": "时间轴节点",
+      "file": "timeline-node.svg",
+      "category": "大屏装饰",
+      "path": "/assets/diagrams/timeline-node.svg",
+      "recommendedUse": "数据大屏、背景装饰"
+    },
+    {
+      "title": "数据大屏边框",
+      "file": "dashboard-frame.svg",
+      "category": "大屏装饰",
+      "path": "/assets/patterns/dashboard-frame.svg",
+      "recommendedUse": "数据大屏、背景装饰"
+    },
+    {
+      "title": "发光卡片背景",
+      "file": "glowing-card-bg.svg",
+      "category": "大屏装饰",
+      "path": "/assets/patterns/glowing-card-bg.svg",
+      "recommendedUse": "数据大屏、背景装饰"
+    },
+    {
+      "title": "安全导出流程",
+      "file": "secure-export-flow.svg",
+      "category": "安全合规",
+      "path": "/assets/diagrams/secure-export-flow.svg",
+      "recommendedUse": "安全审计页、合规边界页"
+    },
+    {
+      "title": "五方协同图",
+      "file": "five-party-collaboration.svg",
+      "category": "科研转化",
+      "path": "/assets/diagrams/five-party-collaboration.svg",
+      "recommendedUse": "成果路径页、资料清单页"
+    }
+  ]
+}

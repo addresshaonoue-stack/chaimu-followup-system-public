@@ -1,0 +1,880 @@
+<html lang="zh-CN"><head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>管理员后台 - 柴牡开郁颗粒真实世界研究与患者随访管理系统</title>
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="../styles.css">
+<style>*, ::before, ::after{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/* ! tailwindcss v3.4.17 | MIT License | https://tailwindcss.com */*,::after,::before{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e5e7eb}::after,::before{--tw-content:''}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4;font-family:ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0;padding:0}legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}.grid{display:grid}</style></head>
+<body>
+  <header class="topbar">
+    <div class="shell topbar-inner">
+      <a class="brand" href="index.html">
+        <span class="brand-mark"><i class="fa fa-leaf"></i></span>
+        <span>管理员后台</span>
+      </a>
+      <nav class="nav">
+        <a class="active" href="admin.html"><i class="fa fa-users"></i> 后台</a>
+        <a href="doctor.html"><i class="fa fa-stethoscope"></i> 医生工作台</a>
+        <a href="research.html"><i class="fa fa-bar-chart"></i> 数据统计</a>
+        <a href="export.html"><i class="fa fa-download"></i> 数据导出</a>
+        <button class="btn ghost" data-logout=""><i class="fa fa-sign-out"></i> 退出</button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="shell page">
+    <div class="panel-header">
+      <div>
+        <h1 class="panel-title">管理员后台</h1>
+        <div class="muted" data-current-user="">系统管理员 · 管理员</div>
+      </div>
+    </div>
+
+    <section id="summary" class="grid cols-4">
+    <div class="panel metric">
+      <span class="label"><i class="fa fa-user-md"></i> 医生账号</span>
+      <span class="value">1</span>
+    </div>
+  
+    <div class="panel metric">
+      <span class="label"><i class="fa fa-address-book"></i> 功能测试库患者</span>
+      <span class="value">20</span>
+    </div>
+  
+    <div class="panel metric">
+      <span class="label"><i class="fa fa-calendar-check-o"></i> 功能测试库随访</span>
+      <span class="value">108</span>
+    </div>
+  
+    <div class="panel metric">
+      <span class="label"><i class="fa fa-exclamation-circle"></i> 功能测试库不良事件</span>
+      <span class="value">0</span>
+    </div>
+  </section>
+
+    <section class="grid cols-2 section">
+      <div class="panel">
+        <div class="panel-header">
+          <h2 class="panel-title">创建医生账号</h2>
+        </div>
+        <form id="doctorForm" class="form-grid">
+          <div class="field">
+            <label>用户名</label>
+            <input name="username" required="" placeholder="doctor2">
+          </div>
+          <div class="field">
+            <label>初始密码</label>
+            <input name="password" type="password" required="" minlength="6">
+          </div>
+          <div class="field">
+            <label>医生姓名</label>
+            <input name="display_name" required="">
+          </div>
+          <div class="field full">
+            <label>科室</label>
+            <input name="department" placeholder="肝病科">
+          </div>
+          <div class="field full">
+            <button class="primary" type="submit"><i class="fa fa-user-plus"></i> 创建账号</button>
+          </div>
+        </form>
+      </div>
+
+      <div class="panel">
+        <div class="panel-header">
+          <h2 class="panel-title">医生账号</h2>
+          <button id="refreshDoctors" class="btn"><i class="fa fa-refresh"></i></button>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>用户名</th><th>姓名</th><th>科室</th><th>状态</th></tr></thead>
+            <tbody id="doctorRows">
+    <tr>
+      <td>doctor</td>
+      <td>示例医生</td>
+      <td>睡眠情志门诊</td>
+      <td><span class="pill ok">启用</span></td>
+    </tr>
+  </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel section">
+      <div class="panel-header">
+        <h2 class="panel-title">全部患者</h2>
+        <button id="refreshPatients" class="btn"><i class="fa fa-refresh"></i></button>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>研究编号</th>
+              <th>patient_id</th>
+              <th>姓名</th>
+              <th>手机号</th>
+              <th>性别/年龄</th>
+              <th>诊断</th>
+              <th>证型</th>
+              <th>管理医生</th>
+              <th>随访</th>
+              <th>知情同意</th>
+              <th>链接</th>
+            </tr>
+          </thead>
+          <tbody id="patientRows">
+    <tr>
+      <td>CMKY-2026-0010</td>
+      <td>CMKY-20260705-010</td>
+      <td>陈景行</td>
+      <td>138****1010</td>
+      <td>女 / 58</td>
+      <td>郁病</td>
+      <td>痰热内扰</td>
+      <td>示例医生</td>
+      <td>6</td>
+      <td><span class="pill ok">已签署</span></td>
+      <td><span class="pill ok">有效</span></td>
+    </tr>
+  
+    <tr>
+      <td>CMKY-2026-0011</td>
+      <td>CMKY-20260705-011</td>
+      <td>褚佳怡</td>
+      <td>138****1011</td>
+      <td>男 / 61</td>
+      <td>郁病</td>
+      <td>痰热内扰</td>
+      <td>示例医生</td>
+      <td>4</td>
+      <td><span class="pill ok">已签署</span></td>
+      <td><span class="pill ok">有效</span></td>
+    </tr>
+  
+    <tr>
+      <td>CMKY-2026-0012</td>
+      <td>CMKY-20260705-012</td>
+      <td>卫子墨</td>
+      <td>—</td>
+      <td>女 / 64</td>
+      <td>郁病</td>
+      <td>痰热内扰</td>
+      <td>示例医生</td>
+      <td>6</td>
+      <td><span class="pill warn">待补</span></td>
+      <td><span class="pill ok">有效</span></td>
+    </tr>
+  
+    <tr>
+      <td>CMKY-2026-0013</td>
+      <td>CMKY-20260705-013</td>
+      <td>蒋舒然</td>
+      <td>138****1013</td>
+      <td>男 / 67</td>
+      <td>郁病</td>
+      <td>痰热内扰</td>
+      <td>示例医生</td>
+      <td>6</td>
+      <td><span class="pill ok">已签署</span></td>
+      <td><span class="pill ok">有效</span></td>
+    </tr>
+  
+    <tr>
+      <td>CMKY-2026-0014</td>
+      <td>CMKY-20260705-014</td>
+      <td>沈浩然</td>
+      <td>138****1014</td>
+      <td>女 / 28</td>
+      <td>郁病</td>
+      <td>痰热内扰</td>
+      <td>示例医生</td>
+      <td>4</td>
+      <td><span class="pill ok">已签署</span></td>
+      <td><span class="pill ok">有效</span></td>
+    </tr>
+  
+    <tr>
+      <td>CMKY-2026-0015</td>
+      <td>CMKY-20260705-015</td>
+      <td>韩青禾</td>
+      <td>138****1015</td>
+      <td>男 / 31</td>
+      <td>郁病</td>
+      <td>痰热内扰</td>
+      <td>示例医生</td>
+      <td>6</td>
+      <td><span class="pill ok">已签署</span></td>
+      <td><span class="pill ok">有效</span></td>
+    </tr>
+  
+    <tr>
+      <td>CMKY-2026-0016</td>
+      <td>CMKY-20260705-016</td>
+      <td>杨知远</td>
+      <td>—</td>
+      <td>女 / 34</td>
+      <td>郁病</td>
+      <td>痰热内扰</td>
+      <td>示例医生</td>
+      <td>6</td>
+      <td><span class="pill ok">已签署</span></td>
+      <td><span class="pill ok">有效</span></td>
+    </tr>
+  
+    <tr>
+      <td>CMKY-2026-0017</td>
+      <td>CMKY-20260705-017</td>
+      <td>朱沁宁</td>
+      <td>138****1017</td>
+      <td>男 / 37</td>
+      <td>郁病</td>
+      <td>痰热内扰</td>
+      <td>示例医生</td>
+      <td>5</td>
+      <td><span class="pill ok">已签署</span></td>
+      <td><span class="pill ok">有效</span></td>
+    </tr>
+  
+    <tr>
+      <td>CMKY-2026-0018</td>
+      <td>CMKY-20260705-018</td>
+      <td>秦沐阳</td>
+      <td>138****1018</td>
+      <td>女 / 40</td>
+      <td>郁病</td>
+      <td>痰热内扰</td>
+      <td>示例医生</td>
+      <td>6</td>
+      <td><span class="pill warn">待补</span></td>
+      <td><span class="pill ok">有效</span></td>
+    </tr>
+  
+    <tr>
+      <td>CMKY-2026-0019</td>
+      <td>CMKY-20260705-019</td>
+      <td>尤安澜</td>
+      <td>138****1019</td>
+      <td>男 / 43</td>
+      <td>郁病</td>
+      <td>痰热内扰</td>
+      <td>示例医生</td>
+      <td>6</td>
+      <td><span class="pill ok">已签署</span></td>
+      <td><span class="pill ok">有效</span></td>
+    </tr>
+  
+    <tr>
+      <td>CMKY-2026-0020</td>
+      <td>CMKY-20260705-020</td>
+      <td>许星河</td>
+      <td>—</td>
+      <td>女 / 46</td>
+      <td>郁病</td>
+      <td>痰热内扰</td>
+      <td>示例医生</td>
+      <td>6</td>
+      <td><span class="pill ok">已签署</span></td>
+      <td><span class="pill danger">已禁用</span></td>
+    </tr>
+  
+    <tr>
+      <td>CMKY-2026-0001</td>
+      <td>CMKY-20260705-001</td>
+      <td>林清和</td>
+      <td>138****1001</td>
+      <td>男 / 31</td>
+      <td>郁病</td>
+      <td>痰热内扰</td>
+      <td>示例医生</td>
+      <td>6</td>
+      <td><span class="pill ok">已签署</span></td>
+      <td><span class="pill ok">有效</span></td>
+    </tr>
+  
+    <tr>
+      <td>CMKY-2026-0002</td>
+      <td>CMKY-20260705-002</td>
+      <td>钱雅婷</td>
+      <td>138****1002</td>
+      <td>女 / 34</td>
+      <td>郁病</td>
+      <td>痰热内扰</td>
+      <td>示例医生</td>
+      <td>6</td>
+      <td><span class="pill ok">已签署</span></td>
+      <td><span class="pill ok">有效</span></td>
+    </tr>
+  
+    <tr>
+      <td>CMKY-2026-0003</td>
+      <td>CMKY-20260705-003</td>
+      <td>孙明远</td>
+      <td>138****1003</td>
+      <td>男 / 37</td>
+      <td>郁病</td>
+      <td>痰热内扰</td>
+      <td>示例医生</td>
+      <td>6</td>
+      <td><span class="pill ok">已签署</span></td>
+      <td><span class="pill ok">有效</span></td>
+    </tr>
+  
+    <tr>
+      <td>CMKY-2026-0004</td>
+      <td>CMKY-20260705-004</td>
+      <td>李若溪</td>
+      <td>—</td>
+      <td>女 / 40</td>
+      <td>郁病</td>
+      <td>痰热内扰</td>
+      <td>示例医生</td>
+      <td>6</td>
+      <td><span class="pill ok">已签署</span></td>
+      <td><span class="pill ok">有效</span></td>
+    </tr>
+  
+    <tr>
+      <td>CMKY-2026-0005</td>
+      <td>CMKY-20260705-005</td>
+      <td>周安宁</td>
+      <td>138****1005</td>
+      <td>男 / 43</td>
+      <td>郁病</td>
+      <td>痰热内扰</td>
+      <td>示例医生</td>
+      <td>2</td>
+      <td><span class="pill ok">已签署</span></td>
+      <td><span class="pill ok">有效</span></td>
+    </tr>
+  
+    <tr>
+      <td>CMKY-2026-0006</td>
+      <td>CMKY-20260705-006</td>
+      <td>吴思远</td>
+      <td>138****1006</td>
+      <td>女 / 46</td>
+      <td>郁病</td>
+      <td>痰热内扰</td>
+      <td>示例医生</td>
+      <td>6</td>
+      <td><span class="pill warn">待补</span></td>
+      <td><span class="pill ok">有效</span></td>
+    </tr>
+  
+    <tr>
+      <td>CMKY-2026-0007</td>
+      <td>CMKY-20260705-007</td>
+      <td>郑雨晴</td>
+      <td>138****1007</td>
+      <td>男 / 49</td>
+      <td>郁病</td>
+      <td>痰热内扰</td>
+      <td>示例医生</td>
+      <td>6</td>
+      <td><span class="pill ok">已签署</span></td>
+      <td><span class="pill ok">有效</span></td>
+    </tr>
+  
+    <tr>
+      <td>CMKY-2026-0008</td>
+      <td>CMKY-20260705-008</td>
+      <td>王嘉禾</td>
+      <td>—</td>
+      <td>女 / 52</td>
+      <td>郁病</td>
+      <td>痰热内扰</td>
+      <td>示例医生</td>
+      <td>3</td>
+      <td><span class="pill ok">已签署</span></td>
+      <td><span class="pill ok">有效</span></td>
+    </tr>
+  
+    <tr>
+      <td>CMKY-2026-0009</td>
+      <td>CMKY-20260705-009</td>
+      <td>冯晓岚</td>
+      <td>138****1009</td>
+      <td>男 / 55</td>
+      <td>郁病</td>
+      <td>痰热内扰</td>
+      <td>示例医生</td>
+      <td>6</td>
+      <td><span class="pill ok">已签署</span></td>
+      <td><span class="pill ok">有效</span></td>
+    </tr>
+  </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="panel section">
+      <div class="panel-header">
+        <h2 class="panel-title">审计日志</h2>
+        <button id="refreshAuditLogs" class="btn"><i class="fa fa-refresh"></i></button>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>时间</th>
+              <th>操作人</th>
+              <th>角色</th>
+              <th>操作类型</th>
+              <th>对象</th>
+              <th>摘要</th>
+            </tr>
+          </thead>
+          <tbody id="auditRows">
+    <tr>
+      <td>2026-07-05 03:04:57</td>
+      <td>示例医生</td>
+      <td>doctor</td>
+      <td>二维码生成</td>
+      <td>patient CMKY-2026-0010</td>
+      <td>生成患者专属随访二维码</td>
+    </tr>
+  
+    <tr>
+      <td>2026-07-05 03:04:52</td>
+      <td>示例医生</td>
+      <td>doctor</td>
+      <td>二维码生成</td>
+      <td>patient CMKY-2026-0010</td>
+      <td>生成患者专属随访二维码</td>
+    </tr>
+  
+    <tr>
+      <td>2026-07-05 03:03:27</td>
+      <td>系统管理员</td>
+      <td>admin</td>
+      <td>二维码生成</td>
+      <td>patient CMKY-2026-0010</td>
+      <td>生成患者专属随访二维码</td>
+    </tr>
+  
+    <tr>
+      <td>2026-07-05 03:02:52</td>
+      <td>系统管理员</td>
+      <td>admin</td>
+      <td>数据导出</td>
+      <td>export summary-md</td>
+      <td>成果转化数据摘要导出</td>
+    </tr>
+  
+    <tr>
+      <td>2026-07-05 03:02:42</td>
+      <td>示例医生</td>
+      <td>doctor</td>
+      <td>二维码生成</td>
+      <td>patient CMKY-2026-0010</td>
+      <td>生成患者专属随访二维码</td>
+    </tr>
+  
+    <tr>
+      <td>2026-07-05 03:02:37</td>
+      <td>示例医生</td>
+      <td>doctor</td>
+      <td>二维码生成</td>
+      <td>patient CMKY-2026-0010</td>
+      <td>生成患者专属随访二维码</td>
+    </tr>
+  
+    <tr>
+      <td>2026-07-05 03:01:04</td>
+      <td>系统管理员</td>
+      <td>admin</td>
+      <td>二维码生成</td>
+      <td>patient CMKY-2026-0010</td>
+      <td>生成患者专属随访二维码</td>
+    </tr>
+  
+    <tr>
+      <td>2026-07-05 02:58:38</td>
+      <td>系统管理员</td>
+      <td>admin</td>
+      <td>数据导出</td>
+      <td>export summary-md</td>
+      <td>成果转化数据摘要导出</td>
+    </tr>
+  
+    <tr>
+      <td>2026-07-05 02:58:29</td>
+      <td>示例医生</td>
+      <td>doctor</td>
+      <td>二维码生成</td>
+      <td>patient CMKY-2026-0010</td>
+      <td>生成患者专属随访二维码</td>
+    </tr>
+  
+    <tr>
+      <td>2026-07-05 02:58:24</td>
+      <td>示例医生</td>
+      <td>doctor</td>
+      <td>二维码生成</td>
+      <td>patient CMKY-2026-0010</td>
+      <td>生成患者专属随访二维码</td>
+    </tr>
+  
+    <tr>
+      <td>2026-07-05 02:56:59</td>
+      <td>系统管理员</td>
+      <td>admin</td>
+      <td>二维码生成</td>
+      <td>patient CMKY-2026-0010</td>
+      <td>生成患者专属随访二维码</td>
+    </tr>
+  
+    <tr>
+      <td>2026-07-05 02:38:11</td>
+      <td>系统管理员</td>
+      <td>admin</td>
+      <td>数据导出</td>
+      <td>export summary-md</td>
+      <td>成果转化数据摘要导出</td>
+    </tr>
+  
+    <tr>
+      <td>2026-07-05 02:38:01</td>
+      <td>示例医生</td>
+      <td>doctor</td>
+      <td>二维码生成</td>
+      <td>patient CMKY-2026-0010</td>
+      <td>生成患者专属随访二维码</td>
+    </tr>
+  
+    <tr>
+      <td>2026-07-05 02:37:56</td>
+      <td>示例医生</td>
+      <td>doctor</td>
+      <td>二维码生成</td>
+      <td>patient CMKY-2026-0010</td>
+      <td>生成患者专属随访二维码</td>
+    </tr>
+  
+    <tr>
+      <td>2026-07-05 02:36:34</td>
+      <td>系统管理员</td>
+      <td>admin</td>
+      <td>二维码生成</td>
+      <td>patient CMKY-2026-0010</td>
+      <td>生成患者专属随访二维码</td>
+    </tr>
+  
+    <tr>
+      <td>2026-07-05 02:35:54</td>
+      <td>系统管理员</td>
+      <td>admin</td>
+      <td>数据导出</td>
+      <td>export summary-md</td>
+      <td>成果转化数据摘要导出</td>
+    </tr>
+  
+    <tr>
+      <td>2026-07-05 02:35:45</td>
+      <td>示例医生</td>
+      <td>doctor</td>
+      <td>二维码生成</td>
+      <td>patient CMKY-2026-0010</td>
+      <td>生成患者专属随访二维码</td>
+    </tr>
+  
+    <tr>
+      <td>2026-07-05 02:35:40</td>
+      <td>示例医生</td>
+      <td>doctor</td>
+      <td>二维码生成</td>
+      <td>patient CMKY-2026-0010</td>
+      <td>生成患者专属随访二维码</td>
+    </tr>
+  
+    <tr>
+      <td>2026-07-05 02:34:17</td>
+      <td>系统管理员</td>
+      <td>admin</td>
+      <td>二维码生成</td>
+      <td>patient CMKY-2026-0010</td>
+      <td>生成患者专属随访二维码</td>
+    </tr>
+  
+    <tr>
+      <td>2026-07-05 02:34:09</td>
+      <td>系统管理员</td>
+      <td>admin</td>
+      <td>数据导出</td>
+      <td>export summary-md</td>
+      <td>成果转化数据摘要导出</td>
+    </tr>
+  
+    <tr>
+      <td>2026-07-05 02:32:55</td>
+      <td>系统管理员</td>
+      <td>admin</td>
+      <td>数据导出</td>
+      <td>export summary-md</td>
+      <td>成果转化数据摘要导出</td>
+    </tr>
+  
+    <tr>
+      <td>2026-07-05 02:32:46</td>
+      <td>示例医生</td>
+      <td>doctor</td>
+      <td>二维码生成</td>
+      <td>patient CMKY-2026-0010</td>
+      <td>生成患者专属随访二维码</td>
+    </tr>
+  
+    <tr>
+      <td>2026-07-05 02:32:40</td>
+      <td>示例医生</td>
+      <td>doctor</td>
+      <td>二维码生成</td>
+      <td>patient CMKY-2026-0010</td>
+      <td>生成患者专属随访二维码</td>
+    </tr>
+  
+    <tr>
+      <td>2026-07-05 02:31:18</td>
+      <td>系统管理员</td>
+      <td>admin</td>
+      <td>二维码生成</td>
+      <td>patient CMKY-2026-0010</td>
+      <td>生成患者专属随访二维码</td>
+    </tr>
+  
+    <tr>
+      <td>2026-07-05 01:58:24</td>
+      <td>系统管理员</td>
+      <td>admin</td>
+      <td>数据导出</td>
+      <td>export summary-md</td>
+      <td>成果转化数据摘要导出</td>
+    </tr>
+  
+    <tr>
+      <td>2026-07-05 01:58:13</td>
+      <td>示例医生</td>
+      <td>doctor</td>
+      <td>二维码生成</td>
+      <td>patient CMKY-2026-0010</td>
+      <td>生成患者专属随访二维码</td>
+    </tr>
+  
+    <tr>
+      <td>2026-07-05 01:58:07</td>
+      <td>示例医生</td>
+      <td>doctor</td>
+      <td>二维码生成</td>
+      <td>patient CMKY-2026-0010</td>
+      <td>生成患者专属随访二维码</td>
+    </tr>
+  
+    <tr>
+      <td>2026-07-05 01:56:41</td>
+      <td>系统管理员</td>
+      <td>admin</td>
+      <td>二维码生成</td>
+      <td>patient CMKY-2026-0010</td>
+      <td>生成患者专属随访二维码</td>
+    </tr>
+  
+    <tr>
+      <td>2026-07-05 01:54:34</td>
+      <td>示例医生</td>
+      <td>doctor</td>
+      <td>医生综合观察评价</td>
+      <td>evaluation demo-normalize</td>
+      <td>规范化医生综合观察评价示例数据</td>
+    </tr>
+  
+    <tr>
+      <td>2026-07-05 01:54:34</td>
+      <td>示例医生</td>
+      <td>doctor</td>
+      <td>创建患者</td>
+      <td>patient CMKY-2026-0020</td>
+      <td>规范化模拟患者：CMKY-2026-0020</td>
+    </tr>
+  
+    <tr>
+      <td>2026-07-05 01:54:34</td>
+      <td>示例医生</td>
+      <td>doctor</td>
+      <td>创建患者</td>
+      <td>patient CMKY-2026-0019</td>
+      <td>规范化模拟患者：CMKY-2026-0019</td>
+    </tr>
+  
+    <tr>
+      <td>2026-07-05 01:54:34</td>
+      <td>示例医生</td>
+      <td>doctor</td>
+      <td>创建患者</td>
+      <td>patient CMKY-2026-0018</td>
+      <td>规范化模拟患者：CMKY-2026-0018</td>
+    </tr>
+  
+    <tr>
+      <td>2026-07-05 01:54:34</td>
+      <td>示例医生</td>
+      <td>doctor</td>
+      <td>创建患者</td>
+      <td>patient CMKY-2026-0017</td>
+      <td>规范化模拟患者：CMKY-2026-0017</td>
+    </tr>
+  
+    <tr>
+      <td>2026-07-05 01:54:34</td>
+      <td>示例医生</td>
+      <td>doctor</td>
+      <td>创建患者</td>
+      <td>patient CMKY-2026-0016</td>
+      <td>规范化模拟患者：CMKY-2026-0016</td>
+    </tr>
+  
+    <tr>
+      <td>2026-07-05 01:54:34</td>
+      <td>示例医生</td>
+      <td>doctor</td>
+      <td>创建患者</td>
+      <td>patient CMKY-2026-0015</td>
+      <td>规范化模拟患者：CMKY-2026-0015</td>
+    </tr>
+  
+    <tr>
+      <td>2026-07-05 01:54:34</td>
+      <td>示例医生</td>
+      <td>doctor</td>
+      <td>创建患者</td>
+      <td>patient CMKY-2026-0014</td>
+      <td>规范化模拟患者：CMKY-2026-0014</td>
+    </tr>
+  
+    <tr>
+      <td>2026-07-05 01:54:34</td>
+      <td>示例医生</td>
+      <td>doctor</td>
+      <td>创建患者</td>
+      <td>patient CMKY-2026-0013</td>
+      <td>规范化模拟患者：CMKY-2026-0013</td>
+    </tr>
+  
+    <tr>
+      <td>2026-07-05 01:54:34</td>
+      <td>示例医生</td>
+      <td>doctor</td>
+      <td>创建患者</td>
+      <td>patient CMKY-2026-0012</td>
+      <td>规范化模拟患者：CMKY-2026-0012</td>
+    </tr>
+  
+    <tr>
+      <td>2026-07-05 01:54:34</td>
+      <td>示例医生</td>
+      <td>doctor</td>
+      <td>创建患者</td>
+      <td>patient CMKY-2026-0011</td>
+      <td>规范化模拟患者：CMKY-2026-0011</td>
+    </tr>
+  
+    <tr>
+      <td>2026-07-05 01:54:34</td>
+      <td>示例医生</td>
+      <td>doctor</td>
+      <td>创建患者</td>
+      <td>patient CMKY-2026-0010</td>
+      <td>规范化模拟患者：CMKY-2026-0010</td>
+    </tr>
+  
+    <tr>
+      <td>2026-07-05 01:54:34</td>
+      <td>示例医生</td>
+      <td>doctor</td>
+      <td>创建患者</td>
+      <td>patient CMKY-2026-0009</td>
+      <td>规范化模拟患者：CMKY-2026-0009</td>
+    </tr>
+  
+    <tr>
+      <td>2026-07-05 01:54:34</td>
+      <td>示例医生</td>
+      <td>doctor</td>
+      <td>创建患者</td>
+      <td>patient CMKY-2026-0008</td>
+      <td>规范化模拟患者：CMKY-2026-0008</td>
+    </tr>
+  
+    <tr>
+      <td>2026-07-05 01:54:34</td>
+      <td>示例医生</td>
+      <td>doctor</td>
+      <td>创建患者</td>
+      <td>patient CMKY-2026-0007</td>
+      <td>规范化模拟患者：CMKY-2026-0007</td>
+    </tr>
+  
+    <tr>
+      <td>2026-07-05 01:54:34</td>
+      <td>示例医生</td>
+      <td>doctor</td>
+      <td>创建患者</td>
+      <td>patient CMKY-2026-0006</td>
+      <td>规范化模拟患者：CMKY-2026-0006</td>
+    </tr>
+  
+    <tr>
+      <td>2026-07-05 01:54:34</td>
+      <td>示例医生</td>
+      <td>doctor</td>
+      <td>创建患者</td>
+      <td>patient CMKY-2026-0005</td>
+      <td>规范化模拟患者：CMKY-2026-0005</td>
+    </tr>
+  
+    <tr>
+      <td>2026-07-05 01:54:33</td>
+      <td>示例医生</td>
+      <td>doctor</td>
+      <td>创建患者</td>
+      <td>patient CMKY-2026-0004</td>
+      <td>规范化模拟患者：CMKY-2026-0004</td>
+    </tr>
+  
+    <tr>
+      <td>2026-07-05 01:54:33</td>
+      <td>示例医生</td>
+      <td>doctor</td>
+      <td>创建患者</td>
+      <td>patient CMKY-2026-0003</td>
+      <td>规范化模拟患者：CMKY-2026-0003</td>
+    </tr>
+  
+    <tr>
+      <td>2026-07-05 01:54:33</td>
+      <td>示例医生</td>
+      <td>doctor</td>
+      <td>创建患者</td>
+      <td>patient CMKY-2026-0002</td>
+      <td>规范化模拟患者：CMKY-2026-0002</td>
+    </tr>
+  
+    <tr>
+      <td>2026-07-05 01:54:33</td>
+      <td>示例医生</td>
+      <td>doctor</td>
+      <td>创建患者</td>
+      <td>patient CMKY-2026-0001</td>
+      <td>规范化模拟患者：CMKY-2026-0001</td>
+    </tr>
+  </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  
+  
+
+
+</body></html>

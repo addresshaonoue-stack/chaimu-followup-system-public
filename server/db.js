@@ -261,11 +261,78 @@ function columnNames(tableName) {
   return names;
 }
 
+function tableSql(tableName) {
+  const stmt = sqlite.prepare("SELECT sql FROM sqlite_master WHERE type = 'table' AND name = ?");
+  try {
+    stmt.bind([tableName]);
+    return stmt.step() ? String(stmt.getAsObject().sql || "") : "";
+  } finally {
+    stmt.free();
+  }
+}
+
 function addColumnIfMissing(tableName, names, columnSql) {
   const columnName = columnSql.trim().split(/\s+/)[0];
   if (!names.has(columnName)) {
     sqlite.run(`ALTER TABLE ${tableName} ADD COLUMN ${columnSql};`);
     names.add(columnName);
+  }
+}
+
+function createClinicianEvaluationsTable() {
+  sqlite.run(`
+    CREATE TABLE IF NOT EXISTS clinician_evaluations (
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      patient_id INTEGER NOT NULL,
+      evaluation_date TEXT NOT NULL,
+      clinician_effect TEXT NOT NULL DEFAULT '暂未评价',
+      clinician_safety TEXT NOT NULL DEFAULT '未记录明显不良事件',
+      clinician_note TEXT,
+      evaluator_doctor INTEGER NOT NULL,
+      created_at TEXT NOT NULL DEFAULT (datetime('now', 'localtime')),
+      updated_at TEXT NOT NULL DEFAULT (datetime('now', 'localtime')),
+      FOREIGN KEY (patient_id) REFERENCES patients(id) ON DELETE CASCADE,
+      FOREIGN KEY (evaluator_doctor) REFERENCES users(id)
+    );
+  `);
+}
+
+function migrateClinicianSafetyConstraint() {
+  const sql = tableSql("clinician_evaluations");
+  if (!sql.includes("未见明显不良反应")) return;
+
+  const legacyTable = "clinician_evaluations_legacy_migrate";
+  try {
+    sqlite.run("PRAGMA foreign_keys = OFF;");
+    sqlite.run(`DROP TABLE IF EXISTS ${legacyTable};`);
+    sqlite.run(`ALTER TABLE clinician_evaluations RENAME TO ${legacyTable};`);
+    createClinicianEvaluationsTable();
+    sqlite.run(`
+      INSERT INTO clinician_evaluations (
+        id, patient_id, evaluation_date, clinician_effect, clinician_safety,
+        clinician_note, evaluator_doctor, created_at, updated_at
+      )
+      SELECT
+        id,
+        patient_id,
+        evaluation_date,
+        clinician_effect,
+        CASE clinician_safety
+          WHEN '未见明显不良反应' THEN '未记录明显不良事件'
+          WHEN '轻度不良反应' THEN '轻度不良事件'
+          WHEN '中度不良反应' THEN '中度不良事件'
+          WHEN '重度不良反应' THEN '重度不良事件'
+          ELSE clinician_safety
+        END,
+        clinician_note,
+        evaluator_doctor,
+        created_at,
+        updated_at
+      FROM ${legacyTable};
+    `);
+    sqlite.run(`DROP TABLE ${legacyTable};`);
+  } finally {
+    sqlite.run("PRAGMA foreign_keys = ON;");
   }
 }
 
@@ -314,21 +381,8 @@ function migrateSchema() {
     "adherence_level TEXT"
   ].forEach((columnSql) => addColumnIfMissing("followups", followupColumns, columnSql));
 
-  sqlite.run(`
-    CREATE TABLE IF NOT EXISTS clinician_evaluations (
-      id INTEGER PRIMARY KEY AUTOINCREMENT,
-      patient_id INTEGER NOT NULL,
-      evaluation_date TEXT NOT NULL,
-      clinician_effect TEXT NOT NULL DEFAULT '暂未评价',
-      clinician_safety TEXT NOT NULL DEFAULT '未见明显不良反应',
-      clinician_note TEXT,
-      evaluator_doctor INTEGER NOT NULL,
-      created_at TEXT NOT NULL DEFAULT (datetime('now', 'localtime')),
-      updated_at TEXT NOT NULL DEFAULT (datetime('now', 'localtime')),
-      FOREIGN KEY (patient_id) REFERENCES patients(id) ON DELETE CASCADE,
-      FOREIGN KEY (evaluator_doctor) REFERENCES users(id)
-    );
-  `);
+  createClinicianEvaluationsTable();
+  migrateClinicianSafetyConstraint();
 
   sqlite.run(`
     CREATE TABLE IF NOT EXISTS audit_logs (
@@ -354,6 +408,17 @@ function migrateSchema() {
     UPDATE patients
     SET research_id = 'CMKY-2026-' || printf('%04d', id)
     WHERE research_id IS NULL OR research_id = '';
+  `);
+
+  sqlite.run(`
+    UPDATE clinician_evaluations
+    SET clinician_safety = CASE clinician_safety
+      WHEN '未见明显不良反应' THEN '未记录明显不良事件'
+      WHEN '轻度不良反应' THEN '轻度不良事件'
+      WHEN '中度不良反应' THEN '中度不良事件'
+      WHEN '重度不良反应' THEN '重度不良事件'
+      ELSE clinician_safety
+    END;
   `);
 
   sqlite.run("CREATE UNIQUE INDEX IF NOT EXISTS idx_patients_research_id ON patients(research_id);");

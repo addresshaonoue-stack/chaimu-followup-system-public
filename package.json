@@ -7,6 +7,9 @@
     "db:init": "node server/migrate-db.js",
     "init-db": "node server/init-db.js",
     "normalize-demo-data": "node server/normalize-demo-data.js",
+    "build-98plus": "node scripts/build-98plus-upgrade.js",
+    "build-98plus-final": "node scripts/build-98plus-final-assets.js",
+    "data-consistency-check": "node scripts/data-consistency-check.js",
     "export-review": "node scripts/export-review-package.js",
     "start": "node server/index.js"
   },

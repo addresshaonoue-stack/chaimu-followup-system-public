@@ -1,0 +1,75 @@
+{
+  "note": "脱敏演示数据，仅用于系统功能和成果转化路径展示，不代表真实临床疗效、安全性或统计学结论。",
+  "cohort": {
+    "averageAge": 45.8,
+    "ageRange": "18-72岁",
+    "male": 42,
+    "female": 78,
+    "initialVisits": 86,
+    "revisitFollowups": 34,
+    "completedDay28": 92,
+    "atLeastTwoFollowups": 108
+  },
+  "ageDistribution": [
+    {
+      "label": "18-30岁",
+      "value": 18
+    },
+    {
+      "label": "31-45岁",
+      "value": 42
+    },
+    {
+      "label": "46-60岁",
+      "value": 38
+    },
+    {
+      "label": "61-72岁",
+      "value": 22
+    }
+  ],
+  "sexDistribution": [
+    {
+      "label": "男性",
+      "value": 42
+    },
+    {
+      "label": "女性",
+      "value": 78
+    }
+  ],
+  "symptomDistribution": [
+    {
+      "label": "失眠",
+      "value": 76
+    },
+    {
+      "label": "焦虑",
+      "value": 68
+    },
+    {
+      "label": "情绪低落",
+      "value": 51
+    },
+    {
+      "label": "心悸",
+      "value": 44
+    },
+    {
+      "label": "胸闷",
+      "value": 39
+    },
+    {
+      "label": "乏力",
+      "value": 57
+    },
+    {
+      "label": "易怒",
+      "value": 36
+    },
+    {
+      "label": "纳差",
+      "value": 29
+    }
+  ]
+}

@@ -1,4 +1,4 @@
-const fs = require("fs");
+﻿const fs = require("fs");
 const path = require("path");
 const crypto = require("crypto");
 const bcrypt = require("bcryptjs");
@@ -210,7 +210,7 @@ function insertFollowup(patientDbId, scheduleId, label, visitDate, patientIndex,
     adverse_description: null,
     patient_note: visitIndex === 0 ? "基线信息已填写。" : "本次随访已填写。",
     doctor_note: "",
-    doctor_handling_status: severity === "中" ? "已处理" : "无需处理",
+    doctor_handling_status: severity === "中" ? "已联系" : "已关闭",
     doctor_handling_note: ""
   });
 }
@@ -304,8 +304,8 @@ async function main() {
         insertFollowup(patientDbId, null, "自定义补访", dayjs(startDate).add(offset, "day").format("YYYY-MM-DD"), i, 1);
       }
 
-      const clinicianEffect = i === 9 || i === 17 ? "无效" : i % 4 === 0 ? "显效" : "有效";
-      const clinicianSafety = "未见明显不良反应";
+      const clinicianEffect = i === 9 || i === 17 ? "暂未见明显改善" : i % 4 === 0 ? "明显改善" : "部分改善";
+      const clinicianSafety = "未记录明显不良事件";
       run(`
         INSERT INTO clinician_evaluations (
           patient_id, evaluation_date, clinician_effect, clinician_safety, clinician_note, evaluator_doctor
@@ -328,7 +328,7 @@ async function main() {
     run(`
       INSERT INTO audit_logs (actor_id, actor_name, actor_role, action_type, object_type, object_id, summary)
       VALUES (?, ?, ?, ?, ?, ?, ?)
-    `, [doctorId, "示例医生", "doctor", "医生疗效评价", "evaluation", "demo-seed", "初始化医生疗效评价示例数据"]);
+    `, [doctorId, "示例医生", "doctor", "医生综合观察评价", "evaluation", "demo-seed", "初始化医生综合观察评价示例数据"]);
 
     const patientTotal = get("SELECT COUNT(*) AS count FROM patients").count;
     const followupTotal = get("SELECT COUNT(*) AS count FROM followups").count;
@@ -351,3 +351,4 @@ main().catch((error) => {
   console.error(error);
   process.exit(1);
 });
+

@@ -26,12 +26,12 @@
     <rect x="248" y="170" width="148" height="56" rx="12" fill="#e8f3ee"/>
     <rect x="416" y="170" width="112" height="56" rx="12" fill="#eaf0ff"/>
     <rect x="548" y="170" width="126" height="56" rx="12" fill="#fff3d8"/>
-    <text x="270" y="193" font-family="Microsoft YaHei, Arial" font-size="15" fill="#587064">总患者数</text>
-    <text x="270" y="215" font-family="Arial" font-size="24" font-weight="700" fill="#1f7a5c">20</text>
+    <text x="270" y="193" font-family="Microsoft YaHei, Arial" font-size="15" fill="#587064">建档患者</text>
+    <text x="270" y="215" font-family="Arial" font-size="24" font-weight="700" fill="#1f7a5c">120</text>
     <text x="438" y="193" font-family="Microsoft YaHei, Arial" font-size="15" fill="#56627a">完成率</text>
-    <text x="438" y="215" font-family="Arial" font-size="24" font-weight="700" fill="#2563eb">85%</text>
-    <text x="570" y="193" font-family="Microsoft YaHei, Arial" font-size="15" fill="#755b29">不良反应</text>
-    <text x="570" y="215" font-family="Arial" font-size="24" font-weight="700" fill="#b45309">0%</text>
+    <text x="438" y="215" font-family="Arial" font-size="24" font-weight="700" fill="#2563eb">87.5%</text>
+    <text x="570" y="193" font-family="Microsoft YaHei, Arial" font-size="15" fill="#755b29">不良事件</text>
+    <text x="570" y="215" font-family="Arial" font-size="24" font-weight="700" fill="#b45309">3例</text>
     <rect x="248" y="252" width="204" height="174" rx="14" fill="#ffffff" stroke="#d9ded6"/>
     <polyline points="272,382 304,356 336,347 368,321 400,306 430,292" fill="none" stroke="#1f7a5c" stroke-width="6" stroke-linecap="round"/>
     <polyline points="272,399 304,389 336,363 368,372 400,338 430,330" fill="none" stroke="#2563eb" stroke-width="5" stroke-linecap="round"/>
@@ -39,7 +39,7 @@
     <rect x="486" y="252" width="188" height="174" rx="14" fill="#ffffff" stroke="#d9ded6"/>
     <path d="M580 296a52 52 0 1 1-39 18" fill="none" stroke="#e5e7eb" stroke-width="22"/>
     <path d="M580 296a52 52 0 0 1 47 74" fill="none" stroke="#1f7a5c" stroke-width="22" stroke-linecap="round"/>
-    <text x="556" y="352" font-family="Arial" font-size="26" font-weight="700" fill="#1f7a5c">94%</text>
+    <text x="556" y="352" font-family="Arial" font-size="26" font-weight="700" fill="#1f7a5c">93.2%</text>
     <text x="536" y="392" font-family="Microsoft YaHei, Arial" font-size="15" fill="#66736b">数据完整率</text>
   </g>
 

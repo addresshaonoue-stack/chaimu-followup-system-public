@@ -221,7 +221,7 @@ router.post("/patient/:token", (req, res) => {
       params.sought_medical_help = 0;
       params.adverse_description = "";
     } else if (!["轻", "中", "重"].includes(params.severity)) {
-      return res.status(400).json({ error: "请选择不良反应严重程度" });
+      return res.status(400).json({ error: "请选择不良事件严重程度" });
     }
 
     const result = run(`
@@ -285,7 +285,7 @@ router.put("/:id/doctor", requireDoctorOrAdmin, (req, res) => {
   }
 
   const status = String(req.body.doctor_handling_status || followup.doctor_handling_status || "未处理").trim();
-  const allowed = ["未处理", "处理中", "已处理", "无需处理"];
+  const allowed = ["未处理", "已联系", "已复诊", "已转介", "已关闭"];
   if (!allowed.includes(status)) {
     return res.status(400).json({ error: "处理状态无效" });
   }
@@ -309,7 +309,7 @@ router.put("/:id/doctor", requireDoctorOrAdmin, (req, res) => {
 
   const updated = get("SELECT * FROM followups WHERE id = ?", [followup.id]);
   const patient = get("SELECT research_id, patient_id FROM patients WHERE id = ?", [followup.patient_id]);
-  writeAudit(req, "不良反应处理", "followup", followup.id, `${patient?.research_id || patient?.patient_id || followup.patient_id} ${status}`);
+  writeAudit(req, "不良事件处理", "followup", followup.id, `${patient?.research_id || patient?.patient_id || followup.patient_id} ${status}`);
   res.json({ followup: updated });
 });
 

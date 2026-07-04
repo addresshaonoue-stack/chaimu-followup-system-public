@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 420" role="img" aria-label="牡蛎壳水印">
+  <path d="M240 48c76 10 148 58 190 132 42 75 36 154-18 214-48 53-124 64-202 32C128 393 72 323 72 240c0-78 45-150 112-180 19-9 38-13 56-12z" fill="#C8A45D" opacity=".13"/>
+  <path d="M214 86c-36 74-50 148-42 224M264 88c-18 85-15 166 12 244M314 108c12 72 32 132 62 182M166 116c16 96 52 168 108 216" fill="none" stroke="#0B4F6C" stroke-width="10" opacity=".18" stroke-linecap="round"/>
+  <path d="M135 288c84 52 172 60 264 24" fill="none" stroke="#0E8F6E" stroke-width="10" opacity=".18" stroke-linecap="round"/>
+</svg>

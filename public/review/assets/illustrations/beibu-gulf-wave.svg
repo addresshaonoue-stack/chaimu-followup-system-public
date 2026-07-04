@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 420" role="img" aria-label="北部湾海浪背景">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#F4FAFC"/>
+      <stop offset="0.55" stop-color="#E7F5F7"/>
+      <stop offset="1" stop-color="#FFF8E8"/>
+    </linearGradient>
+  </defs>
+  <rect width="1440" height="420" fill="url(#g)"/>
+  <path d="M0 250c120-60 232-58 336 5 102 62 220 70 354 24 124-43 242-29 354 42 112 70 244 73 396 8v91H0z" fill="#0B4F6C" opacity=".08"/>
+  <path d="M0 292c126-44 242-36 348 22 100 55 214 54 342-2 120-52 242-48 366 13 104 51 232 50 384-4v99H0z" fill="#0E8F6E" opacity=".10"/>
+  <path d="M96 128c188-44 366-18 536 78 176 99 380 95 612-12" fill="none" stroke="#0B4F6C" stroke-width="2" opacity=".16"/>
+  <path d="M130 162c188-44 366-18 536 78 176 99 380 95 612-12" fill="none" stroke="#0E8F6E" stroke-width="2" opacity=".14"/>
+</svg>

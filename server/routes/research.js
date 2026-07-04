@@ -1,4 +1,6 @@
-const express = require("express");
+﻿const express = require("express");
+const fs = require("fs");
+const path = require("path");
 const XLSX = require("xlsx");
 const { all } = require("../db");
 const { requireDoctorOrAdmin } = require("../middleware");
@@ -14,7 +16,7 @@ const METRICS = [
   { key: "sleep_score", name: "睡眠评分" },
   { key: "anxiety_score", name: "焦虑评分" },
   { key: "depression_score", name: "抑郁评分" },
-  { key: "psqi_simple_score", name: "PSQI简表" },
+  { key: "psqi_simple_score", name: "睡眠自评简表" },
   { key: "gad7_score", name: "GAD-7" },
   { key: "phq9_score", name: "PHQ-9" }
 ];
@@ -379,13 +381,13 @@ function buildSummaryText(stats, comparisons, dataQuality) {
   const sleepDay28 = comparisons.find((item) => item.metric === "睡眠评分" && item.target === "第28天");
   const anxietyDay28 = comparisons.find((item) => item.metric === "焦虑评分" && item.target === "第28天");
   const depressionDay28 = comparisons.find((item) => item.metric === "抑郁评分" && item.target === "第28天");
-  const psqiDay28 = comparisons.find((item) => item.metric === "PSQI简表" && item.target === "第28天");
+  const psqiDay28 = comparisons.find((item) => item.metric === "睡眠自评简表" && item.target === "第28天");
 
   return [
     `当前纳入患者 ${stats.totalPatients} 例，完成基线随访 ${stats.baselineCount} 例。`,
     `第7天、第14天、第28天、第56天、第84天随访完成率分别为 ${stats.day7CompletionRate}%、${stats.day14CompletionRate}%、${stats.day28CompletionRate}%、${stats.day56CompletionRate}%、${stats.day84CompletionRate}%。`,
-    `第28天配对数据中，睡眠、焦虑、抑郁评分较基线的平均变化分别为 ${sleepDay28?.change ?? "暂无"}、${anxietyDay28?.change ?? "暂无"}、${depressionDay28?.change ?? "暂无"} 分，PSQI简表变化为 ${psqiDay28?.change ?? "暂无"} 分。`,
-    `观察期间不良反应发生率为 ${stats.adverseReactionRate}%，自行停药患者 ${stats.selfDiscontinuedPatients} 例，存在漏服记录患者 ${stats.missedDosePatients} 例。`,
+    `第28天配对数据中，睡眠、焦虑、抑郁评分较基线的平均变化分别为 ${sleepDay28?.change ?? "暂无"}、${anxietyDay28?.change ?? "暂无"}、${depressionDay28?.change ?? "暂无"} 分，睡眠自评简表变化为 ${psqiDay28?.change ?? "暂无"} 分。`,
+    `观察期间记录不良事件 ${stats.adverseCount} 条，自行停药患者 ${stats.selfDiscontinuedPatients} 例，存在漏服记录患者 ${stats.missedDosePatients} 例。`,
     `高、中、低依从性患者分别为 ${stats.highAdherencePatients}、${stats.mediumAdherencePatients}、${stats.lowAdherencePatients} 例。`,
     `应随访 ${dataQuality.expectedFollowups} 次，已完成 ${dataQuality.completedFollowups} 次，缺失 ${dataQuality.missingFollowups} 次，数据完整率 ${dataQuality.dataCompletenessRate}%。`
   ].join("");
@@ -406,8 +408,8 @@ function buildStats(user) {
   const adherenceRows = buildAdherenceRows(patients, followups);
   const severityDistribution = buildSeverityDistribution(followups);
   const adherenceDistribution = buildAdherenceDistribution(grouped);
-  const effectDistribution = buildEvaluationDistribution(patients, evaluations, "clinician_effect", ["显效", "有效", "无效", "加重", "暂未评价"]);
-  const clinicianSafetyDistribution = buildEvaluationDistribution(patients, evaluations, "clinician_safety", ["未见明显不良反应", "轻度不良反应", "中度不良反应", "重度不良反应", "暂未评价"]);
+  const effectDistribution = buildEvaluationDistribution(patients, evaluations, "clinician_effect", ["明显改善", "部分改善", "暂未见明显改善", "需进一步评估", "暂未评价"]);
+  const clinicianSafetyDistribution = buildEvaluationDistribution(patients, evaluations, "clinician_safety", ["未记录明显不良事件", "轻度不良事件", "中度不良事件", "重度不良事件", "暂未评价"]);
   const adherenceCompletionRows = buildAdherenceCompletionRows(completionMatrix, grouped);
 
   const countByLabel = Object.fromEntries(LABELS.map((label) => [label, 0]));
@@ -523,7 +525,7 @@ function loadExportRows(user, options = {}) {
       row[`${label}_焦虑评分`] = found ? found.anxiety_score : "";
       row[`${label}_抑郁评分`] = found ? found.depression_score : "";
       row[`${label}_心烦评分`] = found ? found.irritability_score : "";
-      row[`${label}_PSQI简表总分`] = found ? found.psqi_simple_score : "";
+      row[`${label}_睡眠自评简表总分`] = found ? found.psqi_simple_score : "";
       row[`${label}_GAD7总分`] = found ? found.gad7_score : "";
       row[`${label}_GAD7分级`] = found ? found.gad7_level : "";
       row[`${label}_PHQ9总分`] = found ? found.phq9_score : "";
@@ -533,13 +535,13 @@ function loadExportRows(user, options = {}) {
       row[`${label}_服药情况`] = found
         ? `${found.on_time_medication ? "按时" : "未按时"}；漏服${found.missed_doses || 0}次；${found.self_discontinued ? "自行停药" : "未自行停药"}`
         : "";
-      row[`${label}_不良反应`] = found && found.has_adverse_reaction
+      row[`${label}_不良事件记录`] = found && found.has_adverse_reaction
         ? `${found.adverse_type || "未填类型"}（${found.severity || "未填严重程度"}）：${found.adverse_description || ""}`
         : "";
     });
 
     const evaluation = latestEvaluation.get(patient.id);
-    row["不良反应汇总"] = items
+    row["不良事件汇总"] = items
       .filter((item) => item.has_adverse_reaction)
       .map((item) => `${item.visit_label}:${item.adverse_type || "未填"}(${item.severity || "未填"})`)
       .join("；");
@@ -548,7 +550,7 @@ function loadExportRows(user, options = {}) {
       .map((item) => `${item.visit_label}:漏服${item.missed_doses || 0}次${item.on_time_medication ? "" : "，未按时服药"}`)
       .join("；");
     row["自行停药"] = items.some((item) => item.self_discontinued || item.adherence_stop_better || item.adherence_stop_discomfort) ? "是" : "否";
-    row["医生疗效评价"] = evaluation?.clinician_effect || "";
+    row["医生综合观察评价"] = evaluation?.clinician_effect || "";
     row["医生安全性评价"] = evaluation?.clinician_safety || "";
     row["医生评价日期"] = evaluation?.evaluation_date || "";
     row["医生评价备注"] = evaluation?.clinician_note || "";
@@ -592,43 +594,49 @@ function statsToRows(result) {
     { 类型: "完成率", 指标: "第28天完成率", 值: `${result.stats.day28CompletionRate}%` },
     { 类型: "完成率", 指标: "第56天完成率", 值: `${result.stats.day56CompletionRate}%` },
     { 类型: "完成率", 指标: "第84天完成率", 值: `${result.stats.day84CompletionRate}%` },
-    { 类型: "安全性", 指标: "不良反应发生率", 值: `${result.stats.adverseReactionRate}%` },
+    { 类型: "安全性", 指标: "不良事件记录情况", 值: `${result.stats.adverseCount}条` },
     { 类型: "服药依从性", 指标: "高依从性人数", 值: result.stats.highAdherencePatients },
     { 类型: "服药依从性", 指标: "中等依从性人数", 值: result.stats.mediumAdherencePatients },
     { 类型: "服药依从性", 指标: "低依从性人数", 值: result.stats.lowAdherencePatients },
     { 类型: "服药依从性", 指标: "自行停药人数", 值: result.stats.selfDiscontinuedPatients },
     { 类型: "服药依从性", 指标: "漏服人数", 值: result.stats.missedDosePatients },
-    { 类型: "评分变化", 指标: "平均PSQI简表变化", 值: result.stats.averagePsqiChange },
+    { 类型: "评分变化", 指标: "平均睡眠自评简表变化", 值: result.stats.averagePsqiChange },
     { 类型: "评分变化", 指标: "平均GAD-7变化", 值: result.stats.averageGad7Change },
     { 类型: "评分变化", 指标: "平均PHQ-9变化", 值: result.stats.averagePhq9Change },
     { 类型: "研究摘要", 指标: "摘要", 值: result.summary }
   ];
 }
 
-function buildTransformationSummary(result) {
-  const completionText = (result.completionRates || [])
-    .map((item) => `- ${item.label}：${item.rate}%（${item.completed}/${item.total}）`)
+function readDemoDashboardData() {
+  return JSON.parse(fs.readFileSync(path.join(__dirname, "..", "..", "data", "demo", "dashboard-data.json"), "utf8"));
+}
+
+function buildTransformationSummary() {
+  const demo = readDemoDashboardData();
+  const completionText = (demo.completion || [])
+    .map((item) => `- ${item.label}：${item.completed} 例，完成率 ${item.rate}%`)
     .join("\n");
 
   return `# 成果转化数据摘要
 
 ## 系统名称
 
-柴牡开郁颗粒真实世界随访系统
+柴牡开郁颗粒真实世界随访与成果转化平台
 
 ## 系统定位
 
-本系统作为柴牡开郁颗粒成果转化配套工具，用于医疗机构制剂用药随访、疗效观察、安全性记录和数据采集，形成“用药—随访—评价—数据—转化”的真实世界证据闭环。
+本平台作为柴牡开郁颗粒成果转化配套工具，用于院内制剂应用观察、随访数据采集和医生工作辅助，形成“用药—随访—评价—数据—转化”的真实世界证据闭环。
 
 ## 核心数据
 
-- 总患者数：${result.stats.totalPatients} 例
-- 基线人数：${result.stats.baselineCount} 例
-- 综合随访完成率：${result.stats.followupCompletionRate}%
-- 不良反应发生率：${result.stats.adverseReactionRate}%
-- 数据完整率：${result.dataQuality.dataCompletenessRate}%
-- 漏服人数：${result.stats.missedDosePatients} 例
-- 自行停药人数：${result.stats.selfDiscontinuedPatients} 例
+- 建档患者数：${demo.overview.patients} 例
+- 有效随访记录：${demo.overview.followups} 条
+- 随访完成率：${demo.overview.completionRate}%
+- 数据完整率：${demo.overview.dataCompleteness}%
+- 已记录不良事件：${demo.overview.adverseEvents} 例
+- 医生已审核记录：${demo.overview.doctorReviewed} 条
+
+以上为脱敏演示数据，不代表真实临床疗效、安全性或统计学结论。
 
 ## 随访节点
 
@@ -647,9 +655,13 @@ ${completionText}
 
 数据统计和脱敏导出默认使用 research_id 作为主要识别字段，不导出姓名和手机号。医生端可在授权范围内查看本人管理患者，手机号页面显示为脱敏格式。
 
+## 合规边界
+
+本平台用于院内制剂应用观察、随访数据采集和医生工作辅助，不提供在线诊疗，不生成诊断结论，不自动开方，不自动调整用药剂量，不替代医生线下诊疗。
+
 ## 闭环说明
 
-系统围绕“用药—随访—评价—数据—转化”形成闭环：医生建档并生成二维码，患者扫码填写随访，医生查看趋势和评价，数据统计页汇总完成率、量表趋势、安全性记录和依从性分布，导出数据用于持续评价和成果转化资料整理。
+系统围绕“用药—随访—评价—数据—转化”形成闭环：医生建档并生成二维码，患者扫码填写随访，医生查看趋势和医生综合观察评价，数据统计页汇总完成率、量表趋势、不良事件记录和依从性分布，导出数据用于应用观察和成果转化资料整理。
 `;
 }
 
@@ -691,7 +703,7 @@ router.get("/stats-export.csv", (req, res) => {
     ...result.trend.map((item) => ({
       类型: "趋势",
       指标: item.label,
-      值: `人数${item.count}；睡眠${item.sleep_score ?? ""}；焦虑${item.anxiety_score ?? ""}；抑郁${item.depression_score ?? ""}；PSQI${item.psqi_simple_score ?? ""}；GAD-7${item.gad7_score ?? ""}；PHQ-9${item.phq9_score ?? ""}`
+      值: `人数${item.count}；睡眠${item.sleep_score ?? ""}；焦虑${item.anxiety_score ?? ""}；抑郁${item.depression_score ?? ""}；睡眠自评简表${item.psqi_simple_score ?? ""}；GAD-7${item.gad7_score ?? ""}；PHQ-9${item.phq9_score ?? ""}`
     })),
     ...result.adherenceDistribution.map((item) => ({
       类型: "依从性分布",
@@ -699,7 +711,7 @@ router.get("/stats-export.csv", (req, res) => {
       值: item.count
     })),
     ...result.effectDistribution.map((item) => ({
-      类型: "医生疗效评价分布",
+      类型: "医生综合观察评价分布",
       指标: item.label,
       值: item.count
     })),
@@ -714,7 +726,7 @@ router.get("/stats-export.csv", (req, res) => {
       值: `完成率${item.completion_rate}%；缺失节点${item.missing_labels || "无"}`
     })),
     ...result.adverseRows.map((item) => ({
-      类型: "不良反应",
+      类型: "不良事件",
       指标: `${item.research_id} ${item.visit_label}`,
       值: `${item.adverse_type}；${item.severity}；处理${item.handling_status || ""}`
     })),
@@ -739,11 +751,11 @@ router.get("/stats-export.xlsx", (req, res) => {
   XLSX.utils.book_append_sheet(workbook, XLSX.utils.json_to_sheet(result.comparisons), "基线对比");
   XLSX.utils.book_append_sheet(workbook, XLSX.utils.json_to_sheet(result.trend), "趋势数据");
   XLSX.utils.book_append_sheet(workbook, XLSX.utils.json_to_sheet(result.completionMatrix), "完成矩阵");
-  XLSX.utils.book_append_sheet(workbook, XLSX.utils.json_to_sheet(result.adverseRows), "不良反应");
+  XLSX.utils.book_append_sheet(workbook, XLSX.utils.json_to_sheet(result.adverseRows), "不良事件");
   XLSX.utils.book_append_sheet(workbook, XLSX.utils.json_to_sheet(result.adherenceRows), "依从性明细");
   XLSX.utils.book_append_sheet(workbook, XLSX.utils.json_to_sheet(result.adherenceCompletionRows), "依从性完成率");
   XLSX.utils.book_append_sheet(workbook, XLSX.utils.json_to_sheet(result.adherenceDistribution), "依从性分布");
-  XLSX.utils.book_append_sheet(workbook, XLSX.utils.json_to_sheet(result.effectDistribution), "疗效评价分布");
+  XLSX.utils.book_append_sheet(workbook, XLSX.utils.json_to_sheet(result.effectDistribution), "医生观察评价分布");
   XLSX.utils.book_append_sheet(workbook, XLSX.utils.json_to_sheet(result.clinicianSafetyDistribution), "安全性评价分布");
   const buffer = XLSX.write(workbook, { type: "buffer", bookType: "xlsx" });
   res.setHeader("Content-Type", "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet");
@@ -752,11 +764,11 @@ router.get("/stats-export.xlsx", (req, res) => {
 });
 
 router.get("/summary_for_competition.md", (req, res) => {
-  const result = buildStats(req.session.user);
   writeAudit(req, "数据导出", "export", "summary-md", "成果转化数据摘要导出");
   res.setHeader("Content-Type", "text/markdown; charset=utf-8");
   res.setHeader("Content-Disposition", "attachment; filename=summary_for_competition.md");
-  res.send(buildTransformationSummary(result));
+  res.send(buildTransformationSummary());
 });
 
 module.exports = router;
+
